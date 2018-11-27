@@ -6,10 +6,10 @@
 	>
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Sistema de Controle Acadêmico</title>
+	<title>Administrator Tabajara</title>
 </h:head>
 <h:body>
-	<h1>Sistema de Controle Acadêmico</h1>
+	<h1>Administrator Tabajara</h1>
 	<h2>Inclusão de Curso</h2>
 	<h:form>
 		<h:panelGrid>
@@ -18,7 +18,7 @@
 			<h:outputLabel value="Nome" for="chaveNome"/>
 			<h:inputText id="nome" value="#{bancoControlador.banco.nome}"/>
 		</h:panelGrid>
-		<h:commandButton action="#{bancoControlador.incluir}" value="Confirmar"/>
+		<h:commandButton action="#{bancoControlador.incluir}" value="Confirmar" icon="ui-icon-star" ajax="false"/>
 		<h:commandButton action="bancoListagem" value="Cancelar"/>
 	</h:form>
 </h:body>

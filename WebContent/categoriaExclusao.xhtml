@@ -14,12 +14,14 @@
 	<h:form>
 		<h:panelGrid>
 			<h:outputLabel value="Código" for="chaveNome"/>
-			<h:inputText id="codigo" value="#{bancoControlador.banco.codigo}" disabled="true"/>
-			<h:outputLabel value="Nome" for="chaveNome"/>
-			<h:inputText id="nome" value="#{bancoControlador.banco.nome}" disabled="true"/>
+			<h:inputText id="codigo" value="#{categoriaControlador.categoria.catCodigo}" disabled="true"/>
+			<h:outputLabel value="Descrição" for="chaveNome"/>
+			<h:inputText id="descricao" value="#{categoriaControlador.categoria.catDescricao}" disabled="true"/>
+			<h:outputLabel value="Idetificador" for="chaveNome"/>
+			<h:inputText id="identificador" value="#{categoriaControlador.categoria.catIdentificador}" disabled="true"/>
 		</h:panelGrid>
-		<h:commandButton action="#{bancoControlador.remover}" value="Confirmar"/>
-		<h:commandButton action="bancoListagem" value="Cancelar"/>
+		<h:commandButton action="#{categoriaControlador.remover}" value="Confirmar"/>
+		<h:commandButton action="categoriaListagem" value="Cancelar"/>
 	</h:form>
 </h:body>
 </html>

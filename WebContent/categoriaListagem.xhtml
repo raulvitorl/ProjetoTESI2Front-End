@@ -10,26 +10,30 @@
 </h:head>
 <h:body>
 	<h1>Administrator Tabajara</h1>
-	<h2>Listagem de Bancos</h2>
+	<h2>Listagem de Categorias</h2>
 	<h:form>
 		<h:outputLabel value="Filtrar por" for="chaveNome"/>
-		<h:inputText id="chaveNome" value="#{bancoControlador.chaveNome}"/>
+		<h:inputText id="chaveNome" value="#{categoriaControlador.chaveNome}"/>
 		<h:commandButton action="null" value="buscar"/>
-		<h:commandButton action="#{bancoControlador.novo}" value="novo"/>
+		<h:commandButton action="#{categoriaControlador.novo}" value="novo"/>
 		<h:commandButton action="index" value="voltar"/>
-	<h:dataTable value="#{bancoControlador.bancos}" var="banco" border="1">
+	<h:dataTable value="#{categoriaControlador.categorias}" var="categoria" border="1">
 		<h:column>	
 			<f:facet name="header">Código</f:facet>
-			#{banco.codigo}
+			#{categoria.catCodigo}
 		</h:column>
 		<h:column>
-			<f:facet name="header">Nome</f:facet>
-			#{banco.nome}
+			<f:facet name="header">Descrição</f:facet>
+			#{categoria.catDescricao}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Identificador</f:facet>
+			#{categoria.catIdentificador}
 		</h:column>
 		<h:column>
 			<f:facet name="header">Operação</f:facet>
-			<h:commandButton value="Editar" action="#{bancoControlador.editar(banco)}"/>
-			<h:commandButton value="Excluir" action="#{bancoControlador.excluir(banco)}"/>
+			<h:commandButton value="Editar" action="#{categoriaControlador.editar(categoria)}"/>
+			<h:commandButton value="Excluir" action="#{categoriaControlador.excluir(categoria)}"/>
 		</h:column>/
 	</h:dataTable>
 	</h:form>

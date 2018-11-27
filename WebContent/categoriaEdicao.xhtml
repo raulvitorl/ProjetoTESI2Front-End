@@ -10,16 +10,18 @@
 </h:head>
 <h:body>
 	<h1>Administrator Tabajara</h1>
-	<h2>Edição de Curso</h2>
+	<h2>Edição de Atendentes</h2>
 	<h:form>
 		<h:panelGrid>
 			<h:outputLabel value="Código" for="chaveNome"/>
-			<h:inputText id="codigo" value="#{bancoControlador.banco.codigo}" disabled="true"/>
-			<h:outputLabel value="Nome" for="chaveNome"/>
-			<h:inputText id="nome" value="#{bancoControlador.banco.nome}"/>
+			<h:inputText id="codigo" value="#{categoriaControlador.categoria.catCodigo}"/>
+			<h:outputLabel value="Descrição" for="chaveNome"/>
+			<h:inputText id="descricao" value="#{categoriaControlador.categoria.catDescricao}"/>
+			<h:outputLabel value="Idetificador" for="chaveNome"/>
+			<h:inputText id="identificador" value="#{categoriaControlador.categoria.catIdentificador}"/>
 		</h:panelGrid>
-		<h:commandButton action="#{bancoControlador.alterar}" value="Confirmar"/>
-		<h:commandButton action="bancoListagem" value="Cancelar"/>
+		<h:commandButton action="#{categoriaControlador.alterar}" value="Confirmar"/>
+		<h:commandButton action="categoriaListagem" value="Cancelar"/>
 	</h:form>
 </h:body>
 </html>
