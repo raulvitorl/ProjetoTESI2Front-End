@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	>
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Sistema de Controle Acadêmico</title>
+</h:head>
+<h:body>
+	<h1>Sistema de Controle Acadêmico</h1>
+	<h2>Exclusao de Curso</h2>
+	<h:form>
+		<h:panelGrid>
+			<h:outputLabel value="Código" for="chaveNome"/>
+			<h:inputText id="codigo" value="#{bancoControlador.banco.codigo}" disabled="true"/>
+			<h:outputLabel value="Nome" for="chaveNome"/>
+			<h:inputText id="nome" value="#{bancoControlador.banco.nome}" disabled="true"/>
+		</h:panelGrid>
+		<h:commandButton action="#{bancoControlador.remover}" value="Confirmar"/>
+		<h:commandButton action="bancoListagem" value="Cancelar"/>
+	</h:form>
+</h:body>
+</html>
