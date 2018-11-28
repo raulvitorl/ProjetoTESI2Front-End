@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	>
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Administrator Tabajara</title>
@@ -12,26 +12,26 @@
 	<h1>Administrator Tabajara</h1>
 	<h2>Listagem de Bancos</h2>
 	<h:form>
-		<h:outputLabel value="Filtrar por" for="chaveNome"/>
-		<h:inputText id="chaveNome" value="#{bancoControlador.chaveNome}"/>
-		<h:commandButton action="null" value="buscar"/>
-		<h:commandButton action="#{bancoControlador.novo}" value="novo"/>
-		<h:commandButton action="index" value="voltar"/>
-	<h:dataTable value="#{bancoControlador.bancos}" var="banco" border="1">
-		<h:column>	
-			<f:facet name="header">Código</f:facet>
-			#{banco.codigo}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Nome</f:facet>
-			#{banco.nome}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Operação</f:facet>
-			<h:commandButton value="Editar" action="#{bancoControlador.editar(banco)}"/>
-			<h:commandButton value="Excluir" action="#{bancoControlador.excluir(banco)}"/>
-		</h:column>/
-	</h:dataTable>
+		<h:outputLabel value="Filtrar por" for="chaveNome" />
+		<h:inputText id="chaveNome" value="#{bancoControlador.chaveNome}" />
+		<h:commandButton action="null" value="buscar" />
+		<h:commandButton action="#{bancoControlador.novo}" value="novo" />
+		<h:commandButton action="index" value="voltar" />
+	</h:form>
+
+	<h:form>
+		<b:dataTable value="#{bancoControlador.bancos}" var="banco">
+			<b:dataTableColumn value="#{banco.codigo}" />
+			<b:dataTableColumn value="#{banco.nome}" />
+			<b:dataTableColumn>
+				<b:commandButton value="Editar" icon="edit" action="#{bancoControlador.editar(banco)}">
+				</b:commandButton>
+			</b:dataTableColumn>
+			<b:dataTableColumn>
+				<b:commandButton value="Remover" icon="remove" action="#{bancoControlador.excluir(banco)}">
+				</b:commandButton>
+			</b:dataTableColumn>
+		</b:dataTable>
 	</h:form>
 </h:body>
 </html>

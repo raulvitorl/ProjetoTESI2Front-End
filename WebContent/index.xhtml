@@ -1,20 +1,31 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:h="http://java.sun.com/jsf/html">
-<h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Administrator Tabajara</title>
-</h:head>
-<h:body>
-	<h1>Administrator Tabajara</h1>
-	<h2>Entidades Geradas</h2>
-	<h:form>
-		<ul>			
-			<li><h:commandLink action="atendenteListagem" value="Atendentes" /></li>
-			<li><h:commandLink action="bancoListagem" value="Bancos" /></li>
-			<li><h:commandLink action="categoriaListagem" value="Categorias" /></li>
-		</ul>
-	</h:form>
-</h:body>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Tabajara Administrator</title>
+        <meta name="author" content="The Author"></meta>
+    </h:head>
+    <h:body style="padding: 60px;">
+        <b:navBar brand="Administrator Tabajara" brandHref="#" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:navLink value="Atendentes" action="atendenteListagem" href="atendenteListagem.xhtml"></b:navLink>
+                <b:navLink action="bancoListagem" value="Bancos" href="bancoListagem.xhtml"></b:navLink>
+                <b:navLink action="categoriaListagem" value="Categorias" href="categoriaListagem.xhtml"></b:navLink>
+                <b:navLink action="clienteListagem" value="Clientes" href="clienteListagem.xhtml"></b:navLink>
+            </b:navbarLinks>
+        </b:navBar>
+        <b:container>
+            <b:jumbotron>
+                <h1>Administrator Tabajara</h1>
+                <p> Sistema em JSF, Hibernate, JPA e BootsFaces.</p>
+                <p> Desenvolvido para a disciplina de TESI II</p>
+                <p>
+                    <a href="https://github.com/TheCoder4eu/BootsFaces-examples/blob/master/src/main/webapp/starter_template.xhtml" class="btn btn-lg btn-info">Passo a Passo do Projeto »</a>
+                </p>
+            </b:jumbotron>
+        </b:container>
+
+    </h:body>
 </html>

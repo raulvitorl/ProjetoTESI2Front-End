@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	>
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Administrator Tabajara</title>
+</h:head>
+<h:body>
+	<h1>Administrator Tabajara</h1>
+	<h2>Inclusão de Cliente</h2>
+	<h:form>
+		<h:panelGrid>
+			<h:outputLabel value="Nome" for="chaveNome"/>
+			<h:inputText id="nome" value="#{clienteControlador.cliente.cli_nome}"/>
+			<h:outputLabel value="Municipio" for="chaveNome"/>
+			<h:inputText id="municipio" value="#{clienteControlador.cliente.cli_mun_codigo}"/>
+			<h:outputLabel value="Data de Nascimento" for="chaveNome"/>
+			<h:inputText id="nascimento" value="#{clienteControlador.cliente.cli_data_nascimento}"/>
+			<h:outputLabel value="Sexo" for="chaveNome"/>
+			<h:inputText id="sexo" value="#{clienteControlador.cliente.cli_sexo}"/>
+			<h:outputLabel value="Endereço" for="chaveNome"/>
+			<h:inputText id="endereco" value="#{clienteControlador.cliente.cli_endereco}"/>
+			<h:outputLabel value="Email" for="chaveNome"/>
+			<h:inputText id="email" value="#{clienteControlador.cliente.cli_email}"/>
+			<h:outputLabel value="Tipo" for="chaveNome"/>
+			<h:inputText id="tipo" value="#{clienteControlador.cliente.cli_tipo}"/>
+			
+			<h:outputLabel value="Fone" for="chaveNome"/>
+			<h:inputText id="fone" value="#{clienteControlador.cliente.cli_fone}"/>
+			<h:outputLabel value="Nome Contato" for="chaveNome"/>
+			<h:inputText id="nomecontato" value="#{clienteControlador.cliente.cli_nome_contato}"/>
+		</h:panelGrid>
+		<h:commandButton action="#{clienteControlador.incluir}" value="Confirmar"/>
+		<h:commandButton action="clienteListagem" value="Cancelar"/>
+	</h:form>
+</h:body>
+</html>
