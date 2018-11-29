@@ -8,8 +8,6 @@
 		<class>br.ufac.academico.entidades.Bancos</class>
 		<class>br.ufac.academico.entidades.CategoriasProdutos</class>
 		<class>br.ufac.academico.entidades.Clientes</class>
-		<class>br.ufac.academico.entidades.ClientesFisicos</class>
-		<class>br.ufac.academico.entidades.ClientesJuridicos</class>
 		<class>br.ufac.academico.entidades.Fornecedores</class>
 		<class>br.ufac.academico.entidades.Mensagens</class>
 		<class>br.ufac.academico.entidades.Municipios</class>

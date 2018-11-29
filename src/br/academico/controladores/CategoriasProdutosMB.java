@@ -3,10 +3,7 @@ package br.academico.controladores;
 import java.util.List;
 
 import javax.faces.bean.*;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 
 import br.ufac.academico.entidades.*;
 import br.ufac.academico.repositorios.*;

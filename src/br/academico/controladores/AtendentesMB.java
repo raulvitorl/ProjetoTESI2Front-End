@@ -3,7 +3,6 @@ package br.academico.controladores;
 import java.util.List;
 
 import javax.faces.bean.*;
-import javax.persistence.Column;
 
 import br.ufac.academico.entidades.*;
 import br.ufac.academico.repositorios.*;

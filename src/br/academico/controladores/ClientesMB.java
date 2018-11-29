@@ -4,10 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.faces.bean.*;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 
 import br.ufac.academico.entidades.*;
 import br.ufac.academico.repositorios.*;
@@ -15,7 +12,7 @@ import br.ufac.academico.repositorios.*;
 @ManagedBean(name="clienteControlador")
 @SessionScoped
 public class ClientesMB { 
-	private CllientesRepositorio cr;
+	private ClientesRepositorio cr;
 	private List<Clientes> clientes;
 	private String chaveNome = "";
 	private Clientes cliente;
@@ -31,10 +28,17 @@ public class ClientesMB {
 	private String cli_status;
 	private String cli_fone;
 	private String cli_nome_contato;
+	private String cli_Cpf;
 	
 	
 	
 	
+	public String getCli_Cpf() {
+		return cli_Cpf;
+	}
+	public void setCli_Cpf(String cli_Cpf) {
+		this.cli_Cpf = cli_Cpf;
+	}
 	public Clientes getCliente() {
 		return cliente;
 	}
@@ -118,7 +122,7 @@ public class ClientesMB {
 		return clientes;
 	}
 	public ClientesMB() {
-		cr = new CllientesRepositorio();		
+		cr = new ClientesRepositorio();		
 	}
 	public List<Clientes> getClientesPorNome() {
 		clientes= cr.recuperarTodosPorNome();
@@ -128,7 +132,7 @@ public class ClientesMB {
 	public void setClientes(List<Clientes> clientes) {
 		this.clientes = clientes;
 	}
-	public CllientesRepositorio getCr() {
+	public ClientesRepositorio getCr() {
 		return cr;
 	}
 	public String getChaveNome() {
