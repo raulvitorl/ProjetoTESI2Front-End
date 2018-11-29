@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	>
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Administrator Tabajara</title>
 </h:head>
 <h:body>
-	<h1>Administrator Tabajara</h1>
-	<h2>Inclusão de Curso</h2>
+
+	<b:navBar brand="Administrator Tabajara" brandHref="index.xhtml" fixed="top"
+		inverse="true">
+		<b:navbarLinks>
+			<b:navLink value="Atendentes" action="atendenteListagem"
+				href="atendenteListagem.xhtml"></b:navLink>
+			<b:navLink action="bancoListagem" value="Bancos"
+				href="bancoListagem.xhtml"></b:navLink>
+			<b:navLink action="categoriaListagem" value="Categorias"
+				href="categoriaListagem.xhtml"></b:navLink>
+			<b:navLink action="clienteListagem" value="Clientes"
+				href="clienteListagem.xhtml"></b:navLink>
+		</b:navbarLinks>
+	</b:navBar>
+
 	<h:form>
 		<h:panelGrid>
 			<h:outputLabel value="Código" for="chaveNome"/>
-			<h:inputText id="codigo" value="#{bancoControlador.banco.codigo}"/>
+			<h:inputText id="codigo" value="#{bancoControlador.banco.codigo}" disabled="true"/>
 			<h:outputLabel value="Nome" for="chaveNome"/>
 			<h:inputText id="nome" value="#{bancoControlador.banco.nome}"/>
+			<b:focus target="@previous" />
 		</h:panelGrid>
 		<h:commandButton action="#{bancoControlador.incluir}" value="Confirmar" icon="ui-icon-star" ajax="false"/>
 		<h:commandButton action="bancoListagem" value="Cancelar"/>

@@ -11,15 +11,15 @@
 <h:body>
 	<h1>Administrator Tabajara</h1>
 	<h2>Exclusao de Curso</h2>
-	<h:form>
-		<h:panelGrid>
-			<h:outputLabel value="Código" for="chaveNome"/>
-			<h:inputText id="codigo" value="#{bancoControlador.banco.codigo}" disabled="true"/>
-			<h:outputLabel value="Nome" for="chaveNome"/>
-			<h:inputText id="nome" value="#{bancoControlador.banco.nome}" disabled="true"/>
-		</h:panelGrid>
-		<h:commandButton action="#{bancoControlador.remover}" value="Confirmar"/>
-		<h:commandButton action="bancoListagem" value="Cancelar"/>
-	</h:form>
+		<h:form>
+			<h:panelGrid>
+				<h:outputLabel value="Código" for="chaveNome"/>
+				<h:inputText id="codigo" value="#{bancoControlador.banco.codigo}" disabled="true"/>
+				<h:outputLabel value="Nome" for="chaveNome"/>
+				<h:inputText id="nome" value="#{bancoControlador.banco.nome}" disabled="true"/>
+			</h:panelGrid>
+			<h:commandButton action="#{bancoControlador.remover}" value="Confirmar"/>
+			<h:commandButton action="bancoListagem" value="Cancelar"/>
+		</h:form>
 </h:body>
 </html>

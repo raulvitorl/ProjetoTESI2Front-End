@@ -1,41 +1,76 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	>
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Administrator Tabajara</title>
 </h:head>
 <h:body>
-	<h1>Administrator Tabajara</h1>
-	<h2>Listagem de Categorias</h2>
-	<h:form>
-		<h:outputLabel value="Filtrar por" for="chaveNome"/>
-		<h:inputText id="chaveNome" value="#{categoriaControlador.chaveNome}"/>
-		<h:commandButton action="null" value="buscar"/>
-		<h:commandButton action="#{categoriaControlador.novo}" value="novo"/>
-		<h:commandButton action="index" value="voltar"/>
-	<h:dataTable value="#{categoriaControlador.categorias}" var="categoria" border="1">
-		<h:column>	
-			<f:facet name="header">Código</f:facet>
-			#{categoria.catCodigo}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Descrição</f:facet>
-			#{categoria.catDescricao}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Identificador</f:facet>
-			#{categoria.catIdentificador}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Operação</f:facet>
-			<h:commandButton value="Editar" action="#{categoriaControlador.editar(categoria)}"/>
-			<h:commandButton value="Excluir" action="#{categoriaControlador.excluir(categoria)}"/>
-		</h:column>/
-	</h:dataTable>
-	</h:form>
+	<b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
+		fixed="top" inverse="true">
+		<b:navbarLinks>
+			<b:navLink value="Atendentes" action="atendenteListagem"
+				href="atendenteListagem.xhtml"></b:navLink>
+			<b:navLink action="bancoListagem" value="Bancos"
+				href="bancoListagem.xhtml"></b:navLink>
+			<b:navLink action="categoriaListagem" value="Categorias"
+				href="categoriaListagem.xhtml"></b:navLink>
+			<b:navLink action="clienteListagem" value="Clientes"
+				href="clienteListagem.xhtml"></b:navLink>
+		</b:navbarLinks>
+	</b:navBar>
+	<b:container style="padding: 60px">
+		<h:form>
+			<b:commandButton onclick="$('.modalPseudoClass2').modal()"
+				value="Cadastrar" look="primary" action="null">
+			</b:commandButton>
+			<b:commandButton action="index" value="Voltar" look="info">
+			</b:commandButton>
+		</h:form>
+	</b:container>
+	<b:container>
+
+		<h:form id="myFormID">
+			<b:modal id="amodal2" title="Cadastro de Categorias"
+				styleClass="modalPseudoClass2" closable="false"
+				close-on-escape="false" backdrop="true">
+				<h:outputLabel value="Código" for="chaveNome"/>
+				<h:inputText id="codigo" value="#{categoriaControlador.categoria.catCodigo}"
+					disabled="true" />
+				<h:outputLabel value="Identificador" for="chaveNome" />
+				<h:inputText id="identificador" value="#{categoriaControlador.categoria.catIdentificador}" />
+				<b:focus target="@previous" />
+				<h:outputLabel value="Descrição" for="chaveNome" />
+				<h:inputText id="desricao" value="#{categoriaControlador.categoria.catDescricao}" />
+				<f:facet name="footer">
+					<b:button value="Cadastrar" dismiss="modal"
+						action="#{categoriaControlador.incluir}" look="primary" />
+					<b:button value="Cancelar" look="danger" dismiss="modal" />
+				</f:facet>
+			</b:modal>
+		</h:form>
+
+		<h:form>
+			<b:dataTable value="#{categoriaControlador.categorias}"
+				var="categoria">
+				<b:dataTableColumn value="#{categoria.catCodigo}" title="Código" />
+				<b:dataTableColumn value="#{categoria.catDescricao}" />
+				<b:dataTableColumn value="#{categoria.catIdentificador}" />
+				<b:dataTableColumn>
+					<b:commandButton value="Editar" icon="edit" look="primary"
+						action="#{categoriaControlador.editar(categoria)}">
+					</b:commandButton>
+				</b:dataTableColumn>
+				<b:dataTableColumn>
+					<b:commandButton value="Remover" icon="remove" look="danger"
+						action="#{categoriaControlador.excluir(categoria)}">
+					</b:commandButton>
+				</b:dataTableColumn>
+			</b:dataTable>
+		</h:form>
+	</b:container>
 </h:body>
 </html>
