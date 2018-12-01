@@ -1,57 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	>
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Administrator Tabajara</title>
 </h:head>
 <h:body>
-	<h1>Administrator Tabajara</h1>
-	<h2>Listagem de Atendentes</h2>
+	<b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
+		fixed="top" inverse="true">
+		<b:navbarLinks>
+			<b:navLink value="Atendentes" action="atendenteListagem"
+				href="atendenteListagem.xhtml"></b:navLink>
+			<b:navLink action="bancoListagem" value="Bancos"
+				href="bancoListagem.xhtml"></b:navLink>
+			<b:navLink action="categoriaListagem" value="Categorias"
+				href="categoriaListagem.xhtml"></b:navLink>
+			<b:navLink action="clienteListagem" value="Clientes"
+				href="clienteListagem.xhtml"></b:navLink>
+		</b:navbarLinks>
+	</b:navBar>
+	<b:container style="padding: 60px">
 	<h:form>
-		<h:outputLabel value="Filtrar por" for="chaveNome"/>
-		<h:inputText id="chaveNome" value="#{atendenteControlador.chaveNome}"/>
-		<h:commandButton action="null" value="buscar"/>
-		<h:commandButton action="#{atendenteControlador.novo}" value="novo"/>
-		<h:commandButton action="index" value="voltar"/>
-	<h:dataTable value="#{atendenteControlador.atendentes}" var="atendente" border="1">
-		<h:column>
-			<f:facet name="header">Código</f:facet>
-			#{atendente.codigo}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Perfil</f:facet>
-			#{atendente.ate_perfil}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Email</f:facet>
-			#{atendente.email}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Nome</f:facet>
-			#{atendente.nome}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Ramal</f:facet>
-			#{atendente.ramal}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Status</f:facet>
-			#{atendente.status}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Ultimo Acesso</f:facet>
-			#{atendente.ultimoAcesso}
-		</h:column>
-		<h:column>
+		<b:commandButton action="#{atendenteControlador.novo}" value="novo" look="primary"/>
+		<b:commandButton action="index" value="voltar" look="info"/>
+	<b:dataTable value="#{atendenteControlador.atendentes}" var="atendente">
+		<b:dataTableColumn value="#{atendente.codigo}" title="Código" />
+		<b:dataTableColumn value="#{atendente.ate_perfil}" title="Perfil" />
+		<b:dataTableColumn value="#{atendente.email}" title="Email" />
+		<b:dataTableColumn value="#{atendente.nome}" title="Nome" />
+		<b:dataTableColumn value="#{atendente.ramal}" title="Ramal" />		
+		<b:dataTableColumn value="#{atendente.status}" title="Status" />
+		<b:dataTableColumn value="#{atendente.ultimoAcesso}" title="Ultimo Acesso" />
+		<b:column>
 			<f:facet name="header">Operação</f:facet>
-			<h:commandButton value="Editar" action="#{atendenteControlador.editar(atendente)}"/>
-			<h:commandButton value="Excluir" action="#{atendenteControlador.excluir(atendente)}"/>
-		</h:column>
-	</h:dataTable>
+			<b:commandButton value="Editar" icon="edit" action="#{atendenteControlador.editar(atendente)}" look="primary"/>
+		</b:column>
+		<b:column>
+			<f:facet name="header">Operação</f:facet>
+			<b:commandButton value="Remover" icon="remove" action="#{atendenteControlador.excluir(atendente)}" look="danger"/>
+		</b:column>
+		
+	</b:dataTable>
 	</h:form>
+</b:container>
 </h:body>
 </html>

@@ -24,47 +24,21 @@
 	</b:navBar>
 	<b:container style="padding: 60px">
 		<h:form>
-			<b:commandButton onclick="$('.modalPseudoClass2').modal()"
-				value="Cadastrar" look="primary" action="null">
-			</b:commandButton>
-			<b:commandButton action="index" value="Voltar" look="info">
-			</b:commandButton>
-		</h:form>
-	</b:container>
-	<b:container>
-
-		<h:form id="myFormID">
-			<b:modal id="amodal2" title="Cadastro de Categorias"
-				styleClass="modalPseudoClass2" closable="false"
-				close-on-escape="false" backdrop="true">
-				<h:outputLabel value="Código" for="chaveNome"/>
-				<h:inputText id="codigo" value="#{categoriaControlador.categoria.catCodigo}"
-					disabled="true" />
-				<h:outputLabel value="Identificador" for="chaveNome" />
-				<h:inputText id="identificador" value="#{categoriaControlador.categoria.catIdentificador}" />
-				<b:focus target="@previous" />
-				<h:outputLabel value="Descrição" for="chaveNome" />
-				<h:inputText id="desricao" value="#{categoriaControlador.categoria.catDescricao}" />
-				<f:facet name="footer">
-					<b:button value="Cadastrar" dismiss="modal"
-						action="#{categoriaControlador.incluir}" look="primary" />
-					<b:button value="Cancelar" look="danger" dismiss="modal" />
-				</f:facet>
-			</b:modal>
-		</h:form>
-
-		<h:form>
+		<b:commandButton action="#{categoriaControlador.novo}" value="novo" look="primary"/>
+		<b:commandButton action="index" value="voltar" look="info"/>
 			<b:dataTable value="#{categoriaControlador.categorias}"
 				var="categoria">
 				<b:dataTableColumn value="#{categoria.catCodigo}" title="Código" />
 				<b:dataTableColumn value="#{categoria.catDescricao}" />
 				<b:dataTableColumn value="#{categoria.catIdentificador}" />
 				<b:dataTableColumn>
+					<f:facet name="header">Operação</f:facet>
 					<b:commandButton value="Editar" icon="edit" look="primary"
 						action="#{categoriaControlador.editar(categoria)}">
 					</b:commandButton>
 				</b:dataTableColumn>
 				<b:dataTableColumn>
+					<f:facet name="header">Operação</f:facet>
 					<b:commandButton value="Remover" icon="remove" look="danger"
 						action="#{categoriaControlador.excluir(categoria)}">
 					</b:commandButton>

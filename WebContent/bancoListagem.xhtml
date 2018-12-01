@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -23,48 +23,22 @@
 		</b:navbarLinks>
 	</b:navBar>
 	<b:container style="padding: 60px">
-		<h:form>
-			<b:commandButton onclick="$('.modalPseudoClass2').modal()" value="Cadastrar"
-				look="primary" action="null">	
-			</b:commandButton>
-				<b:commandButton 
-					action="index" value="Voltar" look="info">
-			</b:commandButton>
-		</h:form>
-	</b:container>
-	<b:container>
-		<h:form id="myFormID">
-			<b:modal id="amodal2" title="Cadastro de Bancos"
-				styleClass="modalPseudoClass2" closable="false"
-				close-on-escape="false" backdrop="true">
-				<h:outputLabel value="Código" for="chaveNome" />
-				<h:inputText id="codigo" value="#{bancoControlador.banco.codigo}"
-					disabled="true" />
-				<h:outputLabel value="Nome" for="chaveNome" />
-				<h:inputText id="nome" value="#{bancoControlador.banco.nome}" />
-				<b:focus target="@previous" />
-				<f:facet name="footer">
-					<b:button value="Cadastrar" dismiss="modal" action="#{clienteControlador.incluir}"  />
-					<b:button value="Cancelar" look="primary" dismiss="modal" />
-				</f:facet>
-			</b:modal>
-		</h:form>
-		<h:form>
-			<b:dataTable value="#{bancoControlador.bancos}" var="banco">
-				<b:dataTableColumn value="#{banco.codigo}" />
-				<b:dataTableColumn value="#{banco.nome}" />
-				<b:dataTableColumn>
-					<b:commandButton value="Editar" icon="edit" look="primary"
-						action="#{bancoControlador.editar(banco)}">
-					</b:commandButton>
-				</b:dataTableColumn>
-				<b:dataTableColumn>
-					<b:commandButton value="Remover" icon="remove" look="danger"
-						action="#{bancoControlador.excluir(banco)}">
-					</b:commandButton>
-				</b:dataTableColumn>
-			</b:dataTable>
-		</h:form>
+	<h:form>
+		<b:commandButton action="#{bancoControlador.novo}" value="novo" look="primary"/>
+		<b:commandButton action="index" value="voltar" look="info"/>
+	<b:dataTable value="#{bancoControlador.bancos}" var="banco">
+		<b:dataTableColumn value="#{banco.codigo}" title="Código" />
+		<b:dataTableColumn value="#{banco.nome}" title="Nome" />
+		<h:column>
+			<f:facet name="header">Operação</f:facet>
+			<b:commandButton value="Editar" icon="edit" look="primary" action="#{bancoControlador.editar(banco)}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Operação</f:facet>
+			<b:commandButton value="Excluir" icon="remove" look="danger" action="#{bancoControlador.excluir(banco)}"/>
+		</h:column>
+	</b:dataTable>
+	</h:form>
 	</b:container>
 </h:body>
-</html>
+</html> 
