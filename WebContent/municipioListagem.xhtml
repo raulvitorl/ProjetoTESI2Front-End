@@ -21,26 +21,31 @@
 			<b:navLink action="clienteListagem" value="Clientes"
 				href="clienteListagem.xhtml"></b:navLink>
 			<b:navLink action="municipioListagem" value="Municipios"
-				href="municipioListagem.xhtml"></b:navLink>				
+				href="municipioListagem.xhtml"></b:navLink>
 		</b:navbarLinks>
 	</b:navBar>
 	<b:container style="padding: 60px">
-	<h:form>
-		<b:commandButton action="#{bancoControlador.novo}" value="novo" look="primary"/>
-		<b:commandButton action="index" value="voltar" look="info"/>
-	<b:dataTable value="#{bancoControlador.bancos}" var="banco">
-		<b:dataTableColumn value="#{banco.codigo}" title="Código" />
-		<b:dataTableColumn value="#{banco.nome}" title="Nome" />
-		<h:column>
-			<f:facet name="header">Operação</f:facet>
-			<b:commandButton value="Editar" icon="edit" look="primary" action="#{bancoControlador.editar(banco)}"/>
-		</h:column>
-		<h:column>
-			<f:facet name="header">Operação</f:facet>
-			<b:commandButton value="Excluir" icon="remove" look="danger" action="#{bancoControlador.excluir(banco)}"/>
-		</h:column>
-	</b:dataTable>
-	</h:form>
+		<h:form>
+			<b:commandButton action="#{municipioControlador.novo}" value="novo"
+				look="primary" />
+			<b:commandButton action="index" value="voltar" look="info" />
+			<b:dataTable value="#{municipioControlador.municipios}" var="municipio">
+				<b:dataTableColumn value="#{municipio.munCodigo}" title="Código" />
+				<b:dataTableColumn value="#{municipio.munNome}" title="Nome" />
+				<b:dataTableColumn value="#{municipio.munUfEstado}" title="UF" />
+				<b:dataTableColumn value="#{municipio.munCep}" title="CEP" />
+				<h:column>
+					<f:facet name="header">Operação</f:facet>
+					<b:commandButton value="Editar" icon="edit" look="primary"
+						action="#{municipioControlador.editar(municipio)}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Operação</f:facet>
+					<b:commandButton value="Excluir" icon="remove" look="danger"
+						action="#{municipioControlador.excluir(municipio)}" />
+				</h:column>
+			</b:dataTable>
+		</h:form>
 	</b:container>
 </h:body>
-</html> 
+</html>

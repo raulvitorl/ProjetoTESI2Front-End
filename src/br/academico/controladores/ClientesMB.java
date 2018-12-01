@@ -24,30 +24,17 @@ public class ClientesMB {
 	private String cli_endereco;
 	private String cli_email;
 	private Date cli_data_cadastro;
-	private String cli_tipo;
+	private Integer cli_tipo;
 	private String cli_status;
 	private String cli_fone;
 	private String cli_nome_contato;
 	private String cli_Cpf;
 	
-	
-	
-	
-	public String getCli_Cpf() {
-		return cli_Cpf;
-	}
-	public void setCli_Cpf(String cli_Cpf) {
-		this.cli_Cpf = cli_Cpf;
-	}
-	public Clientes getCliente() {
-		return cliente;
-	}
-	public void setCliente(Clientes cliente) {
-		this.cliente = cliente;
-	}
-	public int getCli_codigo() {
-		return cli_codigo;
-	}
+	public String getCli_Cpf() {return cli_Cpf;}
+	public void setCli_Cpf(String cli_Cpf) {this.cli_Cpf = cli_Cpf;}
+	public Clientes getCliente(){return cliente;}
+	public void setCliente(Clientes cliente) {this.cliente = cliente;}
+	public int getCli_codigo(){return cli_codigo;}
 	public void setCli_codigo(int cli_codigo) {
 		this.cli_codigo = cli_codigo;
 	}
@@ -93,10 +80,10 @@ public class ClientesMB {
 	public void setCli_data_cadastro(Date cli_data_cadastro) {
 		this.cli_data_cadastro = cli_data_cadastro;
 	}
-	public String getCli_tipo() {
+	public Integer getCli_tipo() {
 		return cli_tipo;
 	}
-	public void setCli_tipo(String cli_tipo) {
+	public void setCli_tipo(Integer cli_tipo) {
 		this.cli_tipo = cli_tipo;
 	}
 	public String getCli_status() {
@@ -152,6 +139,7 @@ public class ClientesMB {
 	}
 	public String novo() {
 		cliente = new Clientes(){
+			private static final long serialVersionUID = 1L;
 		};
 		return "clienteInclusao";
 	}

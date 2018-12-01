@@ -20,31 +20,37 @@
 				href="categoriaListagem.xhtml"></b:navLink>
 			<b:navLink action="clienteListagem" value="Clientes"
 				href="clienteListagem.xhtml"></b:navLink>
+			<b:navLink action="municipioListagem" value="Municipios"
+				href="municipioListagem.xhtml"></b:navLink>
 		</b:navbarLinks>
 	</b:navBar>
 	<b:container style="padding: 60px">
-	<h:form>
-		<b:commandButton action="#{atendenteControlador.novo}" value="novo" look="primary"/>
-		<b:commandButton action="index" value="voltar" look="info"/>
-	<b:dataTable value="#{atendenteControlador.atendentes}" var="atendente">
-		<b:dataTableColumn value="#{atendente.codigo}" title="Código" />
-		<b:dataTableColumn value="#{atendente.ate_perfil}" title="Perfil" />
-		<b:dataTableColumn value="#{atendente.email}" title="Email" />
-		<b:dataTableColumn value="#{atendente.nome}" title="Nome" />
-		<b:dataTableColumn value="#{atendente.ramal}" title="Ramal" />		
-		<b:dataTableColumn value="#{atendente.status}" title="Status" />
-		<b:dataTableColumn value="#{atendente.ultimoAcesso}" title="Ultimo Acesso" />
-		<b:column>
-			<f:facet name="header">Operação</f:facet>
-			<b:commandButton value="Editar" icon="edit" action="#{atendenteControlador.editar(atendente)}" look="primary"/>
-		</b:column>
-		<b:column>
-			<f:facet name="header">Operação</f:facet>
-			<b:commandButton value="Remover" icon="remove" action="#{atendenteControlador.excluir(atendente)}" look="danger"/>
-		</b:column>
-		
-	</b:dataTable>
-	</h:form>
-</b:container>
+		<h:form>
+			<b:commandButton action="#{atendenteControlador.novo}" value="novo"
+				look="primary" />
+			<b:commandButton action="index" value="voltar" look="info" />
+			<b:dataTable value="#{atendenteControlador.atendentes}"
+				var="atendente">
+				<b:dataTableColumn value="#{atendente.codigo}" title="Código" />
+				<b:dataTableColumn value="#{atendente.ate_perfil}" title="Perfil" />
+				<b:dataTableColumn value="#{atendente.email}" title="Email" />
+				<b:dataTableColumn value="#{atendente.nome}" title="Nome" />
+				<b:dataTableColumn value="#{atendente.ramal}" title="Ramal" />
+				<b:dataTableColumn value="#{atendente.status}" title="Status" />
+				<b:dataTableColumn value="#{atendente.ultimoAcesso}"
+					title="Ultimo Acesso" />
+				<h:column>
+					<f:facet name="header">Operação</f:facet>
+					<b:commandButton value="Editar" icon="edit" look="primary"
+						action="#{atendenteControlador.editar(atendente)}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Operação</f:facet>
+					<b:commandButton value="Excluir" icon="remove" look="danger"
+						action="#{atendenteControlador.excluir(atendente)}" />
+				</h:column>
+			</b:dataTable>
+		</h:form>
+	</b:container>
 </h:body>
 </html>
