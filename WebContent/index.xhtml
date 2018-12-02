@@ -9,13 +9,28 @@
         <meta name="author" content="The Author"></meta>
     </h:head>
     <h:body style="padding: 60px;">
-        <b:navBar brand="Administrator Tabajara" brandHref="#" fixed="top" inverse="true">
+       <b:navBar brand="Administrator Tabajara" brandHref="#" fixed="top" inverse="true">
             <b:navbarLinks>
-                <b:navLink value="Atendentes" action="atendenteListagem" href="atendenteListagem.xhtml"></b:navLink>
-                <b:navLink action="bancoListagem" value="Bancos" href="bancoListagem.xhtml"></b:navLink>
-                <b:navLink action="categoriaListagem" value="Categorias" href="categoriaListagem.xhtml"></b:navLink>
-                <b:navLink action="clienteListagem" value="Clientes" href="clienteListagem.xhtml"></b:navLink>
-                <b:navLink action="municipioListagem" value="Municipios" href="municipioListagem.xhtml"></b:navLink>
+                <b:dropMenu value="Gerenciar Atendentes">
+                	<b:navLink value="Buscar Atendentes" action="atendenteListagem" href="atendenteListagem.xhtml"></b:navLink>
+                	<b:navLink value="Incluir Atendentes" action="atendenteInclusao" href="atendenteInclusao.xhtml"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Grenciar Bancos">
+                	<b:navLink action="bancoListagem" value="Buscar Bancos" href="bancoListagem.xhtml"></b:navLink>
+                	<b:navLink action="bancoInclusao" value="Incluir Bancos" href="bancoInclusao.xhtml"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Grenciar Categorias">
+                	<b:navLink action="categoriaListagem" value="Buscar Categorias" href="categoriaListagem.xhtml"></b:navLink>
+                	<b:navLink action="categoriaInclusao" value="Incluir Categorias" href="categoriaInclusao.xhtml"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Grenciar Clientes">
+                	<b:navLink action="clienteListagem" value="Buscar Clientes" href="clienteListagem.xhtml"></b:navLink>
+                	<b:navLink action="clienteInclusao" value="Incluir Clientes" href="clienteInclusao.xhtml"></b:navLink>
+                </b:dropMenu>
+                 <b:dropMenu value="Grenciar Municipios">
+                	<b:navLink action="municipioListagem" value="Buscar Municipios" href="municipioListagem.xhtml"></b:navLink>
+                	<b:navLink action="municipioInclusao" value="Incluir Municipios" href="municipioInclusao.xhtml"></b:navLink>
+                </b:dropMenu>
             </b:navbarLinks>
         </b:navBar>
         <b:container>

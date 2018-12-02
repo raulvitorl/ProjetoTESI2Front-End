@@ -33,15 +33,20 @@
                 </b:dropMenu>
             </b:navbarLinks>
         </b:navBar>
-		<h:form>
-			<h:panelGrid>
-				<h:outputLabel value="Código" for="chaveNome"/>
-				<h:inputText id="codigo" value="#{bancoControlador.banco.codigo}" disabled="true"/>
-				<h:outputLabel value="Nome" for="chaveNome"/>
-				<h:inputText id="nome" value="#{bancoControlador.banco.nome}" disabled="true"/>
-			</h:panelGrid>
-			<h:commandButton action="#{bancoControlador.remover}" value="Confirmar"/>
-			<h:commandButton action="bancoListagem" value="Cancelar"/>
-		</h:form>
+	<h:form>
+		<h:panelGrid>
+			<h:outputLabel value="Código" for="chaveNome"/>
+			<h:inputText id="codigo" value="#{municipioControlador.municipio.munCodigo}" disabled="true"/>
+			<h:outputLabel value="Nome" for="chaveNome"/>
+			<b:focus target="@previous" />
+			<h:inputText id="nome" value="#{municipioControlador.municipio.munNome}"/>
+			<h:outputLabel value="CEP" for="chaveNome"/>
+			<h:inputText id="cep" value="#{municipioControlador.municipio.munCep}"/>
+			<h:outputLabel value="UF" for="chaveNome"/>
+			<h:inputText id="uf" value="#{municipioControlador.municipio.munUfEstado}"/>			
+		</h:panelGrid>
+		<h:commandButton action="#{municipioControlador.alterar}" value="Confirmar" icon="ui-icon-star" ajax="false"/>
+		<h:commandButton action="municipioListagem" value="Cancelar"/>
+	</h:form>
 </h:body>
 </html>

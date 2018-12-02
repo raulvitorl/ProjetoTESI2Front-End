@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	>
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Administrator Tabajara</title>
 </h:head>
 <h:body>
-	<h1>Administrator Tabajara</h1>
-	<h2>Inclusão de Categoria de Produto</h2>
+	<b:navBar brand="Administrator Tabajara" brandHref="#" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:dropMenu value="Gerenciar Atendentes">
+                	<b:navLink value="Buscar Atendentes" action="atendenteListagem" href="atendenteListagem.xhtml"></b:navLink>
+                	<b:navLink value="Incluir Atendentes" action="atendenteInclusao" href="atendenteInclusao.xhtml"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Grenciar Bancos">
+                	<b:navLink action="bancoListagem" value="Buscar Bancos" href="bancoListagem.xhtml"></b:navLink>
+                	<b:navLink action="bancoInclusao" value="Incluir Bancos" href="bancoInclusao.xhtml"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Grenciar Categorias">
+                	<b:navLink action="categoriaListagem" value="Buscar Categorias" href="categoriaListagem.xhtml"></b:navLink>
+                	<b:navLink action="categoriaInclusao" value="Incluir Categorias" href="categoriaInclusao.xhtml"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Grenciar Clientes">
+                	<b:navLink action="clienteListagem" value="Buscar Clientes" href="clienteListagem.xhtml"></b:navLink>
+                	<b:navLink action="clienteInclusao" value="Incluir Clientes" href="clienteInclusao.xhtml"></b:navLink>
+                </b:dropMenu>
+                 <b:dropMenu value="Grenciar Municipios">
+                	<b:navLink action="municipioListagem" value="Buscar Municipios" href="municipioListagem.xhtml"></b:navLink>
+                	<b:navLink action="municipioInclusao" value="Incluir Municipios" href="municipioInclusao.xhtml"></b:navLink>
+                </b:dropMenu>
+            </b:navbarLinks>
+        </b:navBar>
 	<h:form>
 		<h:panelGrid>
 			<h:outputLabel value="Código" for="chaveNome"/>
