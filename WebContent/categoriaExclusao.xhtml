@@ -9,7 +9,7 @@
 	<title>Administrator Tabajara</title>
 </h:head>
 <h:body>
-	<b:navBar brand="Administrator Tabajara" brandHref="#" fixed="top" inverse="true">
+	 <b:navBar brand="Administrator Tabajara" brandHref="index.xhtml" fixed="top" inverse="true">
             <b:navbarLinks>
                 <b:dropMenu value="Gerenciar Atendentes">
                 	<b:navLink value="Buscar Atendentes" action="atendenteListagem" href="atendenteListagem.xhtml"></b:navLink>
@@ -23,13 +23,17 @@
                 	<b:navLink action="categoriaListagem" value="Buscar Categorias" href="categoriaListagem.xhtml"></b:navLink>
                 	<b:navLink action="categoriaInclusao" value="Incluir Categorias" href="categoriaInclusao.xhtml"></b:navLink>
                 </b:dropMenu>
-                <b:dropMenu value="Grenciar Clientes">
-                	<b:navLink action="clienteListagem" value="Buscar Clientes" href="clienteListagem.xhtml"></b:navLink>
-                	<b:navLink action="clienteInclusao" value="Incluir Clientes" href="clienteInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
                  <b:dropMenu value="Grenciar Municipios">
                 	<b:navLink action="municipioListagem" value="Buscar Municipios" href="municipioListagem.xhtml"></b:navLink>
                 	<b:navLink action="municipioInclusao" value="Incluir Municipios" href="municipioInclusao.xhtml"></b:navLink>
+                </b:dropMenu>
+                 <b:dropMenu value="Grenciar Tipos de Mensagens">
+                	<b:navLink action="tipomensagemListagem" value="Buscar Tipos de Mensagens" href="tipomensagemListagem.xhtml"></b:navLink>
+                	<b:navLink action="tipomensagemInclusao" value="Incluir Tipos de Mensagens" href="tipomensagemInclusao.xhtml"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Grenciar Mensagens">
+                	<b:navLink action="mensagemListagem" value="Buscar Mensagens" href="mensagemListagem.xhtml"></b:navLink>
+                	<b:navLink action="mensagemInclusao" value="Incluir Mensagens" href="mensagemInclusao.xhtml"></b:navLink>
                 </b:dropMenu>
             </b:navbarLinks>
         </b:navBar>
