@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Administrator Tabajara</title>
+</h:head>
+<h:body>
+	<b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
+		fixed="top" inverse="true">
+		<b:navbarLinks>
+			<b:dropMenu value="Gerenciar Atendentes">
+				<b:navLink value="Buscar Atendentes" action="atendenteListagem"
+					href="atendenteListagem.xhtml"></b:navLink>
+				<b:navLink value="Incluir Atendentes" action="atendenteInclusao"
+					href="atendenteInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+			<b:dropMenu value="Grenciar Bancos">
+				<b:navLink action="bancoListagem" value="Buscar Bancos"
+					href="bancoListagem.xhtml"></b:navLink>
+				<b:navLink action="bancoInclusao" value="Incluir Bancos"
+					href="bancoInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+			<b:dropMenu value="Grenciar Categorias">
+				<b:navLink action="categoriaListagem" value="Buscar Categorias"
+					href="categoriaListagem.xhtml"></b:navLink>
+				<b:navLink action="categoriaInclusao" value="Incluir Categorias"
+					href="categoriaInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+			<b:dropMenu value="Grenciar Municipios">
+				<b:navLink action="municipioListagem" value="Buscar Municipios"
+					href="municipioListagem.xhtml"></b:navLink>
+				<b:navLink action="municipioInclusao" value="Incluir Municipios"
+					href="municipioInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+			<b:dropMenu value="Grenciar Tipos de Mensagens">
+				<b:navLink action="tipomensagemListagem"
+					value="Buscar Tipos de Mensagens" href="tipomensagemListagem.xhtml"></b:navLink>
+				<b:navLink action="tipomensagemInclusao"
+					value="Incluir Tipos de Mensagens"
+					href="tipomensagemInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+			<b:dropMenu value="Grenciar Mensagens">
+				<b:navLink action="mensagemListagem" value="Buscar Mensagens"
+					href="mensagemListagem.xhtml"></b:navLink>
+				<b:navLink action="mensagemInclusao" value="Incluir Mensagens"
+					href="mensagemInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+		</b:navbarLinks>
+	</b:navBar>
+	<b:container style="padding: 60px">
+		<h:form>
+			<b:commandButton action="#{clienteControlador.novo}" value="novo"
+				look="primary" />
+			<b:commandButton action="index" value="voltar" look="info" />
+			<b:dataTable value="#{clienteControlador.clientes}" var="cliente">
+				<b:dataTableColumn value="#{cliente.codigo}" title="Código" />
+				<b:dataTableColumn value="#{cliente.nome}" title="Nome" />
+				<b:dataTableColumn value="#{cliente.cpf}" title="CPF" />
+				<b:dataTableColumn value="#{cliente.municipio.nome}" title="Municipio" />				
+				<b:dataTableColumn value="#{cliente.nascimento}" title="Nascimento" />
+				<b:dataTableColumn value="#{cliente.sexo}" title="Sexo" />
+				<b:dataTableColumn value="#{cliente.endereco}" title="Endereco" />
+				<b:dataTableColumn value="#{cliente.email}" title="Email" />
+				<b:dataTableColumn value="#{cliente.cadastro}" title="Cadastro" />
+				<b:dataTableColumn value="#{cliente.tipo}" title="Tipo" />
+				<b:dataTableColumn value="#{cliente.status}" title="Status" />
+				<b:dataTableColumn value="#{cliente.fone}" title="Fone" />
+				<b:dataTableColumn value="#{cliente.contato}" title="Contato" />
+				
+				<h:column>
+					<f:facet name="header">Operação</f:facet>
+					<b:commandButton value="Editar" icon="edit" look="primary"
+						action="#{clienteControladorr.editar(cliente)}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Operação</f:facet>
+					<b:commandButton value="Excluir" icon="remove" look="danger"
+						action="#{clienteControlador.excluir(cliente)}" />
+				</h:column>
+			</b:dataTable>
+		</h:form>
+	</b:container>
+</h:body>
+</html>
