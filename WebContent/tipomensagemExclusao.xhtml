@@ -9,34 +9,75 @@
 	<title>Administrator Tabajara</title>
 </h:head>
 <h:body>
-	 <b:navBar brand="Administrator Tabajara" brandHref="index.xhtml" fixed="top" inverse="true">
-            <b:navbarLinks>
-                <b:dropMenu value="Gerenciar Atendentes">
-                	<b:navLink value="Buscar Atendentes" action="atendenteListagem" href="atendenteListagem.xhtml"></b:navLink>
-                	<b:navLink value="Incluir Atendentes" action="atendenteInclusao" href="atendenteInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                <b:dropMenu value="Grenciar Bancos">
-                	<b:navLink action="bancoListagem" value="Buscar Bancos" href="bancoListagem.xhtml"></b:navLink>
-                	<b:navLink action="bancoInclusao" value="Incluir Bancos" href="bancoInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                <b:dropMenu value="Grenciar Categorias">
-                	<b:navLink action="categoriaListagem" value="Buscar Categorias" href="categoriaListagem.xhtml"></b:navLink>
-                	<b:navLink action="categoriaInclusao" value="Incluir Categorias" href="categoriaInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                 <b:dropMenu value="Grenciar Municipios">
-                	<b:navLink action="municipioListagem" value="Buscar Municipios" href="municipioListagem.xhtml"></b:navLink>
-                	<b:navLink action="municipioInclusao" value="Incluir Municipios" href="municipioInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                 <b:dropMenu value="Grenciar Tipos de Mensagens">
-                	<b:navLink action="tipomensagemListagem" value="Buscar Tipos de Mensagens" href="tipomensagemListagem.xhtml"></b:navLink>
-                	<b:navLink action="tipomensagemInclusao" value="Incluir Tipos de Mensagens" href="tipomensagemInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                <b:dropMenu value="Grenciar Mensagens">
-                	<b:navLink action="mensagemListagem" value="Buscar Mensagens" href="mensagemListagem.xhtml"></b:navLink>
-                	<b:navLink action="mensagemInclusao" value="Incluir Mensagens" href="mensagemInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-            </b:navbarLinks>
-        </b:navBar>
+	 <b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
+		fixed="top" inverse="true">
+		<b:navbarLinks>
+			<b:dropMenu value="" iconAwesome="fa-child">
+				<b:navLink value="Buscar Atendentes" action="atendenteListagem"
+					href="atendenteListagem.xhtml"></b:navLink>
+				<b:navLink value="Incluir Atendentes" action="atendenteInclusao"
+					href="atendenteInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+			<b:dropMenu value="" iconAwesome="fa-bank">
+				<b:navLink action="bancoListagem" value="Buscar Bancos"
+					href="bancoListagem.xhtml"></b:navLink>
+				<b:navLink action="bancoInclusao" value="Incluir Bancos"
+					href="bancoInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+			<b:dropMenu value="" iconAwesome="fa-table">
+				<b:navLink action="categoriaListagem" value="Buscar Categorias"
+					href="categoriaListagem.xhtml"></b:navLink>
+				<b:navLink action="categoriaInclusao" value="Incluir Categorias"
+					href="categoriaInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+			<b:dropMenu value="" iconAwesome="fa-globe">
+				<b:navLink action="municipioListagem" value="Buscar Municipios"
+					href="municipioListagem.xhtml"></b:navLink>
+				<b:navLink action="municipioInclusao" value="Incluir Municipios"
+					href="municipioInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+			<b:dropMenu value="" iconAwesome="fa-comments-o">
+				<b:navLink action="tipomensagemListagem"
+					value="Buscar Tipos de Mensagens" href="tipomensagemListagem.xhtml"></b:navLink>
+				<b:navLink action="tipomensagemInclusao"
+					value="Incluir Tipos de Mensagens"
+					href="tipomensagemInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+			<b:dropMenu value="" iconAwesome="fa-comments">
+				<b:navLink action="mensagemListagem" value="Buscar Mensagens"
+					href="mensagemListagem.xhtml"></b:navLink>
+				<b:navLink action="mensagemInclusao" value="Incluir Mensagens"
+					href="mensagemInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+			<b:dropMenu value="" iconAwesome="fa-group">
+				<b:navLink action="clienteListagem" value="Buscar Clientes"
+					href="clienteListagem.xhtml"></b:navLink>
+				<b:navLink action="clienteInclusao" value="Incluir Clientes"
+					href="clienteInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+
+			<b:dropMenu value="" iconAwesome="fa-shopping-cart">
+				<b:navLink action="vendaListagem" value="Buscar Vendas"
+					href="vendaListagem.xhtml"></b:navLink>
+				<b:navLink action="vendaInclusao" value="Incluir Vendas"
+					href="vendaInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+
+			<b:dropMenu value="" iconAwesome="fa-truck">
+				<b:navLink action="fornecedorListagem" value="Buscar Fornecedores"
+					href="fornecedorListagem.xhtml"></b:navLink>
+				<b:navLink action="fornecedorInclusao" value="Incluir Fornecedores"
+					href="fornecedorInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+
+			<b:dropMenu value="" iconAwesome="fa-archive">
+				<b:navLink action="produtoListagem" value="Buscar Produtos"
+					href="produtoListagem.xhtml"></b:navLink>
+				<b:navLink action="produtoInclusao" value="Incluir Produtos"
+					href="produtoInclusao.xhtml"></b:navLink>
+			</b:dropMenu>
+		</b:navbarLinks>
+	</b:navBar>
 	<h:form style="padding 60px;">
 		<h:panelGrid>
 			<h:outputLabel value="Código" for="chaveNome" />
