@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Administrator Tabajara</title>
@@ -53,8 +54,9 @@
 			<h:inputText id="ramal" value="#{atendenteControlador.atendente.ramal}"/>
 			<h:outputLabel value="Status" for="chaveNome"/>
 			<h:inputText id="status" value="#{atendenteControlador.atendente.status}"/>
-			<h:outputLabel value="Ultimo Acesso" for="chaveNome"/>
-			<h:inputText id="ultimoacesso" value="#{atendenteControlador.atendente.ultimoAcesso}"/>
+			<h:outputLabel value="Ultimo Acesso" for="chaveNome" />
+			<p:calendar id="ultimoacesso"
+				value="#{atendenteControlador.atendente.ultimoAcesso}" />
 		</h:panelGrid>
 		<h:commandButton action="#{atendenteControlador.alterar}" value="Confirmar"/>
 		<h:commandButton action="atendenteListagem" value="Cancelar"/>
