@@ -40,11 +40,11 @@
 	<h:form>
 		<h:panelGrid>
 			<h:outputLabel value="Código" for="chaveNome"/>
-			<h:inputText id="codigo" value="#{categoriaControlador.categoria.catCodigo}" disabled="true"/>
+			<h:inputText id="codigo" value="#{categoriaControlador.categoria.codigo}" disabled="true"/>
 			<h:outputLabel value="Descrição" for="chaveNome"/>
-			<h:inputText id="descricao" value="#{categoriaControlador.categoria.catDescricao}" disabled="true"/>
+			<h:inputText id="descricao" value="#{categoriaControlador.categoria.descricao}" disabled="true"/>
 			<h:outputLabel value="Idetificador" for="chaveNome"/>
-			<h:inputText id="identificador" value="#{categoriaControlador.categoria.catIdentificador}" disabled="true"/>
+			<h:inputText id="identificador" value="#{categoriaControlador.categoria.identificador}" disabled="true"/>
 		</h:panelGrid>
 		<h:commandButton action="#{categoriaControlador.remover}" value="Confirmar"/>
 		<h:commandButton action="categoriaListagem" value="Cancelar"/>

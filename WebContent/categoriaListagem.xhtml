@@ -43,9 +43,9 @@
 		<b:commandButton action="index" value="voltar" look="info"/>
 			<b:dataTable value="#{categoriaControlador.categorias}"
 				var="categoria">
-				<b:dataTableColumn value="#{categoria.catCodigo}" title="Código" />
-				<b:dataTableColumn value="#{categoria.catDescricao}" />
-				<b:dataTableColumn value="#{categoria.catIdentificador}" />
+				<b:dataTableColumn value="#{categoria.codigo}" title="Código" />
+				<b:dataTableColumn value="#{categoria.descricao}" />
+				<b:dataTableColumn value="#{categoria.identificador}" />
 				<b:dataTableColumn>
 					<f:facet name="header">Operação</f:facet>
 					<b:commandButton value="Editar" icon="edit" look="primary"
