@@ -43,10 +43,10 @@
 				look="primary" />
 			<b:commandButton action="index" value="voltar" look="info" />
 			<b:dataTable value="#{municipioControlador.municipios}" var="municipio">
-				<b:dataTableColumn value="#{municipio.munCodigo}" title="Código" />
-				<b:dataTableColumn value="#{municipio.munNome}" title="Nome" />
-				<b:dataTableColumn value="#{municipio.munUfEstado}" title="UF" />
-				<b:dataTableColumn value="#{municipio.munCep}" title="CEP" />
+				<b:dataTableColumn value="#{municipio.codigo}" title="Código" />
+				<b:dataTableColumn value="#{municipio.nome}" title="Nome" />
+				<b:dataTableColumn value="#{municipio.ufEstado}" title="UF" />
+				<b:dataTableColumn value="#{municipio.cep}" title="CEP" />
 				<h:column>
 					<f:facet name="header">Operação</f:facet>
 					<b:commandButton value="Editar" icon="edit" look="primary"

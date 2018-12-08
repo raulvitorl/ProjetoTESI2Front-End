@@ -40,14 +40,14 @@
 	<h:form>
 		<h:panelGrid>
 			<h:outputLabel value="Código" for="chaveNome"/>
-			<h:inputText id="codigo" value="#{municipioControlador.municipio.munCodigo}" disabled="true"/>
+			<h:inputText id="codigo" value="#{municipioControlador.municipio.codigo}" disabled="true"/>
 			<h:outputLabel value="Nome" for="chaveNome"/>
 			<b:focus target="@previous" />
-			<h:inputText id="nome" value="#{municipioControlador.municipio.munNome}"/>
+			<h:inputText id="nome" value="#{municipioControlador.municipio.nome}"/>
 			<h:outputLabel value="CEP" for="chaveNome"/>
-			<h:inputText id="cep" value="#{municipioControlador.municipio.munCep}"/>
+			<h:inputText id="cep" value="#{municipioControlador.municipio.cep}"/>
 			<h:outputLabel value="UF" for="chaveNome"/>
-			<h:inputText id="uf" value="#{municipioControlador.municipio.munUfEstado}"/>			
+			<h:inputText id="uf" value="#{municipioControlador.municipio.ufEstado}"/>			
 		</h:panelGrid>
 		<h:commandButton action="#{municipioControlador.alterar}" value="Confirmar" icon="ui-icon-star" ajax="false"/>
 		<h:commandButton action="municipioListagem" value="Cancelar"/>
