@@ -42,8 +42,8 @@
 		<b:commandButton action="#{tipomensagemControlador.novo}" value="novo" look="primary"/>
 		<b:commandButton action="index" value="voltar" look="info"/>
 	<b:dataTable value="#{tipomensagemControlador.tiposMensagens}" var="tipomensagem">
-		<b:dataTableColumn value="#{tipomensagem.tmsCodigo}" title="Código" />
-		<b:dataTableColumn value="#{tipomensagem.tmsDescricao}"  title="Descrição" />
+		<b:dataTableColumn value="#{tipomensagem.codigo}" title="Código" />
+		<b:dataTableColumn value="#{tipomensagem.descricao}"  title="Descrição" />
 		<h:column>
 			<f:facet name="header">Operação</f:facet>
 			<b:commandButton value="Editar" icon="edit" look="primary" action="#{tipomensagemControlador.editar(tipomensagem)}"/>

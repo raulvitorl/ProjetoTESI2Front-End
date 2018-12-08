@@ -32,7 +32,7 @@ public class TipoMensagemMB {
 	public TipoMensagemMB() {
 		br = new TipoMensagemRepositorio();		
 	}
-	public List<TipoMensagem> getTipoMensagens() {
+	public List<TipoMensagem> getTiposMensagens() {
 		tipomensagens= br.recuperarTodos();
 		return tipomensagens;
 	}
