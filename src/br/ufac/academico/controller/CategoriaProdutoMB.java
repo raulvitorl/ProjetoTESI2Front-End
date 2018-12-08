@@ -1,20 +1,20 @@
-package br.academico.controladores;
+package br.ufac.academico.controller;
 
 import java.util.List;
 
 import javax.faces.bean.*;
 
 
-import br.ufac.academico.entidades.*;
-import br.ufac.academico.repositorios.*;
+import br.ufac.academico.domain.*;
+import br.ufac.academico.repositories.*;
 
 @ManagedBean(name="categoriaControlador")
 @SessionScoped
-public class CategoriasProdutosMB { 
-	private CategoriasProdutosRepositorio cr;
-	private List<CategoriasProdutos> categorias;
+public class CategoriaProdutoMB { 
+	private CategoriaProdutoRepositorio cr;
+	private List<CategoriaProduto> categorias;
 	private String chaveNome = "";
-	private CategoriasProdutos categoria;
+	private CategoriaProduto categoria;
 	
 	private long catCodigo;
 	
@@ -23,17 +23,17 @@ public class CategoriasProdutosMB {
 	private String catDescricao;
 	
 	
-	public List<CategoriasProdutos> getCategorias() {
+	public List<CategoriaProduto> getCategorias() {
 		categorias = cr.recuperarTodos();
 		return categorias;
 	}
-	public void setCategorias(List<CategoriasProdutos> categorias) {
+	public void setCategorias(List<CategoriaProduto> categorias) {
 		this.categorias = categorias;
 	}
-	public CategoriasProdutos getCategoria() {
+	public CategoriaProduto getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(CategoriasProdutos categoria) {
+	public void setCategoria(CategoriaProduto categoria) {
 		this.categoria = categoria;
 	}
 	public long getCatCodigo() {
@@ -54,17 +54,17 @@ public class CategoriasProdutosMB {
 	public void setCatDescricao(String catDescricao) {
 		this.catDescricao = catDescricao;
 	}
-	public CategoriasProdutosMB() {
-		cr = new CategoriasProdutosRepositorio();		
+	public CategoriaProdutoMB() {
+		cr = new CategoriaProdutoRepositorio();		
 	}
-	public List<CategoriasProdutos> getBancos() {
+	public List<CategoriaProduto> getBancos() {
 		categorias= cr.recuperarTodosPorNome();
 		return categorias;
 	}
-	public void setBancos(List<CategoriasProdutos> categorias) {
+	public void setBancos(List<CategoriaProduto> categorias) {
 		this.categorias = categorias;
 	}
-	public CategoriasProdutosRepositorio getCr() {
+	public CategoriaProdutoRepositorio getCr() {
 		return cr;
 	}
 	public String getChaveNome() {
@@ -77,12 +77,12 @@ public class CategoriasProdutosMB {
 		cr.adicionar(categoria);
 		return "categoriaListagem";
 	}
-	public String editar(CategoriasProdutos categoria) {
+	public String editar(CategoriaProduto categoria) {
 		this.categoria=categoria;
 		return "categoriaEdicao";
 	}
 	public String novo() {
-		categoria = new CategoriasProdutos();
+		categoria = new CategoriaProduto();
 		return "categoriaInclusao";
 	}
 	public String alterar() {
@@ -93,7 +93,7 @@ public class CategoriasProdutosMB {
 		cr.remover(categoria);
 		return "categoriaListagem";
 	}
-	public String excluir(CategoriasProdutos categoria) {
+	public String excluir(CategoriaProduto categoria) {
 		this.categoria=categoria;
 		return "categoriaExclusao";
 	}

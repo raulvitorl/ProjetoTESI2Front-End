@@ -1,19 +1,19 @@
-package br.academico.controladores;
+package br.ufac.academico.controller;
 
 import java.util.List;
 
 import javax.faces.bean.*;
 
-import br.ufac.academico.entidades.*;
-import br.ufac.academico.repositorios.*;
+import br.ufac.academico.domain.*;
+import br.ufac.academico.repositories.*;
 
 @ManagedBean(name="tipomensagemControlador")
 @SessionScoped
-public class TiposMensagensMB { 
-	private TiposMensagensRepositorio br;
-	private List<TiposMensagens> tipomensagens;
+public class TipoMensagemMB { 
+	private TipoMensagemRepositorio br;
+	private List<TipoMensagem> tipomensagens;
 	private String chaveNome = "";
-	private TiposMensagens tipomensagem;
+	private TipoMensagem tipomensagem;
 	private String nome;
 	private int codigo;
 		
@@ -29,17 +29,17 @@ public class TiposMensagensMB {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	public TiposMensagensMB() {
-		br = new TiposMensagensRepositorio();		
+	public TipoMensagemMB() {
+		br = new TipoMensagemRepositorio();		
 	}
-	public List<TiposMensagens> getTiposMensagens() {
+	public List<TipoMensagem> getTipoMensagens() {
 		tipomensagens= br.recuperarTodos();
 		return tipomensagens;
 	}
-	public void setTiposMensagens(List<TiposMensagens> tipomensagems) {
+	public void setTipoMensagem(List<TipoMensagem> tipomensagems) {
 		this.tipomensagens = tipomensagems;
 	}
-	public TiposMensagensRepositorio getCr() {
+	public TipoMensagemRepositorio getCr() {
 		return br;
 	}
 	public String getChaveNome() {
@@ -48,19 +48,19 @@ public class TiposMensagensMB {
 	public void setChaveNome(String chaveNome) {
 		this.chaveNome = chaveNome;
 	}
-	public TiposMensagens getTipoMensagem() {
+	public TipoMensagem getTipoMensagem() {
 		return tipomensagem;
 	}
 	public String incluir() {
 		br.adicionar(tipomensagem);
 		return "tipomensagemListagem";
 	}
-	public String editar(TiposMensagens tipomensagem) {
+	public String editar(TipoMensagem tipomensagem) {
 		this.tipomensagem=tipomensagem;
 		return "tipomensagemEdicao";
 	}
 	public String novo() {
-		tipomensagem = new TiposMensagens();
+		tipomensagem = new TipoMensagem();
 		return "tipomensagemInclusao";
 	}
 	public String alterar() {
@@ -71,11 +71,11 @@ public class TiposMensagensMB {
 		br.remover(tipomensagem);
 		return "tipomensagemListagem";
 	}
-	public String excluir(TiposMensagens tipomensagem) {
+	public String excluir(TipoMensagem tipomensagem) {
 		this.tipomensagem=tipomensagem;
 		return "tipomensagemExclusao";
 	}
-	public void setTipoMensagem(TiposMensagens tipomensagem) {
+	public void setTipoMensagem(TipoMensagem tipomensagem) {
 		this.tipomensagem = tipomensagem;
 	}
 	

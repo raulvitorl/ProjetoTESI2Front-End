@@ -1,21 +1,21 @@
-package br.academico.controladores;
+package br.ufac.academico.controller;
 
 import java.util.List;
 
 import javax.faces.bean.*;
 
-import br.ufac.academico.entidades.*;
-import br.ufac.academico.repositorios.*;
+import br.ufac.academico.domain.*;
+import br.ufac.academico.repositories.*;
 
 @ManagedBean(name="mensagemControlador")
 @SessionScoped
-public class MensagensMB { 
-	private MensagensRepositorio mr;
-	private AtendentesRepositorio ar;
-	private TiposMensagensRepositorio tmsr;
-	private List<Mensagens> mensagens;
+public class MensagemMB { 
+	private MensagemRepositorio mr;
+	private AtendenteRepositorio ar;
+	private TipoMensagemRepositorio tmsr;
+	private List<Mensagem> mensagens;
 	private String chaveNome = "";
-	private Mensagens mensagem;
+	private Mensagem mensagem;
 	private long men_codigo;
 	private long men_ate_codigo;
 	private long men_tms_codigo;
@@ -32,18 +32,18 @@ public class MensagensMB {
 		this.men_tms_codigo = men_tms_codigo;
 	}
 
-	public MensagensMB() {
-		mensagem = new Mensagens();
-		mr = new MensagensRepositorio();
-		ar = new AtendentesRepositorio();
-		tmsr = new TiposMensagensRepositorio();
+	public MensagemMB() {
+		mensagem = new Mensagem();
+		mr = new MensagemRepositorio();
+		ar = new AtendenteRepositorio();
+		tmsr = new TipoMensagemRepositorio();
 	}
 
-	public List<Mensagens> getMensagens() {
+	public List<Mensagem> getMensagens() {
 		mensagens = mr.recuperarTodos();
 		return mensagens;
 	}
-	public void setMensagens(List<Mensagens> mensagens) {
+	public void setMensagens(List<Mensagem> mensagens) {
 		this.mensagens = mensagens;
 	}
 	public String getChaveNome() {
@@ -52,10 +52,10 @@ public class MensagensMB {
 	public void setChaveNome(String chaveNome) {
 		this.chaveNome = chaveNome;
 	}
-	public Mensagens getMensagem() {
+	public Mensagem getMensagem() {
 		return mensagem;
 	}
-	public void setMensagem(Mensagens mensagem) {
+	public void setMensagem(Mensagem mensagem) {
 		this.mensagem = mensagem;
 	}
 	public long getMen_codigo() {
@@ -89,35 +89,35 @@ public class MensagensMB {
 		this.men_data_envio = men_data_envio;
 	}
 	public String incluir() {
-		mensagem = new Mensagens();		
+		mensagem = new Mensagem();		
 		return "mensagemInclusao";
 	}
 
 	public String adicionar(){
-		mensagem.setMen_ate_codigo(ar.recuperar(men_ate_codigo));
-		mensagem.setTipoMensagem(tmsr.recuperar(men_tms_codigo));
+		mensagem.setAtendente(ar.recuperar(men_ate_codigo));
+		mensagem.setTipo(tmsr.recuperar(men_tms_codigo));
 		mr.adicionar(mensagem);
 		return "mensagemListagem";
 	}
 
-	public String editar(Mensagens mensagem) {
+	public String editar(Mensagem mensagem) {
 		this.mensagem=mensagem;
-		men_tms_codigo = mensagem.getTipoMensagem().getTmsCodigo();
-		men_ate_codigo = mensagem.getMen_ate_codigo().getCodigo();
+		men_tms_codigo = mensagem.getTipo().getCodigo();
+		men_ate_codigo = mensagem.getAtendente().getCodigo();
 		return "mensagemEdicao";
 	}
 
 	public String atualizar() {
-		mensagem.setMen_ate_codigo(ar.recuperar(men_ate_codigo));
-		mensagem.setTipoMensagem(tmsr.recuperar(men_tms_codigo));
+		mensagem.setAtendente(ar.recuperar(men_ate_codigo));
+		mensagem.setTipo(tmsr.recuperar(men_tms_codigo));
 		mr.atualizar(mensagem);
 		return "mensagemListagem";
 	}
 
-	public String excluir(Mensagens mensagem) {
+	public String excluir(Mensagem mensagem) {
 		this.mensagem=mensagem;
-		men_tms_codigo = mensagem.getTipoMensagem().getTmsCodigo();
-		men_ate_codigo = mensagem.getMen_ate_codigo().getCodigo();
+		men_tms_codigo = mensagem.getTipo().getCodigo();
+		men_ate_codigo = mensagem.getAtendente().getCodigo();
 		return "mensagemExclusao";
 	}
 	
