@@ -41,18 +41,20 @@
 		<h:panelGrid>
 			<h:outputLabel value="Código" for="chaveNome"/>
 			<h:inputText id="codigo" value="#{bancoControlador.banco.codigo}" disabled="true"/>
-			<h:outputLabel value="Persil" for="chaveNome"/>
-			<h:inputText id="perfil" value="#{atendenteControlador.atendente.ate_perfil}"  disabled="true"/>
+			<h:outputLabel value="CPF" for="chaveNome"/>
+			<h:inputText id="cpf" value="#{atendenteControlador.atendente.cpf}"/>
+			<h:outputLabel value="Perfil" for="chaveNome"/>
+			<h:inputText id="perfil" value="#{atendenteControlador.atendente.perfil}"/>
 			<h:outputLabel value="Email" for="chaveNome"/>
-			<h:inputText id="email" value="#{atendenteControlador.atendente.email}"  disabled="true"/>
+			<h:inputText id="email" value="#{atendenteControlador.atendente.email}"/>
 			<h:outputLabel value="Nome" for="chaveNome"/>
-			<h:inputText id="nome" value="#{atendenteControlador.atendente.nome}"  disabled="true"/>
+			<h:inputText id="nome" value="#{atendenteControlador.atendente.nome}"/>
 			<h:outputLabel value="Ramal" for="chaveNome"/>
-			<h:inputText id="ramal" value="#{atendenteControlador.atendente.ramal}"  disabled="true"/>
+			<h:inputText id="ramal" value="#{atendenteControlador.atendente.ramal}"/>
 			<h:outputLabel value="Status" for="chaveNome"/>
-			<h:inputText id="status" value="#{atendenteControlador.atendente.status}"  disabled="true"/>
+			<h:inputText id="status" value="#{atendenteControlador.atendente.status}"/>
 			<h:outputLabel value="Ultimo Acesso" for="chaveNome"/>
-			<h:inputText id="ultimoacesso" value="#{atendenteControlador.atendente.ultimoAcesso}"  disabled="true"/>
+			<h:inputText id="ultimoacesso" value="#{atendenteControlador.atendente.ultimoAcesso}"/>
 		</h:panelGrid>
 		<h:commandButton action="#{atendenteControlador.remover}" value="Confirmar"/>
 		<h:commandButton action="atendenteListagem" value="Cancelar"/>

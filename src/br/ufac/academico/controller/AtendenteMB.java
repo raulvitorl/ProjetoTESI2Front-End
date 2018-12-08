@@ -33,8 +33,14 @@ public class AtendenteMB {
 	public void setChaveNome(String chaveNome) {
 		this.chaveNome = chaveNome;
 	}
-	public Atendente getBanco() {
+	
+	
+	
+	public Atendente getAtendente() {
 		return atendente;
+	}
+	public void setAtendente(Atendente atendente) {
+		this.atendente = atendente;
 	}
 	public String incluir() {
 		br.adicionar(atendente);
