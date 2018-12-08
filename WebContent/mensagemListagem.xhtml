@@ -43,11 +43,11 @@
 				look="primary" />
 			<b:commandButton action="index" value="voltar" look="info" />
 			<b:dataTable value="#{mensagemControlador.mensagens}" var="mensagem">
-				<b:dataTableColumn value="#{mensagem.men_codigo}" title="Código" />
-				<b:dataTableColumn value="#{mensagem.men_data_envio}" title="Data de Envio" />
-				<b:dataTableColumn value="#{mensagem.men_texto}" name="Conteúdo" />
-				<b:dataTableColumn value="#{mensagem.tipoMensagem.tmsDescricao}" name="Tipo" />
-				<b:dataTableColumn value="#{mensagem.atendenteMensagem.nome}" name="Atendente" />
+				<b:dataTableColumn value="#{mensagem.codigo}" title="Código" />
+				<b:dataTableColumn value="#{mensagem.dataEnvio}" title="Data de Envio" />
+				<b:dataTableColumn value="#{mensagem.texto}" name="Conteúdo" />
+				<b:dataTableColumn value="#{mensagem.tipo.descricao}" name="Tipo" />
+				<b:dataTableColumn value="#{mensagem.atendente.nome}" name="Atendente" />
 				<h:column>
 					<f:facet name="header">Operação</f:facet>
 					<b:commandButton value="Editar" icon="edit" look="primary"
