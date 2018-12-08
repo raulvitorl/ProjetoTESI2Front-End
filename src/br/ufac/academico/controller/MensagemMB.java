@@ -33,7 +33,6 @@ public class MensagemMB {
 	}
 
 	public MensagemMB() {
-		mensagem = new Mensagem();
 		mr = new MensagemRepositorio();
 		ar = new AtendenteRepositorio();
 		tmsr = new TipoMensagemRepositorio();

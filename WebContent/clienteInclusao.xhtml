@@ -82,45 +82,26 @@
 	<h:form>
 		<h:panelGrid>
 			<h:outputLabel value="Código" for="codigo" />
-			<h:inputText id="codigo"
-				value="#{fornecedorControlador.fornecedor.codigo}" />
+			<h:inputText id="codigo" value="#{clienteControlador.cliente.codigo}" />
 
-			<h:outputLabel value="Razão Social" for="razao" />
-			<h:inputText id="razao" value="#{fornecedorControlador.fornecedor.razaoSocial}" />
-		
-			<h:outputLabel value="Nome Contato" for="nomec" />
-			<h:inputText id="nomec" value="#{fornecedorControlador.fornecedor.nomeContato}" />
-			
-			<h:outputLabel value="CNPJ" for="cnpj" />
-			<h:inputText id="cnpj" value="#{fornecedorControlador.fornecedor.cnpj}" />
-			
-			<h:outputLabel value="Endereço" for="endereco" />
-			<h:inputText id="endereco" value="#{fornecedorControlador.fornecedor.endereco}" />
-			
-			<h:outputLabel value="Fone" for="fone" />
-			<h:inputText id="fone" value="#{fornecedorControlador.fornecedor.fone}" />
-			
-			<h:outputLabel value="Email" for="email" />
-			<h:inputText id="email" value="#{fornecedorControlador.fornecedor.email}" />
-			
-			<h:outputLabel value="WebSite" for="site" />
-			<h:inputText id="site" value="#{fornecedorControlador.fornecedor.webSite}" />
-			
-			<h:outputLabel value="Data Cadastro" for="ultimoacesso" />
-			<p:calendar id="ultimoacesso"
-				value="#{fornecedorControlador.fornecedor.dataCadastro}" />
-				
-			<h:outputLabel value="Municipio: " for="municipio" />
-			<h:selectOneMenu id="municipio"
-				value="#{fornecedorControlador.fornecedor.municipio}">
+			<h:outputLabel value="Nome" for="nome" />
+			<h:inputText id="nome" value="#{clienteControlador.cliente.nome}" />
+
+			<h:outputLabel value="CPF" for="cpf" />
+			<h:inputText id="cpf" value="#{clienteControlador.cliente.cpf}" />
+
+			<h:selectOneMenu id="municipio" 
+				value="#{clienteControlador.cliente.municipio}">
 				<f:selectItems value="#{municipioControlador.municipios}" var="muni"
 					itemValue="#{muni.codigo}" itemLabel="#{muni.nome}" />
 			</h:selectOneMenu>
-			
+
+
+
 		</h:panelGrid>
-		<h:commandButton action="#{fornecedorControlador.incluir}"
+		<h:commandButton action="#{clienteControlador.incluir}"
 			value="Confirmar" />
-		<h:commandButton action="fornecedorListagem" value="Cancelar" />
+		<h:commandButton action="clienteListagem" value="Cancelar" />
 	</h:form>
 </h:body>
 </html>
