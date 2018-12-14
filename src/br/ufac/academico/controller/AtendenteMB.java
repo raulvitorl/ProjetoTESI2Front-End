@@ -2,7 +2,11 @@ package br.ufac.academico.controller;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.*;
+import javax.faces.context.FacesContext;
+
+import org.primefaces.PrimeFaces;
 
 import br.ufac.academico.domain.*;
 import br.ufac.academico.repositories.*;
@@ -69,6 +73,23 @@ public class AtendenteMB {
 	public void setBanco(Atendente atendente) {
 		this.atendente = atendente;
 	}
+	
+	 public void login() {
+	        FacesMessage message = null;
+	        boolean loggedIn = false;
+	         
+	        if(atendente.getUsuario() != null && atendente.getUsuario().equals("admin") &&
+	           atendente.getSenha() != null && atendente.getSenha().equals("admin")) {
+	            loggedIn = true;
+	            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", atendente.getUsuario());
+	        } else {
+	            loggedIn = false;
+	            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
+	        }
+	         
+	        FacesContext.getCurrentInstance().addMessage(null, message);
+	        PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
+	    }   
 	
 	
 }

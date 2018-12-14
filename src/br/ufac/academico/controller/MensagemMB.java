@@ -16,20 +16,28 @@ public class MensagemMB {
 	private List<Mensagem> mensagens;
 	private String chaveNome = "";
 	private Mensagem mensagem;
-	private long men_codigo;
-	private long men_ate_codigo;
-	private long men_tms_codigo;
+	private long ateCodigo;
+	private long tipoCodigo;
 	private String men_texto;
 	private String men_data_envio;
-
+	
 	
 
-	public void setMen_ate_codigo(long men_ate_codigo) {
-		this.men_ate_codigo = men_ate_codigo;
+	
+	public long getAteCodigo() {
+		return ateCodigo;
 	}
 
-	public void setMen_tms_codigo(long men_tms_codigo) {
-		this.men_tms_codigo = men_tms_codigo;
+	public void setAteCodigo(long ateCodigo) {
+		this.ateCodigo = ateCodigo;
+	}
+
+	public long getTipoCodigo() {
+		return tipoCodigo;
+	}
+
+	public void setTipoCodigo(long tipoCodigo) {
+		this.tipoCodigo = tipoCodigo;
 	}
 
 	public MensagemMB() {
@@ -57,23 +65,18 @@ public class MensagemMB {
 	public void setMensagem(Mensagem mensagem) {
 		this.mensagem = mensagem;
 	}
-	public long getMen_codigo() {
-		return men_codigo;
-	}
-	public void setMen_codigo(long men_codigo) {
-		this.men_codigo = men_codigo;
-	}
+
 	public long getMen_ate_codigo() {
-		return men_ate_codigo;
+		return ateCodigo;
 	}
-	public void setMen_ate_codigo(int men_ate_codigo) {
-		this.men_ate_codigo = men_ate_codigo;
+	public void setMen_ate_codigo(int ateCodigo) {
+		this.ateCodigo = ateCodigo;
 	}
 	public long getMen_tms_codigo() {
-		return men_tms_codigo;
+		return tipoCodigo;
 	}
-	public void setMen_tms_codigo(int men_tms_codigo) {
-		this.men_tms_codigo = men_tms_codigo;
+	public void setMen_tms_codigo(int tipoCodigo) {
+		this.tipoCodigo = tipoCodigo;
 	}
 	public String getMen_texto() {
 		return men_texto;
@@ -88,35 +91,36 @@ public class MensagemMB {
 		this.men_data_envio = men_data_envio;
 	}
 	public String incluir() {
-		mensagem = new Mensagem();		
+		mensagem = new Mensagem();
 		return "mensagemInclusao";
 	}
 
 	public String adicionar(){
-		mensagem.setAtendente(ar.recuperar(men_ate_codigo));
-		mensagem.setTipo(tmsr.recuperar(men_tms_codigo));
+		System.out.println("entrou");
+		mensagem.setAtendente(ar.recuperar(ateCodigo));
+		mensagem.setTipo(tmsr.recuperar(tipoCodigo));
 		mr.adicionar(mensagem);
 		return "mensagemListagem";
 	}
 
 	public String editar(Mensagem mensagem) {
 		this.mensagem=mensagem;
-		men_tms_codigo = mensagem.getTipo().getCodigo();
-		men_ate_codigo = mensagem.getAtendente().getCodigo();
+		tipoCodigo = mensagem.getTipo().getCodigo();
+		ateCodigo = mensagem.getAtendente().getCodigo();
 		return "mensagemEdicao";
 	}
 
 	public String atualizar() {
-		mensagem.setAtendente(ar.recuperar(men_ate_codigo));
-		mensagem.setTipo(tmsr.recuperar(men_tms_codigo));
+		mensagem.setAtendente(ar.recuperar(ateCodigo));
+		mensagem.setTipo(tmsr.recuperar(tipoCodigo));
 		mr.atualizar(mensagem);
 		return "mensagemListagem";
 	}
 
 	public String excluir(Mensagem mensagem) {
 		this.mensagem=mensagem;
-		men_tms_codigo = mensagem.getTipo().getCodigo();
-		men_ate_codigo = mensagem.getAtendente().getCodigo();
+		tipoCodigo = mensagem.getTipo().getCodigo();
+		ateCodigo = mensagem.getAtendente().getCodigo();
 		return "mensagemExclusao";
 	}
 	

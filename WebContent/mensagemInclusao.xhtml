@@ -83,29 +83,26 @@
 	<h:form style="padding:100px;">
 		<h:panelGrid>
 
-			<h:outputLabel value="Data de Envio" for="chaveNome" />
-			<p:calendar id="ultimoacesso"
-				value="#{mensagemControlador.mensagem.dataEnvio}" />
-
-			<h:outputLabel value="Mensagem" for="chaveNome" />
+			<h:outputLabel value="Mensagem" for="texto" />
 			<h:inputText id="texto" value="#{mensagemControlador.mensagem.texto}" />
 
-			<h:selectOneMenu id="tms" value="#{mensagemControlador.mensagem.tipo}">
+			<h:outputLabel value="Tipo Mensagem" for="tipo" />
+			<h:selectOneMenu id="tipo" value="#{mensagemControlador.tipoCodigo}" >
 				<f:selectItems value="#{tipomensagemControlador.tiposMensagens}"
 					var="tms" itemValue="#{tms.codigo}"
 					itemLabel="#{tms.descricao}" />
 			</h:selectOneMenu>
 
-			<h:outputLabel value="Atendente" for="chaveNome" />
+			<h:outputLabel value="Atendente" for="atennome" />
 			<h:selectOneMenu id="atennome"
-				value="#{mensagemControlador.mensagem.atendente}">
+				value="#{mensagemControlador.ateCodigo}">
 				<f:selectItems value="#{atendenteControlador.atendentes}" var="ate"
 					itemValue="#{ate.codigo}" itemLabel="#{ate.nome}" />
 			</h:selectOneMenu>
 
 
 		</h:panelGrid>
-		<b:commandButton action="#{mensagemControlador.incluir}"
+		<b:commandButton action="#{mensagemControlador.adicionar}"
 			value="Enviar" iconAwesome="fa-send"/>
 		<b:commandButton action="mensagemListagem" value="Cancelar" />
 	</h:form>

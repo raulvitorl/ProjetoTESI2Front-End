@@ -10,7 +10,7 @@
 	<title>Administrator Tabajara</title>
 </h:head>
 <h:body>
-	 <b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
+	<b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
 		fixed="top" inverse="true">
 		<b:navbarLinks>
 			<b:dropMenu value="" iconAwesome="fa-child">
@@ -81,39 +81,61 @@
 	</b:navBar>
 	<h:form>
 		<h:panelGrid>
-			<h:outputLabel value="Código" for="chaveNome" />
-			<h:inputText id="codigo"
-				value="#{fornecedorControlador.fornecedor.codigo}" />
+			<br></br>
+			<br></br>
+			<br></br>	
+			<h:outputLabel value="Nome" for="nome" />
+			<h:inputText id="nome" value="#{clienteControlador.cliente.nome}" />
+			
+			<h:outputLabel value="Nome para Contato" for="nomeCont" />
+			<h:inputText id="nomeCont" value="#{clienteControlador.cliente.contato}" />
 
-			<h:outputLabel value="Razão Social" for="chaveNome" />
-			<h:inputText id="razao" value="#{fornecedorControlador.fornecedor.razaoSocial}" />
-		
-			<h:outputLabel value="Nome Contato" for="chaveNome" />
-			<h:inputText id="nomec" value="#{fornecedorControlador.fornecedor.nomeContato}" />
+			<h:outputLabel value="CPF" for="cpf" />
+			<p:inputMask id="cpf" value="#{clienteControlador.cliente.cpf}" mask="999.999.999-99"/>
 			
-			<h:outputLabel value="CNPJ" for="chaveNome" />
-			<h:inputText id="cnpj" value="#{fornecedorControlador.fornecedor.cnpj}" />
+			<h:outputLabel value="Sexo" for="sexo" />
+			<h:selectOneMenu value="#{clienteControlador.cliente.sexo}" id="sexo">
+				<f:selectItem itemValue="MASCULINO" itemLabel="1-Masculino" />
+				<f:selectItem itemValue="FEMININO" itemLabel="2-Feminino" />
+			</h:selectOneMenu>
 			
-			<h:outputLabel value="Endereço" for="chaveNome" />
-			<h:inputText id="endereco" value="#{fornecedorControlador.fornecedor.endereco}" />
+			<h:outputLabel value="Endereço" for="endereco" />
+			<h:inputText id="endereco" value="#{clienteControlador.cliente.endereco}" />
+
+			<h:outputLabel value="Email" for="email" />
+			<h:inputText id="email" value="#{clienteControlador.cliente.email}" />
+
+			<h:outputLabel value="Tipo" for="tipo" />
+			<h:selectOneMenu value="#{clienteControlador.cliente.tipo}" id="tipo">
+				<f:selectItem itemValue="PESSOAFISICA" itemLabel="1-Pessoa Física" />
+				<f:selectItem itemValue="PESSOAJURIDICA" itemLabel="2-Pessoa Juríica" />
+			</h:selectOneMenu>
 			
-			<h:outputLabel value="Fone" for="chaveNome" />
-			<h:inputText id="fone" value="#{fornecedorControlador.fornecedor.fone}" />
+			<h:outputLabel value="Status" for="status" />
+			<h:selectOneMenu value="#{clienteControlador.cliente.status}" id="status">
+				<f:selectItem itemValue="DEVEDOR" itemLabel="1-Devedor" />
+				<f:selectItem itemValue="QUITADO" itemLabel="2-Quitado" />
+				<f:selectItem itemValue="CREDOR" itemLabel="3-Credor" />
+			</h:selectOneMenu>
 			
-			<h:outputLabel value="Email" for="chaveNome" />
-			<h:inputText id="email" value="#{fornecedorControlador.fornecedor.email}" />
+			<h:outputLabel value="Fone" for="fone" />
+			<p:inputMask id="fone" value="#{clienteControlador.cliente.fone}" mask="(99) 99999-9999"/>
+	
+			<h:outputLabel value="Nascimento" for="nascimento" />
+			<p:calendar id="nascimento" value="#{clienteControlador.cliente.nascimento}" />
 			
-			<h:outputLabel value="WebSite" for="chaveNome" />
-			<h:inputText id="site" value="#{fornecedorControlador.fornecedor.webSite}" />
 			
-			<h:outputLabel value="Data Cadastro" for="chaveNome" />
-			<p:calendar id="ultimoacesso"
-				value="#{fornecedorControlador.fornecedor.dataCadastro}" />
-			
+			<h:selectOneMenu id="municipio" 
+				value="#{clienteControlador.munCodigo}">
+				<f:selectItems value="#{municipioControlador.municipios}" var="muni"
+					itemValue="#{muni.codigo}" itemLabel="#{muni.nome}" />
+			</h:selectOneMenu>
+
+
 		</h:panelGrid>
-		<h:commandButton action="#{fornecedorControlador.alterar}"
+		<h:commandButton action="#{clienteControlador.alterar}"
 			value="Confirmar" />
-		<h:commandButton action="fornecedorListagem" value="Cancelar" />
+		<h:commandButton action="clienteListagem" value="Cancelar" />
 	</h:form>
 </h:body>
 </html>

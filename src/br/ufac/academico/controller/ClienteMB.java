@@ -11,11 +11,14 @@ import br.ufac.academico.repositories.*;
 @SessionScoped
 public class ClienteMB { 
 	private ClienteRepositorio br;
+	private MunicipioRepositorio mr;
 	private List<Cliente> clientes;
+	private Integer munCodigo;
 	private String chaveNome = "";
 	private Cliente cliente;
 	public ClienteMB() {
-		br = new ClienteRepositorio();		
+		br = new ClienteRepositorio();	
+		mr = new MunicipioRepositorio();
 	}
 	public List<Cliente> getClientes() {
 		clientes= br.recuperarTodosPorNome();
@@ -23,6 +26,13 @@ public class ClienteMB {
 	}
 	public void setClientes(List<Cliente> clientes) {
 		this.clientes = clientes;
+	}
+		
+	public Integer getMunCodigo() {
+		return munCodigo;
+	}
+	public void setMunCodigo(Integer munCodigo) {
+		this.munCodigo = munCodigo;
 	}
 	public ClienteRepositorio getCr() {
 		return br;
@@ -41,11 +51,14 @@ public class ClienteMB {
 		this.cliente = cliente;
 	}
 	public String incluir() {
+		Municipio m = mr.recuperar(munCodigo);
+		cliente.setMunicipio(m);
 		br.adicionar(cliente);
 		return "clienteListagem";
 	}
 	public String editar(Cliente cliente) {
 		this.cliente=cliente;
+		munCodigo = cliente.getMunicipio().getCodigo();
 		return "clienteEdicao";
 	}
 	public String novo() {
@@ -62,6 +75,7 @@ public class ClienteMB {
 	}
 	public String excluir(Cliente cliente) {
 		this.cliente=cliente;
+		munCodigo = cliente.getMunicipio().getCodigo();
 		return "clienteExclusao";
 	}
 	public void setBanco(Cliente cliente) {
