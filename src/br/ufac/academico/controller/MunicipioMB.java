@@ -29,6 +29,8 @@ public class MunicipioMB {
 		municipios= br.recuperarTodosPorNome();
 		return municipios;
 	}
+	
+	
 	public void setMunicipios(List<Municipio> municipios) {
 		this.municipios = municipios;
 	}

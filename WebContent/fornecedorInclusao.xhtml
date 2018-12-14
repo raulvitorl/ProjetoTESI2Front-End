@@ -112,7 +112,7 @@
 				
 			<h:outputLabel value="Municipio: " for="municipio" />
 			<h:selectOneMenu id="municipio"
-				value="#{fornecedorControlador.fornecedor.municipio}">
+				value="#{fornecedorControlador.munCodigo}">
 				<f:selectItems value="#{municipioControlador.municipios}" var="muni"
 					itemValue="#{muni.codigo}" itemLabel="#{muni.nome}" />
 			</h:selectOneMenu>

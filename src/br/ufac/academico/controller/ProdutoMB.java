@@ -18,6 +18,7 @@ public class ProdutoMB {
 	private List<Produto> produtos;
 	private String chaveNome = "";
 	private Produto produto;
+	
 	public ProdutoMB() {
 		br = new ProdutoRepositorio();		
 		cpr = new CategoriaProdutoRepositorio();
@@ -47,10 +48,8 @@ public class ProdutoMB {
 		this.produto = produto;
 	}
 	public String incluir() {
-		System.out.println(catCodigo);
 		produto.setCategoria(cpr.recuperar(catCodigo));
 		produto.setFornecedor(fr.recuperar(forCodigo));
-		System.out.println(produto);
 		br.adicionar(produto);
 		return "produtoListagem";
 	}
@@ -90,7 +89,5 @@ public class ProdutoMB {
 	public void setCatCodigo(Integer catCodigo) {
 		this.catCodigo = catCodigo;
 	}
-	
-	
-	
+		
 }

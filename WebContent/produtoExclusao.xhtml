@@ -79,20 +79,22 @@
 			</b:dropMenu>
 		</b:navbarLinks>
 	</b:navBar>
+	<br></br>
+	<br></br>
+	<br></br>
 	<h:form>
 		<h:panelGrid>
-
+	
 			<h:outputLabel value="Descrição" for="descricao" />
-			<h:inputText id="descricao"
-				value="#{produtoControlador.produto.descricao}" />
-
+			<h:inputText id="descricao" value="#{produtoControlador.produto.descricao}" />
+			
 			<h:outputLabel value="Quantidade" for="qtd" />
 			<h:inputText id="qtd"
 				value="#{produtoControlador.produto.qntDisponivel}" />
-
+				
 			<h:outputLabel value="Ultima Aquisição" for="aquisicao" />
 			<p:calendar id="aquisicao"
-				value="#{produtoControlador.produto.ultimaAquisicao}" />
+				value="#{produtoControlador.produto.ultimaAquisicao}" />			
 
 			<h:outputLabel value="Valor Unitário" for="valor" />
 			<h:inputText id="valor"
@@ -103,24 +105,21 @@
 				value="#{produtoControlador.produto.fabricante}" />
 
 			<h:outputLabel value="Detalhes" for="detalhes" />
-			<h:inputText id="detalhes"
-				value="#{produtoControlador.produto.detalhes}" />
-
+			<h:inputText id="detalhes" value="#{produtoControlador.produto.detalhes}" />
+			
 			<h:outputLabel value="Categoria" for="categoria" />
-			<h:selectOneMenu id="categoria"
+			<h:selectOneMenu id="categoria" 
 				value="#{produtoControlador.catCodigo}">
-				<f:selectItems value="#{categoriaControlador.categorias}"
-					var="categoria" itemValue="#{categoria.codigo}"
-					itemLabel="#{categoria.descricao}" />
+				<f:selectItems value="#{categoriaControlador.categorias}" var="categoria"
+					itemValue="#{categoria.codigo}" itemLabel="#{categoria.descricao}" />
 			</h:selectOneMenu>
-
-
+			
+			
 			<h:outputLabel value="Fornecedor" for="fornecedor" />
-			<h:selectOneMenu id="fornecedor"
+			<h:selectOneMenu id="fornecedor" 
 				value="#{produtoControlador.forCodigo}">
-				<f:selectItems value="#{fornecedorControlador.fornecedors}"
-					var="fornecedor" itemValue="#{fornecedor.codigo}"
-					itemLabel="#{fornecedor.razaoSocial}" />
+				<f:selectItems value="#{fornecedorControlador.fornecedors}" var="fornecedor"
+					itemValue="#{fornecedor.codigo}" itemLabel="#{fornecedor.razaoSocial}" />
 			</h:selectOneMenu>
 
 		</h:panelGrid>

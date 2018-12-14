@@ -1,10 +1,8 @@
 package br.ufac.academico.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.*;
-import javax.persistence.Column;
 
 import br.ufac.academico.domain.*;
 import br.ufac.academico.repositories.*;
@@ -13,12 +11,15 @@ import br.ufac.academico.repositories.*;
 @SessionScoped
 public class FornecedorMB { 
 	private FornecedorRepositorio br;
+	private MunicipioRepositorio mr;	
 	private List<Fornecedor> fornecedores;
 	private String chaveNome = "";
 	private Fornecedor fornecedor;
+	private Integer munCodigo;
 	
 	public FornecedorMB() {
-		br = new FornecedorRepositorio();		
+		br = new FornecedorRepositorio();
+		mr = new MunicipioRepositorio();		
 	}
 	public List<Fornecedor> getFornecedors() {
 		fornecedores= br.recuperarTodosPorNome();
@@ -39,6 +40,18 @@ public class FornecedorMB {
 	
 	
 	
+	public List<Fornecedor> getFornecedores() {
+		return fornecedores;
+	}
+	public void setFornecedores(List<Fornecedor> fornecedores) {
+		this.fornecedores = fornecedores;
+	}
+	public Integer getMunCodigo() {
+		return munCodigo;
+	}
+	public void setMunCodigo(Integer munCodigo) {
+		this.munCodigo = munCodigo;
+	}
 	public Fornecedor getFornecedor() {
 		return fornecedor;
 	}
@@ -46,11 +59,13 @@ public class FornecedorMB {
 		this.fornecedor = fornecedor;
 	}
 	public String incluir() {
+		fornecedor.setMunicipio(mr.recuperar(munCodigo));
 		br.adicionar(fornecedor);
 		return "fornecedorListagem";
 	}
 	public String editar(Fornecedor fornecedor) {
 		this.fornecedor=fornecedor;
+		munCodigo = fornecedor.getMunicipio().getCodigo();
 		return "fornecedorEdicao";
 	}
 	public String novo() {
@@ -67,6 +82,7 @@ public class FornecedorMB {
 	}
 	public String excluir(Fornecedor fornecedor) {
 		this.fornecedor=fornecedor;
+		munCodigo = fornecedor.getMunicipio().getCodigo();
 		return "fornecedorExclusao";
 	}
 	public void setBanco(Fornecedor fornecedor) {
