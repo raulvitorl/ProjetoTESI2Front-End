@@ -83,26 +83,26 @@
 			<b:commandButton action="#{atendenteControlador.novo}" value="novo"
 				look="primary" iconAwesome="fa-user-plus"/>
 			<b:commandButton action="index" value="voltar" look="info" />
-			<b:dataTable value="#{atendenteControlador.atendentes}"
-				var="atendente">
-				<b:dataTableColumn value="#{atendente.codigo}" title="Código" />
-				<b:dataTableColumn value="#{atendente.perfil}" title="Perfil" />
-				<b:dataTableColumn value="#{atendente.email}" title="Email" />
-				<b:dataTableColumn value="#{atendente.nome}" title="Nome" />
-				<b:dataTableColumn value="#{atendente.ramal}" title="Ramal" />
-				<b:dataTableColumn value="#{atendente.status}" title="Status" />
-				<b:dataTableColumn value="#{atendente.cpf}" title="CPF" />
-				<b:dataTableColumn value="#{atendente.ultimoAcesso}"
-					title="Ultimo Acesso" />
+			<b:dataTable value="#{vendaControlador.vendas}"
+				var="venda">
+				<b:dataTableColumn value="#{venda.codigo}" label="Código" />
+				<b:dataTableColumn value="#{venda.cliente.nome}" label="Cliente" />
+				<b:dataTableColumn value="#{venda.atendente.nome}" label="Atendente" />
+				<b:dataTableColumn value="#{venda.banco.nome}" label="Banco" />
+				<b:dataTableColumn value="#{venda.valorTotal}" label="Valor" />
+				<b:dataTableColumn value="#{venda.formaPagamento}" label="Forma" />
+				<b:dataTableColumn value="#{venda.statusPagamento}" label="Status" />
+				<b:dataTableColumn value="#{venda.observacoes}"
+					label="Observações" />
 				<h:column>
 					<f:facet name="header">Operação</f:facet>
 					<b:commandButton value="Editar" icon="edit" look="primary"
-						action="#{atendenteControlador.editar(atendente)}" />
+						action="#{vendaControlador.editar(venda)}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">Operação</f:facet>
 					<b:commandButton value="Excluir" look="danger"
-						action="#{atendenteControlador.excluir(atendente)}" iconAwesome="fa-user-times" />
+						action="#{vendaControlador.excluir(venda)}" iconAwesome="fa-user-times" />
 				</h:column>
 			</b:dataTable>
 		</h:form>

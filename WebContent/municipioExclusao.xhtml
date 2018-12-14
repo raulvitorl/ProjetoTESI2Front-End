@@ -9,7 +9,8 @@
 	<title>Administrator Tabajara</title>
 </h:head>
 <h:body>
-	<b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
+
+	 <b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
 		fixed="top" inverse="true">
 		<b:navbarLinks>
 			<b:dropMenu value="" iconAwesome="fa-child">
@@ -90,7 +91,7 @@
 			<h:outputLabel value="UF" for="chaveNome"/>
 			<h:inputText id="uf" value="#{municipioControlador.municipio.ufEstado}"/>			
 		</h:panelGrid>
-		<h:commandButton action="#{municipioControlador.remover}" value="Confirmar" icon="remove" ajax="false"/>
+		<h:commandButton action="#{municipioControlador.remover}" value="Confirmar" icon="ui-icon-star" ajax="false"/>
 		<h:commandButton action="municipioListagem" value="Cancelar"/>
 	</h:form>
 </h:body>

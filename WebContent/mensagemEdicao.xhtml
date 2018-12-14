@@ -10,6 +10,7 @@
 	<title>Administrator Tabajara</title>
 </h:head>
 <h:body>
+
 	<b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
 		fixed="top" inverse="true">
 		<b:navbarLinks>
@@ -79,47 +80,31 @@
 			</b:dropMenu>
 		</b:navbarLinks>
 	</b:navBar>
-	<h:form>
-		<br></br>
-		<br></br>
-		<br></br>
+	<h:form style="padding:100px;">
 		<h:panelGrid>
 
-			<h:outputLabel value="CPF" for="chaveNome" />
-			<p:inputMask id="cpf" value="#{atendenteControlador.atendente.cpf}" mask="999.999.999-99"/>
+			<h:outputLabel value="Mensagem" for="texto" />
+			<h:inputText id="texto" value="#{mensagemControlador.mensagem.texto}" />
 
-			<h:outputLabel value="Perfil" for="chaveNome" />
-			<p:selectOneMenu value="#{atendenteControlador.atendente.perfil}">
-				<f:selectItem itemValue="SUPERVISOR" itemLabel="1-Supervisor" />
-				<f:selectItem itemValue="BALCONISTA" itemLabel="2-Balconista" />
-			</p:selectOneMenu>
-
-			<h:outputLabel value="Email" for="chaveNome" />
-			<h:inputText id="email"
-				value="#{atendenteControlador.atendente.email}" />
-
-			<h:outputLabel value="Nome" for="chaveNome" />
-			<h:inputText id="nome" value="#{atendenteControlador.atendente.nome}" />
-
-			<h:outputLabel value="Ramal" for="chaveNome" />
-			<h:inputText id="ramal"
-				value="#{atendenteControlador.atendente.ramal}" />
-
-			<h:outputLabel value="Status" for="status" />
-			<h:selectOneMenu value="#{atendenteControlador.atendente.status}"
-				id="status">
-				<f:selectItem itemValue="AUSENTE" itemLabel="1-Ausente" />
-				<f:selectItem itemValue="DISPONIVEL" itemLabel="2-Disponivel" />
+			<h:outputLabel value="Tipo Mensagem" for="tipo" />
+			<h:selectOneMenu id="tipo" value="#{mensagemControlador.tipoCodigo}" >
+				<f:selectItems value="#{tipomensagemControlador.tiposMensagens}"
+					var="tms" itemValue="#{tms.codigo}"
+					itemLabel="#{tms.descricao}" />
 			</h:selectOneMenu>
 
-			<h:outputLabel value="Ultimo Acesso" for="chaveNome" />
-			<p:calendar id="ultimoacesso"
-				value="#{atendenteControlador.atendente.ultimoAcesso}" />
+			<h:outputLabel value="Atendente" for="atennome" />
+			<h:selectOneMenu id="atennome"
+				value="#{mensagemControlador.ateCodigo}">
+				<f:selectItems value="#{atendenteControlador.atendentes}" var="ate"
+					itemValue="#{ate.codigo}" itemLabel="#{ate.nome}" />
+			</h:selectOneMenu>
 
-		</h:panelGrid>
-		<h:commandButton action="#{atendenteControlador.incluir}"
-			value="Confirmar" />
-		<h:commandButton action="atendenteListagem" value="Cancelar" />
+
+		</h:panelGrid>	
+		<b:commandButton action="#{mensagemControlador.atualizar}"
+			value="Enviar" iconAwesome="fa-send"/>
+		<b:commandButton action="mensagemListagem" value="Cancelar" />
 	</h:form>
 </h:body>
 </html>
