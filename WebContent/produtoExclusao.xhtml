@@ -3,13 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Administrator Tabajara</title>
 </h:head>
 <h:body>
-	 <b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
+	<b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
 		fixed="top" inverse="true">
 		<b:navbarLinks>
 			<b:dropMenu value="" iconAwesome="fa-child">
@@ -80,25 +81,52 @@
 	</b:navBar>
 	<h:form>
 		<h:panelGrid>
-			<h:outputLabel value="Código" for="chaveNome"/>
-			<h:inputText id="codigo" value="#{bancoControlador.banco.codigo}" disabled="true"/>
-			<h:outputLabel value="CPF" for="chaveNome"/>
-			<h:inputText id="cpf" value="#{atendenteControlador.atendente.cpf}"/>
-			<h:outputLabel value="Perfil" for="chaveNome"/>
-			<h:inputText id="perfil" value="#{atendenteControlador.atendente.perfil}"/>
-			<h:outputLabel value="Email" for="chaveNome"/>
-			<h:inputText id="email" value="#{atendenteControlador.atendente.email}"/>
-			<h:outputLabel value="Nome" for="chaveNome"/>
-			<h:inputText id="nome" value="#{atendenteControlador.atendente.nome}"/>
-			<h:outputLabel value="Ramal" for="chaveNome"/>
-			<h:inputText id="ramal" value="#{atendenteControlador.atendente.ramal}"/>
-			<h:outputLabel value="Status" for="chaveNome"/>
-			<h:inputText id="status" value="#{atendenteControlador.atendente.status}"/>
-			<h:outputLabel value="Ultimo Acesso" for="chaveNome"/>
-			<h:inputText id="ultimoacesso" value="#{atendenteControlador.atendente.ultimoAcesso}"/>
+
+			<h:outputLabel value="Descrição" for="descricao" />
+			<h:inputText id="descricao"
+				value="#{produtoControlador.produto.descricao}" />
+
+			<h:outputLabel value="Quantidade" for="qtd" />
+			<h:inputText id="qtd"
+				value="#{produtoControlador.produto.qntDisponivel}" />
+
+			<h:outputLabel value="Ultima Aquisição" for="aquisicao" />
+			<p:calendar id="aquisicao"
+				value="#{produtoControlador.produto.ultimaAquisicao}" />
+
+			<h:outputLabel value="Valor Unitário" for="valor" />
+			<h:inputText id="valor"
+				value="#{produtoControlador.produto.valorUnitario}" />
+
+			<h:outputLabel value="Fabricante" for="fabricante" />
+			<h:inputText id="fabricante"
+				value="#{produtoControlador.produto.fabricante}" />
+
+			<h:outputLabel value="Detalhes" for="detalhes" />
+			<h:inputText id="detalhes"
+				value="#{produtoControlador.produto.detalhes}" />
+
+			<h:outputLabel value="Categoria" for="categoria" />
+			<h:selectOneMenu id="categoria"
+				value="#{produtoControlador.catCodigo}">
+				<f:selectItems value="#{categoriaControlador.categorias}"
+					var="categoria" itemValue="#{categoria.codigo}"
+					itemLabel="#{categoria.descricao}" />
+			</h:selectOneMenu>
+
+
+			<h:outputLabel value="Fornecedor" for="fornecedor" />
+			<h:selectOneMenu id="fornecedor"
+				value="#{produtoControlador.forCodigo}">
+				<f:selectItems value="#{fornecedorControlador.fornecedors}"
+					var="fornecedor" itemValue="#{fornecedor.codigo}"
+					itemLabel="#{fornecedor.razaoSocial}" />
+			</h:selectOneMenu>
+
 		</h:panelGrid>
-		<h:commandButton action="#{atendenteControlador.remover}" value="Confirmar"/>
-		<h:commandButton action="atendenteListagem" value="Cancelar"/>
+		<h:commandButton action="#{produtoControlador.remover}"
+			value="Confirmar" />
+		<h:commandButton action="produtoListagem" value="Cancelar" />
 	</h:form>
 </h:body>
 </html>
