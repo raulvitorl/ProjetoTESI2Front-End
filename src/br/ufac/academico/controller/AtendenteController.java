@@ -1,24 +1,17 @@
 package br.ufac.academico.controller;
-
 import java.util.List;
-
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.*;
-import javax.faces.context.FacesContext;
-
-import org.primefaces.PrimeFaces;
-
 import br.ufac.academico.domain.*;
 import br.ufac.academico.repositories.*;
 
 @ManagedBean(name="atendenteControlador")
 @SessionScoped
-public class AtendenteMB { 
+public class AtendenteController { 
 	private AtendenteRepositorio br;
 	private List<Atendente> atendentes;
 	private String chaveNome = "";
 	private Atendente atendente;
-	public AtendenteMB() {
+	public AtendenteController() {
 		br = new AtendenteRepositorio();		
 	}
 	public List<Atendente> getAtendentes() {

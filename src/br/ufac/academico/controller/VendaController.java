@@ -2,17 +2,14 @@ package br.ufac.academico.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.faces.bean.*;
-
 import br.ufac.academico.domain.*;
 import br.ufac.academico.repositories.*;
 
 @ManagedBean(name="vendaControlador")
 @SessionScoped
-public class VendaMB { 
+public class VendaController { 
 	private VendaRepositorio vr;
-	@SuppressWarnings("unused")
 	private ProdutoRepositorio pr;
 	private ClienteRepositorio cr;
 	private AtendenteRepositorio ar;
@@ -23,9 +20,25 @@ public class VendaMB {
 	private Integer cliCodigo;
 	private Integer ateCodigo;
 	private Integer banCodigo;
+	private Integer proCodigo;
 	private List <Produto> produtos = new ArrayList<>();
+	private Produto produto;
 	
-	public VendaMB() {
+	
+	
+	public Integer getProCodigo() {
+		return proCodigo;
+	}
+	public void setProCodigo(Integer proCodigo) {
+		this.proCodigo = proCodigo;
+	}
+	public Produto getProduto() {
+		return produto;
+	}
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+	public VendaController() {
 		vr = new VendaRepositorio();
 		pr = new ProdutoRepositorio();
 		cr = new ClienteRepositorio();
@@ -76,8 +89,6 @@ public class VendaMB {
 		this.venda = venda;
 	}
 	
-	
-	
 	public Integer getBanCodigo() {
 		return banCodigo;
 	}
@@ -121,15 +132,28 @@ public class VendaMB {
 		return "vendaExclusao";
 	}
 	
-	public double valorTotal(List <Produto> produtos){
+	
+	public String adiciona(){
+		produto = pr.recuperar(proCodigo);
+		produtos.add(produto);
+		int tot = produto.getQntDisponivel();
+		produto.setQntDisponivel(tot-1);
+		pr.atualizar(produto);
+		System.out.println("Tem "+produto.getQntDisponivel()+" Sofás");
+		return "#";
+	}
+	
+	public float valorTotal(List <Produto> produtos){
 		if(produtos.isEmpty() || produtos==null)
 			return 0;
-		double valor=0;
+		float valor=0;
 		for(int i=0;i<produtos.size();i++){
 			valor+=produtos.get(i).getValorUnitario();
 		}
+		
 		return valor;
 	}
 	
+
 	
 }

@@ -9,7 +9,7 @@ import br.ufac.academico.repositories.*;
 
 @ManagedBean(name="tipomensagemControlador")
 @SessionScoped
-public class TipoMensagemMB { 
+public class TipoMensagemController { 
 	private TipoMensagemRepositorio br;
 	private List<TipoMensagem> tipomensagens;
 	private String chaveNome = "";
@@ -29,7 +29,7 @@ public class TipoMensagemMB {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	public TipoMensagemMB() {
+	public TipoMensagemController() {
 		br = new TipoMensagemRepositorio();		
 	}
 	public List<TipoMensagem> getTiposMensagens() {

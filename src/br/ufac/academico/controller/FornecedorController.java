@@ -9,7 +9,7 @@ import br.ufac.academico.repositories.*;
 
 @ManagedBean(name="fornecedorControlador")
 @SessionScoped
-public class FornecedorMB { 
+public class FornecedorController { 
 	private FornecedorRepositorio br;
 	private MunicipioRepositorio mr;	
 	private List<Fornecedor> fornecedores;
@@ -17,7 +17,7 @@ public class FornecedorMB {
 	private Fornecedor fornecedor;
 	private Integer munCodigo;
 	
-	public FornecedorMB() {
+	public FornecedorController() {
 		br = new FornecedorRepositorio();
 		mr = new MunicipioRepositorio();		
 	}

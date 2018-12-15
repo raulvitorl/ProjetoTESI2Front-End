@@ -9,7 +9,7 @@ import br.ufac.academico.repositories.*;
 
 @ManagedBean(name="mensagemControlador")
 @SessionScoped
-public class MensagemMB { 
+public class MensagemController { 
 	private MensagemRepositorio mr;
 	private AtendenteRepositorio ar;
 	private TipoMensagemRepositorio tmsr;
@@ -17,7 +17,7 @@ public class MensagemMB {
 	private String chaveNome = "";
 	private Mensagem mensagem;
 	private Integer ateCodigo;
-	private long tipoCodigo;
+	private Integer tipoCodigo;
 	private String men_texto;
 	private String men_data_envio;
 	
@@ -31,15 +31,15 @@ public class MensagemMB {
 		this.ateCodigo = ateCodigo;
 	}
 
-	public long getTipoCodigo() {
+	public Integer getTipoCodigo() {
 		return tipoCodigo;
 	}
 
-	public void setTipoCodigo(long tipoCodigo) {
+	public void setTipoCodigo(Integer tipoCodigo) {
 		this.tipoCodigo = tipoCodigo;
 	}
 
-	public MensagemMB() {
+	public MensagemController() {
 		mr = new MensagemRepositorio();
 		ar = new AtendenteRepositorio();
 		tmsr = new TipoMensagemRepositorio();
@@ -65,13 +65,13 @@ public class MensagemMB {
 		this.mensagem = mensagem;
 	}
 
-	public long getMen_ate_codigo() {
+	public Integer getMen_ate_codigo() {
 		return ateCodigo;
 	}
 	public void setMen_ate_codigo(int ateCodigo) {
 		this.ateCodigo = ateCodigo;
 	}
-	public long getMen_tms_codigo() {
+	public Integer getMen_tms_codigo() {
 		return tipoCodigo;
 	}
 	public void setMen_tms_codigo(int tipoCodigo) {

@@ -9,7 +9,50 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Administrator Tabajara</title>
 </h:head>
+
 <h:body>
+<script type="text/javascript">
+    //<![CDATA[
+    /**
+     * Faces Validator
+     */
+    PrimeFaces.validator['custom.emailValidator'] = {
+         
+        pattern: /\S+@\S+/,
+         
+        validate: function(element, value) {
+            //use element.data() to access validation metadata, in this case there is none.
+            if(!this.pattern.test(value)) {
+                throw {
+                    summary: 'Validation Error',
+                    detail: value + ' is not a valid email.'
+                }
+            }
+        }
+    };
+     
+    /**
+     * Bean validator
+     */
+    PrimeFaces.validator['Email'] = {
+         
+        pattern: /\S+@\S+/,
+                 
+        MESSAGE_ID: 'org.primefaces.examples.validate.email.message',
+         
+        validate: function(element, value) {
+            var vc = PrimeFaces.util.ValidationContext;
+     
+            if(!this.pattern.test(value)) {
+                var msgStr = element.data('p-email-msg'),
+                msg = msgStr ? {summary:msgStr, detail: msgStr} : vc.getMessage(this.MESSAGE_ID);
+         
+                throw msg;
+            }
+        }
+    };
+    //]]>
+</script>
 	<b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
 		fixed="top" inverse="true">
 		<b:navbarLinks>
@@ -85,44 +128,44 @@
 			<br></br>
 			<br></br>	
 			<h:outputLabel value="Nome" for="nome" />
-			<h:inputText id="nome" value="#{clienteControlador.cliente.nome}" />
+			<h:inputText id="nome" value="#{clienteControlador.cliente.nome}" required="true"/>
 			
 			<h:outputLabel value="Nome para Contato" for="nomeCont" />
 			<h:inputText id="nomeCont" value="#{clienteControlador.cliente.contato}" />
 
 			<h:outputLabel value="CPF" for="cpf" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})"/>
-			<p:inputMask id="cpf" value="#{clienteControlador.cliente.cpf}" mask="999.999.999-99"/>
+			<p:inputMask id="cpf" value="#{clienteControlador.cliente.cpf}" mask="999.999.999-99" required="true"/>
 			
 			<h:outputLabel value="Sexo" for="sexo" />
-			<h:selectOneMenu value="#{clienteControlador.cliente.sexo}" id="sexo">
+			<h:selectOneMenu value="#{clienteControlador.cliente.sexo}" id="sexo" required="true">
 				<f:selectItem itemValue="MASCULINO" itemLabel="1-Masculino" />
 				<f:selectItem itemValue="FEMININO" itemLabel="2-Feminino" />
 			</h:selectOneMenu>
 			
 			<h:outputLabel value="Endereço" for="endereco" />
-			<h:inputText id="endereco" value="#{clienteControlador.cliente.endereco}" />
+			<h:inputText id="endereco" value="#{clienteControlador.cliente.endereco}" required="true"/>
 
 			<h:outputLabel value="Email" for="email" />
-			<h:inputText id="email" value="#{clienteControlador.cliente.email}" />
+			<h:inputText id="email" value="#{clienteControlador.cliente.email}" required="true"/>
 
-			<h:outputLabel value="Tipo" for="tipo" />
+			<h:outputLabel value="Tipo" for="tipo" required="true"/>
 			<h:selectOneMenu value="#{clienteControlador.cliente.tipo}" id="tipo">
 				<f:selectItem itemValue="PESSOAFISICA" itemLabel="1-Pessoa Física" />
 				<f:selectItem itemValue="PESSOAJURIDICA" itemLabel="2-Pessoa Juríica" />
 			</h:selectOneMenu>
 			
 			<h:outputLabel value="Status" for="status" />
-			<h:selectOneMenu value="#{clienteControlador.cliente.status}" id="status">
+			<h:selectOneMenu value="#{clienteControlador.cliente.status}" id="status" >
 				<f:selectItem itemValue="DEVEDOR" itemLabel="1-Devedor" />
 				<f:selectItem itemValue="QUITADO" itemLabel="2-Quitado" />
 				<f:selectItem itemValue="CREDOR" itemLabel="3-Credor" />
 			</h:selectOneMenu>
 			
 			<h:outputLabel value="Fone" for="fone" />
-			<p:inputMask id="fone" value="#{clienteControlador.cliente.fone}" mask="(99) 99999-9999"/>
+			<p:inputMask id="fone" value="#{clienteControlador.cliente.fone}" mask="(99) 99999-9999" required="true"/>
 	
 			<h:outputLabel value="Nascimento" for="nascimento" />
-			<p:calendar id="nascimento" value="#{clienteControlador.cliente.nascimento}" />
+			<p:calendar id="nascimento" value="#{clienteControlador.cliente.nascimento}" required="true"/>
 			
 			
 			<h:selectOneMenu id="municipio" 

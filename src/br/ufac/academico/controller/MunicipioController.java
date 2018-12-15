@@ -9,7 +9,7 @@ import br.ufac.academico.repositories.*;
 
 @ManagedBean(name="municipioControlador")
 @SessionScoped
-public class MunicipioMB { 
+public class MunicipioController { 
 	private MunicipioRepositorio br;
 	private List<Municipio> municipios;
 	private String chaveNome = "";
@@ -22,7 +22,7 @@ public class MunicipioMB {
 		this.municipio = municipio;
 	}
 	
-	public MunicipioMB() {
+	public MunicipioController() {
 		br = new MunicipioRepositorio();		
 	}
 	public List<Municipio> getMunicipios() {

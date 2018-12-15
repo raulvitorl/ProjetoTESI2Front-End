@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Administrator Tabajara</title>
 </h:head>
 <h:body>
-	 <b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
+	<b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
 		fixed="top" inverse="true">
 		<b:navbarLinks>
 			<b:dropMenu value="" iconAwesome="fa-child">
@@ -78,27 +79,62 @@
 			</b:dropMenu>
 		</b:navbarLinks>
 	</b:navBar>
+	<br></br>
+	<br></br>
+	<br></br>
 	<h:form>
 		<h:panelGrid>
-			<h:outputLabel value="Código" for="chaveNome"/>
-			<h:inputText id="codigo" value="#{bancoControlador.banco.codigo}" disabled="true"/>
-			<h:outputLabel value="CPF" for="chaveNome"/>
-			<h:inputText id="cpf" value="#{atendenteControlador.atendente.cpf}"/>
-			<h:outputLabel value="Perfil" for="chaveNome"/>
-			<h:inputText id="perfil" value="#{atendenteControlador.atendente.perfil}"/>
-			<h:outputLabel value="Email" for="chaveNome"/>
-			<h:inputText id="email" value="#{atendenteControlador.atendente.email}"/>
-			<h:outputLabel value="Nome" for="chaveNome"/>
-			<h:inputText id="nome" value="#{atendenteControlador.atendente.nome}"/>
-			<h:outputLabel value="Ramal" for="chaveNome"/>
-			<h:inputText id="ramal" value="#{atendenteControlador.atendente.ramal}"/>
-			<h:outputLabel value="Status" for="chaveNome"/>
-			<h:inputText id="status" value="#{atendenteControlador.atendente.status}"/>
-			<h:outputLabel value="Ultimo Acesso" for="chaveNome"/>
-			<h:inputText id="ultimoacesso" value="#{atendenteControlador.atendente.ultimoAcesso}"/>
+
+			<h:outputLabel value="Cliente" for="clinome" />
+			<h:selectOneMenu id="clinome" value="#{vendaControlador.cliCodigo}">
+				<f:selectItems value="#{clienteControlador.clientes}" var="cli"
+					itemValue="#{cli.codigo}" itemLabel="#{cli.nome}" />
+			</h:selectOneMenu>
+
+			<h:outputLabel value="Atendente" for="atenome" />
+			<h:selectOneMenu id="atenome" value="#{vendaControlador.ateCodigo}">
+				<f:selectItems value="#{atendenteControlador.atendentes}" var="ate"
+					itemValue="#{ate.codigo}" itemLabel="#{ate.nome}" />
+			</h:selectOneMenu>
+
+			<h:outputLabel value="Banco" for="bannome" />
+			<h:selectOneMenu id="bannome" value="#{vendaControlador.banCodigo}">
+				<f:selectItems value="#{bancoControlador.bancos}" var="ban"
+					itemValue="#{ban.codigo}" itemLabel="#{ban.nome}" />
+			</h:selectOneMenu>
+
+			<form>
+				<h:outputLabel value="Produto " for="prod" />
+			<h:selectOneMenu id="prod"
+				value="#{vendaControlador.proCodigo}">
+				<f:selectItems value="#{produtoControlador.produtos}" var="prod"
+					itemValue="#{prod.codigo}" itemLabel="#{prod.descricao}" />
+			</h:selectOneMenu>
+			<h:commandButton action="#{vendaControlador.adiciona}"
+			value="Adicionar" />
+			</form>							
+
+			<h:outputLabel value=" Forma de Pagamento" for="pag" />
+			<h:selectOneMenu value="#{vendaControlador.venda.formaPagamento}"
+				id="pag">
+				<f:selectItem itemValue="DINHEIRO" itemLabel="1-Dinheiro" />
+				<f:selectItem itemValue="CARTÃO" itemLabel="2-Cartão" />
+			</h:selectOneMenu>
+
+			<h:outputLabel value="Status de Pagamento" for="pagstatus" />
+			<h:selectOneMenu value="#{vendaControlador.venda.statusPagamento}"
+				id="pagstatus">
+				<f:selectItem itemValue="PENDENTE" itemLabel="1-Pendente" />
+				<f:selectItem itemValue="PAGO" itemLabel="2-Pago" />
+			</h:selectOneMenu>
+
+			<h:outputLabel value="Observações" for="obs" />
+			<h:inputText id="obs" value="#{vendaControlador.venda.observacoes}" />
+
 		</h:panelGrid>
-		<h:commandButton action="#{atendenteControlador.remover}" value="Confirmar"/>
-		<h:commandButton action="atendenteListagem" value="Cancelar"/>
+		<h:commandButton action="#{vendaControlador.remover}"
+			value="Confirmar" />
+		<h:commandButton action="vendaListagem" value="Cancelar" />
 	</h:form>
 </h:body>
 </html>

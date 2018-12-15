@@ -9,7 +9,7 @@ import br.ufac.academico.repositories.*;
 
 @ManagedBean(name="produtoControlador")
 @SessionScoped
-public class ProdutoMB { 
+public class ProdutoController { 
 	private ProdutoRepositorio br;
 	private FornecedorRepositorio fr;
 	private CategoriaProdutoRepositorio cpr;
@@ -19,7 +19,7 @@ public class ProdutoMB {
 	private String chaveNome = "";
 	private Produto produto;
 	
-	public ProdutoMB() {
+	public ProdutoController() {
 		br = new ProdutoRepositorio();		
 		cpr = new CategoriaProdutoRepositorio();
 		fr = new FornecedorRepositorio();

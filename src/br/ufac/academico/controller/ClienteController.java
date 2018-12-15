@@ -9,14 +9,14 @@ import br.ufac.academico.repositories.*;
 
 @ManagedBean(name="clienteControlador")
 @SessionScoped
-public class ClienteMB { 
+public class ClienteController { 
 	private ClienteRepositorio br;
 	private MunicipioRepositorio mr;
 	private List<Cliente> clientes;
 	private Integer munCodigo;
 	private String chaveNome = "";
 	private Cliente cliente;
-	public ClienteMB() {
+	public ClienteController() {
 		br = new ClienteRepositorio();	
 		mr = new MunicipioRepositorio();
 	}

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:b="http://bootsfaces.net/ui"
@@ -103,14 +103,27 @@
 					itemValue="#{ban.codigo}" itemLabel="#{ban.nome}" />
 			</h:selectOneMenu>
 
+			<form>
+				<h:outputLabel value="Produto " for="prod" />
+			<h:selectOneMenu id="prod"
+				value="#{vendaControlador.proCodigo}">
+				<f:selectItems value="#{produtoControlador.produtos}" var="prod"
+					itemValue="#{prod.codigo}" itemLabel="#{prod.descricao}" />
+			</h:selectOneMenu>
+			<h:commandButton action="#{vendaControlador.adiciona}"
+			value="Adicionar" />
+			</form>							
+
 			<h:outputLabel value=" Forma de Pagamento" for="pag" />
-			<h:selectOneMenu value="#{vendaControlador.venda.formaPagamento}" id="pag">
+			<h:selectOneMenu value="#{vendaControlador.venda.formaPagamento}"
+				id="pag">
 				<f:selectItem itemValue="DINHEIRO" itemLabel="1-Dinheiro" />
 				<f:selectItem itemValue="CARTÃO" itemLabel="2-Cartão" />
 			</h:selectOneMenu>
-			
+
 			<h:outputLabel value="Status de Pagamento" for="pagstatus" />
-			<h:selectOneMenu value="#{vendaControlador.venda.statusPagamento}" id="pagstatus">
+			<h:selectOneMenu value="#{vendaControlador.venda.statusPagamento}"
+				id="pagstatus">
 				<f:selectItem itemValue="PENDENTE" itemLabel="1-Pendente" />
 				<f:selectItem itemValue="PAGO" itemLabel="2-Pago" />
 			</h:selectOneMenu>

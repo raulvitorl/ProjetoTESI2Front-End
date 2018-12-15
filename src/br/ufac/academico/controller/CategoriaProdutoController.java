@@ -10,13 +10,13 @@ import br.ufac.academico.repositories.*;
 
 @ManagedBean(name="categoriaControlador")
 @SessionScoped
-public class CategoriaProdutoMB { 
+public class CategoriaProdutoController { 
 	private CategoriaProdutoRepositorio cr;
 	private List<CategoriaProduto> categorias;
 	private String chaveNome = "";
 	private CategoriaProduto categoria;
 	
-	private long catCodigo;
+	private Integer catCodigo;
 	
 	private int catIdentificador;
 	
@@ -36,10 +36,10 @@ public class CategoriaProdutoMB {
 	public void setCategoria(CategoriaProduto categoria) {
 		this.categoria = categoria;
 	}
-	public long getCatCodigo() {
+	public Integer getCatCodigo() {
 		return catCodigo;
 	}
-	public void setCatCodigo(long catCodigo) {
+	public void setCatCodigo(Integer catCodigo) {
 		this.catCodigo = catCodigo;
 	}
 	public int getCatIdentificador() {
@@ -54,7 +54,7 @@ public class CategoriaProdutoMB {
 	public void setCatDescricao(String catDescricao) {
 		this.catDescricao = catDescricao;
 	}
-	public CategoriaProdutoMB() {
+	public CategoriaProdutoController() {
 		cr = new CategoriaProdutoRepositorio();		
 	}
 	public List<CategoriaProduto> getBancos() {

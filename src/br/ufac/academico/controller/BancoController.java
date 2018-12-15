@@ -9,13 +9,13 @@ import br.ufac.academico.repositories.*;
 
 @ManagedBean(name="bancoControlador")
 @SessionScoped
-public class BancoMB { 
+public class BancoController { 
 	private BancoRepositorio br;
 	private List<Banco> bancos;
 	private String chaveNome = "";
 	private Banco banco;
 	
-	public BancoMB() {
+	public BancoController() {
 		br = new BancoRepositorio();		
 	}
 	public List<Banco> getBancos() {

@@ -104,6 +104,11 @@
 					<b:commandButton value="Excluir" look="danger"
 						action="#{vendaControlador.excluir(venda)}" iconAwesome="fa-user-times" />
 				</h:column>
+				<h:column>
+					<f:facet name="header">Operação</f:facet>
+					<b:commandButton value="Extrato" look="success"
+						iconAwesome="fa-file-text-o" />
+				</h:column>
 			</b:dataTable>
 		</h:form>
 	</b:container>
