@@ -78,16 +78,19 @@
 			</b:dropMenu>
 		</b:navbarLinks>
 	</b:navBar>
-	<b:container style="padding: 60px">
+	<br></br>
+	<br></br>
+	<br></br>
+	<b:container>
 		<h:form>
 			<b:commandButton action="#{municipioControlador.novo}" value="novo"
 				look="primary" />
 			<b:commandButton action="index" value="voltar" look="info" />
 			<b:dataTable value="#{municipioControlador.municipios}" var="municipio">
-				<b:dataTableColumn value="#{municipio.codigo}" title="Código" />
-				<b:dataTableColumn value="#{municipio.nome}" title="Nome" />
-				<b:dataTableColumn value="#{municipio.ufEstado}" title="UF" />
-				<b:dataTableColumn value="#{municipio.cep}" title="CEP" />
+				<b:dataTableColumn value="#{municipio.codigo}" label="Código" />
+				<b:dataTableColumn value="#{municipio.nome}" label="Nome" />
+				<b:dataTableColumn value="#{municipio.ufEstado}" label="UF" />
+				<b:dataTableColumn value="#{municipio.cep}" label="CEP" />
 				<h:column>
 					<f:facet name="header">Operação</f:facet>
 					<b:commandButton value="Editar" icon="edit" look="primary"

@@ -88,15 +88,15 @@
 			<b:commandButton action="index" value="voltar" look="info" />
 			<b:dataTable value="#{produtoControlador.produtos}"
 				var="produto">
-				<b:dataTableColumn value="#{produto.codigo}" title="Código" />
-				<b:dataTableColumn value="#{produto.fornecedor.razaoSocial}" title="Fornecedor" />
-				<b:dataTableColumn value="#{produto.categoria.descricao}" title="Categoria" />
-				<b:dataTableColumn value="#{produto.descricao}" title="Descrição" />
-				<b:dataTableColumn value="#{produto.qntDisponivel}" title="Quantidade" />
-				<b:dataTableColumn value="#{produto.ultimaAquisicao}" title="Ultima Aquisição" />
-				<b:dataTableColumn value="#{produto.valorUnitario}" title="Valor Unitário" />
-				<b:dataTableColumn value="#{produto.fabricante}" title="Fabricante" />
-				<b:dataTableColumn value="#{produto.detalhes}" title="Detalhes" />
+				<b:dataTableColumn value="#{produto.codigo}" label="Código" />
+				<b:dataTableColumn value="#{produto.fornecedor.razaoSocial}" label="Fornecedor" />
+				<b:dataTableColumn value="#{produto.categoria.descricao}" label="Categoria" />
+				<b:dataTableColumn value="#{produto.descricao}" label="Descrição" />
+				<b:dataTableColumn value="#{produto.qntDisponivel}" label="Quantidade" />
+				<b:dataTableColumn value="#{produto.ultimaAquisicao}" label="Ultima Aquisição" />
+				<b:dataTableColumn value="#{produto.valorUnitario}" label="Valor Unitário" />
+				<b:dataTableColumn value="#{produto.fabricante}" label="Fabricante" />
+				<b:dataTableColumn value="#{produto.detalhes}" label="Detalhes" />
 				<h:column>
 					<f:facet name="header">Operação</f:facet>
 					<b:commandButton value="Editar" icon="edit" look="primary"

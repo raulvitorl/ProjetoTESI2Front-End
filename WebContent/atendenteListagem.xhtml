@@ -88,19 +88,20 @@
 			<b:commandButton action="index" value="voltar" look="info" />
 			<b:dataTable value="#{atendenteControlador.atendentes}"
 				var="atendente">
-				<b:dataTableColumn value="#{atendente.codigo}" title="Código" />
-				<b:dataTableColumn value="#{atendente.perfil}" title="Perfil" />
-				<b:dataTableColumn value="#{atendente.email}" title="Email" />
-				<b:dataTableColumn value="#{atendente.nome}" title="Nome" />
-				<b:dataTableColumn value="#{atendente.ramal}" title="Ramal" />
-				<b:dataTableColumn value="#{atendente.status}" title="Status" />
-				<b:dataTableColumn value="#{atendente.cpf}" title="CPF" />
+				<b:dataTableColumn value="#{atendente.codigo}" label="Código" />
+				<b:dataTableColumn value="#{atendente.perfil}" label="Perfil" />
+				<b:dataTableColumn value="#{atendente.email}" label="Email" />
+				<b:dataTableColumn value="#{atendente.nome}" label="Nome" />
+				<b:dataTableColumn value="#{atendente.ramal}" label="Ramal" />
+				<b:dataTableColumn value="#{atendente.status}" label="Status" />
+				<b:dataTableColumn value="#{atendente.cpf}" label="CPF" />
 				<b:dataTableColumn value="#{atendente.ultimoAcesso}"
-					title="Ultimo Acesso" />
+					label="Ultimo Acesso" />
 				<h:column>
 					<f:facet name="header">Operação</f:facet>
 					<b:commandButton value="Editar" icon="edit" look="primary"
 						action="#{atendenteControlador.editar(atendente)}" />
+					
 				</h:column>
 				<h:column>
 					<f:facet name="header">Operação</f:facet>

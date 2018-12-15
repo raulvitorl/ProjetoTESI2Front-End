@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Administrator Tabajara</title>
@@ -87,7 +88,7 @@
 			<b:focus target="@previous" />
 			<h:inputText id="nome" value="#{municipioControlador.municipio.nome}"/>
 			<h:outputLabel value="CEP" for="chaveNome"/>
-			<h:inputText id="cep" value="#{municipioControlador.municipio.cep}"/>
+			<p:inputMask id="cep" value="#{municipioControlador.municipio.cep}" mask="99999-999"/>
 			<h:outputLabel value="UF" for="chaveNome"/>
 			<h:inputText id="uf" value="#{municipioControlador.municipio.ufEstado}"/>			
 		</h:panelGrid>

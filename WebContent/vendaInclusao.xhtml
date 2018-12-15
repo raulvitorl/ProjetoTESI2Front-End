@@ -79,44 +79,49 @@
 			</b:dropMenu>
 		</b:navbarLinks>
 	</b:navBar>
+	<br></br>
+	<br></br>
+	<br></br>
 	<h:form>
 		<h:panelGrid>
-			<h:outputLabel value="Código" for="chaveNome" />
-			<h:inputText id="codigo"
-				value="#{atendenteControlador.atendente.codigo}" />
 
-			<h:outputLabel value="CPF" for="chaveNome" />
-			<h:inputText id="cpf" value="#{atendenteControlador.atendente.cpf}" />
-
-			<h:outputLabel value="Perfil" for="chaveNome" />
-			<h:selectOneMenu value="#{atendenteControlador.atendente.perfil}">
-				<f:selectItem itemValue="SUPERVISOR" itemLabel="1-Supervisor" />
-				<f:selectItem itemValue="BALCONISTA" itemLabel="2-Balconista" />
+			<h:outputLabel value="Cliente" for="clinome" />
+			<h:selectOneMenu id="clinome" value="#{vendaControlador.cliCodigo}">
+				<f:selectItems value="#{clienteControlador.clientes}" var="cli"
+					itemValue="#{cli.codigo}" itemLabel="#{cli.nome}" />
 			</h:selectOneMenu>
 
-			<h:outputLabel value="Email" for="chaveNome" />
-			<h:inputText id="email"
-				value="#{atendenteControlador.atendente.email}" />
+			<h:outputLabel value="Atendente" for="atenome" />
+			<h:selectOneMenu id="atenome" value="#{vendaControlador.ateCodigo}">
+				<f:selectItems value="#{atendenteControlador.atendentes}" var="ate"
+					itemValue="#{ate.codigo}" itemLabel="#{ate.nome}" />
+			</h:selectOneMenu>
 
-			<h:outputLabel value="Nome" for="chaveNome" />
-			<h:inputText id="nome" value="#{atendenteControlador.atendente.nome}" />
+			<h:outputLabel value="Banco" for="bannome" />
+			<h:selectOneMenu id="bannome" value="#{vendaControlador.banCodigo}">
+				<f:selectItems value="#{bancoControlador.bancos}" var="ban"
+					itemValue="#{ban.codigo}" itemLabel="#{ban.nome}" />
+			</h:selectOneMenu>
 
-			<h:outputLabel value="Ramal" for="chaveNome" />
-			<h:inputText id="ramal"
-				value="#{atendenteControlador.atendente.ramal}" />
+			<h:outputLabel value=" Forma de Pagamento" for="pag" />
+			<h:selectOneMenu value="#{vendaControlador.venda.formaPagamento}" id="pag">
+				<f:selectItem itemValue="DINHEIRO" itemLabel="1-Dinheiro" />
+				<f:selectItem itemValue="CARTÃO" itemLabel="2-Cartão" />
+			</h:selectOneMenu>
+			
+			<h:outputLabel value="Status de Pagamento" for="pagstatus" />
+			<h:selectOneMenu value="#{vendaControlador.venda.statusPagamento}" id="pagstatus">
+				<f:selectItem itemValue="PENDENTE" itemLabel="1-Pendente" />
+				<f:selectItem itemValue="PAGO" itemLabel="2-Pago" />
+			</h:selectOneMenu>
 
-			<h:outputLabel value="Status" for="chaveNome" />
-			<h:inputText id="status"
-				value="#{atendenteControlador.atendente.status}" />
-
-			<h:outputLabel value="Ultimo Acesso" for="chaveNome" />
-			<p:calendar id="ultimoacesso"
-				value="#{atendenteControlador.atendente.ultimoAcesso}" />
+			<h:outputLabel value="Observações" for="obs" />
+			<h:inputText id="obs" value="#{vendaControlador.venda.observacoes}" />
 
 		</h:panelGrid>
-		<h:commandButton action="#{atendenteControlador.incluir}"
+		<h:commandButton action="#{vendaControlador.incluir}"
 			value="Confirmar" />
-		<h:commandButton action="atendenteListagem" value="Cancelar" />
+		<h:commandButton action="vendaListagem" value="Cancelar" />
 	</h:form>
 </h:body>
 </html>

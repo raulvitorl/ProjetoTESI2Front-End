@@ -16,19 +16,18 @@ public class MensagemMB {
 	private List<Mensagem> mensagens;
 	private String chaveNome = "";
 	private Mensagem mensagem;
-	private long ateCodigo;
+	private Integer ateCodigo;
 	private long tipoCodigo;
 	private String men_texto;
 	private String men_data_envio;
 	
-	
 
 	
-	public long getAteCodigo() {
+	public Integer getAteCodigo() {
 		return ateCodigo;
 	}
 
-	public void setAteCodigo(long ateCodigo) {
+	public void setAteCodigo(Integer ateCodigo) {
 		this.ateCodigo = ateCodigo;
 	}
 
@@ -128,5 +127,7 @@ public class MensagemMB {
 		mr.remover(mensagem);
 		return "mensagemListagem";
 	}
+	
+	
 
 }
