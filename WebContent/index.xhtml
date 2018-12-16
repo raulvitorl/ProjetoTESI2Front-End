@@ -5,75 +5,61 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Tabajara Administrator</title>
-        <meta name="author" content="The Author"></meta>
-    </h:head>
-    <h:body style="padding: 60px;">
+<h:head>
+	<title>Tabajara Administrator</title>
+	<meta name="author" content="The Author"></meta>
+</h:head>
+<h:body style="padding: 60px;">
 
-       <b:navBar brand="Administrator Tabajara" brandHref="index.xhtml" fixed="top" inverse="true">
-            <b:navbarLinks>
-                <b:dropMenu value="" iconAwesome="fa-child">
-                	<b:navLink value="Buscar Atendentes" action="atendenteListagem" href="atendenteListagem.xhtml"></b:navLink>
-                	<b:navLink value="Incluir Atendentes" action="atendenteInclusao" href="atendenteInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                <b:dropMenu value="" iconAwesome="fa-bank">
-                	<b:navLink action="bancoListagem" value="Buscar Bancos" href="bancoListagem.xhtml"></b:navLink>
-                	<b:navLink action="bancoInclusao" value="Incluir Bancos" href="bancoInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                <b:dropMenu value="" iconAwesome="fa-table">
-                	<b:navLink action="categoriaListagem" value="Buscar Categorias" href="categoriaListagem.xhtml"></b:navLink>
-                	<b:navLink action="categoriaInclusao" value="Incluir Categorias" href="categoriaInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                 <b:dropMenu value="" iconAwesome="fa-globe">
-                	<b:navLink action="municipioListagem" value="Buscar Municipios" href="municipioListagem.xhtml"></b:navLink>
-                	<b:navLink action="municipioInclusao" value="Incluir Municipios" href="municipioInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                   <b:dropMenu value="" iconAwesome="fa-comments-o">
-                	<b:navLink action="tipomensagemListagem" value="Buscar Tipos de Mensagens" href="tipomensagemListagem.xhtml"></b:navLink>
-                	<b:navLink action="tipomensagemInclusao" value="Incluir Tipos de Mensagens" href="tipomensagemInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                <b:dropMenu value="" iconAwesome="fa-comments">
-                	<b:navLink action="mensagemListagem" value="Buscar Mensagens" href="mensagemListagem.xhtml"></b:navLink>
-                	<b:navLink action="mensagemInclusao" value="Incluir Mensagens" href="mensagemInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                <b:dropMenu value="" iconAwesome="fa-group">
-                	<b:navLink action="clienteListagem" value="Buscar Clientes" href="clienteListagem.xhtml"></b:navLink>
-                	<b:navLink action="clienteInclusao" value="Incluir Clientes" href="clienteInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                
-                
-                <b:dropMenu value="" iconAwesome="fa-shopping-cart">
-                	<b:navLink action="vendaListagem" value="Buscar Vendas" href="vendaListagem.xhtml"></b:navLink>
-                	<b:navLink action="vendaInclusao" value="Incluir Vendas" href="vendaInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                
-                <b:dropMenu value="" iconAwesome="fa-truck">
-                	<b:navLink action="fornecedorListagem" value="Buscar Fornecedores" href="fornecedorListagem.xhtml"></b:navLink>
-                	<b:navLink action="fornecedorInclusao" value="Incluir Fornecedores" href="fornecedorInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                
-                <b:dropMenu value="" iconAwesome="fa-archive">
-                	<b:navLink action="produtoListagem" value="Buscar Produtos" href="produtoListagem.xhtml"></b:navLink>
-                	<b:navLink action="	utoInclusao" value="Incluir Produtos" href="produtoInclusao.xhtml"></b:navLink>
-                </b:dropMenu>
-                
-                
-            </b:navbarLinks>
-        </b:navBar>
-        <b:container>
-            <b:jumbotron>
-                <h1>Administrator Tabajara</h1>
-                <p> Sistema em JSF, Hibernate, JPA e BootsFaces.</p>
-                <p> Desenvolvido para a disciplina de TESI II</p>
-                <p>
-                    <a href="https://github.com/raulvitorl/ProjetoTESI2" class="btn btn-lg btn-info">Back-End »</a>
-                </p>
-                <p>
-                    <a href="https://github.com/raulvitorl/ProjetoTESI2Web" class="btn btn-lg btn-info">Front-End »</a>
-                </p>
-            </b:jumbotron>
-        </b:container>
+	<b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
+		fixed="top" inverse="true">
+		<b:navbarLinks>
+			<b:dropMenu value="Logística" iconAwesome="fa-child">
+				<b:navLink value="Bancos" action="bancoListagem"
+					href="bancoListagem.xhtml"></b:navLink>
+				<b:navLink value="Categorias de Produtos"
+					action="categoriaListagem" href="categoriaListagem.xhtml"></b:navLink>
+				<b:navLink value="Fornecedores"
+					action="fornecedorListagem" href="fornecedorListagem.xhtml"></b:navLink>
+				<b:navLink value="Gerenciar Produtos" action="produtoListagem"
+					href="produtoListagem.xhtml"></b:navLink>
+			</b:dropMenu>
 
-    </h:body>
+			<b:dropMenu value="Comunicação" iconAwesome="fa-comments-o">
+				<b:navLink value="Mensagens" action="mensagemListagem"
+					href="mensagemListagem.xhtml"></b:navLink>
+				<b:navLink value="Tipos de Mensagens" action="tipomensagemListagem"
+					href="tipomensagemListagem.xhtml"></b:navLink>
+			</b:dropMenu>
+
+			<b:dropMenu value="Operacional" iconAwesome="fa-cogs">
+				<b:navLink value="Atendentes" action="atendenteListagem"
+					href="atendenteListagem.xhtml"></b:navLink>
+				<b:navLink value="Municipios" action="municipioListagem"
+					href="municipioListagem.xhtml"></b:navLink>
+				<b:navLink value="Clientes" action="clienteListagem"
+					href="clienteListagem.xhtml"></b:navLink>
+				<b:navLink value="Vendas" action="vendaListagem"
+					href="vendaListagem.xhtml"></b:navLink>
+			</b:dropMenu>
+
+		</b:navbarLinks>
+	</b:navBar>
+	<b:container>
+		<b:jumbotron>
+			<h1>Administrator Tabajara</h1>
+			<p>Sistema em JSF, Hibernate, JPA e BootsFaces.</p>
+			<p>Desenvolvido para a disciplina de TESI II</p>
+			<p>
+				<a href="https://github.com/raulvitorl/ProjetoTESI2"
+					class="btn btn-lg btn-info">Back-End »</a>
+			</p>
+			<p>
+				<a href="https://github.com/raulvitorl/ProjetoTESI2Web"
+					class="btn btn-lg btn-info">Front-End »</a>
+			</p>
+		</b:jumbotron>
+	</b:container>
+
+</h:body>
 </html>
