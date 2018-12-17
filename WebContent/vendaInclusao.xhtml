@@ -47,7 +47,8 @@
 	<br></br>
 	<br></br>
 	<br></br>
-	<h:form>
+	<div align="center">
+		<h:form>
 		<h:panelGrid>
 
 			<h:outputLabel value="Cliente" for="clinome" />
@@ -83,7 +84,7 @@
 			<h:selectOneMenu value="#{vendaControlador.venda.formaPagamento}"
 				id="pag">
 				<f:selectItem itemValue="DINHEIRO" itemLabel="1-Dinheiro" />
-				<f:selectItem itemValue="CARTÃO" itemLabel="2-Cartão" />
+				<f:selectItem itemValue="CARTAO" itemLabel="2-Cartão" />
 			</h:selectOneMenu>
 
 			<h:outputLabel value="Status de Pagamento" for="pagstatus" />
@@ -101,5 +102,7 @@
 			value="Confirmar" look="success"/>
 		<b:commandButton action="vendaListagem" value="Cancelar" look="danger"/>
 	</h:form>
+	</div>
+	
 </h:body>
 </html>

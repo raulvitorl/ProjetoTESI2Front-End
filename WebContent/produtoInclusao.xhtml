@@ -47,7 +47,8 @@
 	<br></br>
 	<br></br>
 	<br></br>
-	<h:form>
+	<div align="center">
+		<h:form>
 		<h:panelGrid>
 	
 			<h:outputLabel value="Descrição" for="descricao" />
@@ -59,7 +60,7 @@
 				
 			<h:outputLabel value="Ultima Aquisição" for="aquisicao" />
 			<p:calendar id="aquisicao"
-				value="#{produtoControlador.produto.ultimaAquisicao}" />			
+				value="#{produtoControlador.produto.ultimaAquisicao}" placeholder="DD/MM/AAA"/>			
 
 			<h:outputLabel value="Valor Unitário" for="valor" />
 			<h:inputText id="valor"
@@ -67,7 +68,7 @@
 
 			<h:outputLabel value="Fabricante" for="fabricante" />
 			<h:inputText id="fabricante"
-				value="#{produtoControlador.produto.fabricante}" />
+				value="#{produtoControlador.produto.fabricante}" placeholder="Produtor do produto"/>
 
 			<h:outputLabel value="Detalhes" for="detalhes" />
 			<h:inputText id="detalhes" value="#{produtoControlador.produto.detalhes}" />
@@ -92,5 +93,7 @@
 			value="Confirmar" look="success"/>
 		<b:commandButton action="produtoListagem" value="Cancelar" look="danger"/>
 	</h:form>
-</h:body>
+		
+	</div>
+	</h:body>
 </html>

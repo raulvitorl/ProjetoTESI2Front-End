@@ -47,12 +47,18 @@
 		<b:modal id="amodal2" title="Deseja realmente realizar esta remoção?"
 			styleClass="modalPseudoClass2" closable="false"
 			close-on-escape="false" backdrop="false">
-			
+
 			<f:facet name="footer">
 				<b:commandButton action="#{bancoControlador.remover}"
-				value="Confirmar" dismiss="modal" look="danger"/>
+					value="Confirmar" dismiss="modal" look="danger" onclick="$('.modalPseudoClass3').modal()"/>
 				<b:button value="Não" look="primary" dismiss="modal" />
 			</f:facet>
+		</b:modal>
+	</h:form>
+	<h:form id="myFormID2">
+		<b:modal id="amodal22" title="Registro removido!"
+			styleClass="modalPseudoClass3" closable="false"
+			close-on-escape="false" backdrop="false">
 		</b:modal>
 	</h:form>
 	<h:form>
@@ -64,8 +70,9 @@
 			<h:inputText id="nome" value="#{bancoControlador.banco.nome}"
 				disabled="true" />
 		</h:panelGrid>
-		<b:button onclick="$('.modalPseudoClass2').modal()" value="Confirmar" look="danger" />
-		<b:button href="bancoListagem.xhtml" value="Cancelar" />
+		<b:button onclick="$('.modalPseudoClass2').modal()" value="Confirmar"
+			look="danger" />
+		<b:button href="bancoListagem.xhtml" value="Cancelar" look="success"/>
 	</h:form>
 </h:body>
 </html>

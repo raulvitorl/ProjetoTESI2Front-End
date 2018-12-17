@@ -45,20 +45,23 @@
 
 		</b:navbarLinks>
 	</b:navBar>
-	<h:form>
+	<br></br>
+	<br></br>
+	<br></br>
+	<div>
+		<h:form>
 		<h:panelGrid>
-			<h:outputLabel value="Código" for="chaveNome"/>
-			<h:inputText id="codigo" value="#{municipioControlador.municipio.codigo}" disabled="true"/>
 			<h:outputLabel value="Nome" for="chaveNome"/>
 			<b:focus target="@previous" />
-			<h:inputText id="nome" value="#{municipioControlador.municipio.nome}"/>
+			<b:inputText id="nome" value="#{municipioControlador.municipio.nome}"/>
 			<h:outputLabel value="CEP" for="chaveNome"/>
 			<p:inputMask id="cep" value="#{municipioControlador.municipio.cep}" mask="99999-999"/>
 			<h:outputLabel value="UF" for="chaveNome"/>
-			<h:inputText id="uf" value="#{municipioControlador.municipio.ufEstado}"/>			
+			<b:inputText id="uf" value="#{municipioControlador.municipio.ufEstado}" size="2" maxlength="2"  required="true"/>			
 		</h:panelGrid>
 		<b:commandButton action="#{municipioControlador.incluir}" value="Confirmar" look="success" icon="ui-icon-star" ajax="false"/>
 		<b:commandButton action="municipioListagem" value="Cancelar" look="danger"/>
 	</h:form>
+	</div>	
 </h:body>
 </html>

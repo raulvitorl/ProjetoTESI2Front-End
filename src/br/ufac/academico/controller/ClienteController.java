@@ -9,8 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.*;
+import javax.faces.context.FacesContext;
 
+import org.primefaces.PrimeFaces;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
@@ -30,6 +33,7 @@ public class ClienteController {
 	private Integer munCodigo;
 	private String chaveNome = "";
 	private Cliente cliente;
+	private String mensagemDeErro;
 	public ClienteController() {
 		br = new ClienteRepositorio();	
 		mr = new MunicipioRepositorio();
@@ -58,6 +62,14 @@ public class ClienteController {
 		this.chaveNome = chaveNome;
 	}	
 	
+	
+	
+	public String getMensagemDeErro() {
+		return mensagemDeErro;
+	}
+	public void setMensagemDeErro(String mensagemDeErro) {
+		this.mensagemDeErro = mensagemDeErro;
+	}
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -83,8 +95,16 @@ public class ClienteController {
 		br.atualizar(cliente);
 		return "clienteListagem";
 	}
+	
 	public String remover() {
-		br.remover(cliente);
+		try {
+			br.remover(cliente);
+		} catch (Exception e) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
+					"O nome de administrador informado já esta sendo usado", 
+					"O nome de administrador informado já esta sendo usado"));
+		}
+		
 		return "clienteListagem";
 	}
 	public String excluir(Cliente cliente) {
@@ -96,9 +116,8 @@ public class ClienteController {
 		this.cliente = cliente;
 	}
 	
-	public String relatorio(Cliente c){ 
+	public String relatorio(Cliente c) throws DocumentException, IOException{ 
 		String nome = UUID.randomUUID().toString();
-		vendas = c.getVendas(); 
 		float valortotal = 0;
 		Document document = new Document(); 
 		try { 
@@ -106,7 +125,8 @@ public class ClienteController {
 			} catch (FileNotFoundException | DocumentException e) 
 		{ e.printStackTrace(); } 
 			document.open();
-			PdfPTable table = new PdfPTable(8);
+			vendas = c.getVendas();
+			
 		try { 
 			document.add(new Paragraph("CLIENTE:  "+c.getCodigo()+"   "+c.getNome()));
 			document.add(new Paragraph("CLIENTE DESDE:  "+c.getCadastro()));
@@ -119,13 +139,12 @@ public class ClienteController {
 			document.add(new Paragraph("VALOR TOTAL GASTO: R$"+valortotal));
 			}
 		
-		catch (DocumentException e) { e.printStackTrace(); }
-		try {
-			document.add(table);
-		} catch (DocumentException e1) {
-			e1.printStackTrace();
-		}
-		document.close(); 
+		catch (DocumentException | NullPointerException e) {
+			document.add(new Paragraph("CLIENTE NAO POSSUI DADOS PARA SEREM MOSTRADOS"));
+			document.close(); 
+			Desktop.getDesktop().open(new File(nome+".pdf")); 
+			return "vendaListagem";}
+			document.close(); 
 		try { 
 			Desktop.getDesktop().open(new File(nome+".pdf"));
 			} catch (IOException e) { e.printStackTrace(); } 

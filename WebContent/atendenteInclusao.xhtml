@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -16,10 +17,10 @@
 			<b:dropMenu value="Logística" iconAwesome="fa-child">
 				<b:navLink value="Bancos" action="bancoListagem"
 					href="bancoListagem.xhtml"></b:navLink>
-				<b:navLink value="Categorias de Produtos"
-					action="categoriaListagem" href="categoriaListagem.xhtml"></b:navLink>
-				<b:navLink value="Fornecedores"
-					action="fornecedorListagem" href="fornecedorListagem.xhtml"></b:navLink>
+				<b:navLink value="Categorias de Produtos" action="categoriaListagem"
+					href="categoriaListagem.xhtml"></b:navLink>
+				<b:navLink value="Fornecedores" action="fornecedorListagem"
+					href="fornecedorListagem.xhtml"></b:navLink>
 				<b:navLink value="Gerenciar Produtos" action="produtoListagem"
 					href="produtoListagem.xhtml"></b:navLink>
 			</b:dropMenu>
@@ -44,14 +45,17 @@
 
 		</b:navbarLinks>
 	</b:navBar>
+	<br></br>
+	<br></br>
+	<br></br>
+	<div align="center">
+		
 	<h:form>
-		<br></br>
-		<br></br>
-		<br></br>
 		<h:panelGrid>
 
 			<h:outputLabel value="CPF" for="cpf" />
-			<p:inputMask id="cpf" value="#{atendenteControlador.atendente.cpf}" mask="999.999.999-99" required="true"/>
+			<p:inputMask id="cpf" value="#{atendenteControlador.atendente.cpf}"
+				mask="999.999.999-99" required="true" />
 			<h:outputLabel value="Perfil" for="chaveNome" />
 			<p:selectOneMenu value="#{atendenteControlador.atendente.perfil}">
 				<f:selectItem itemValue="SUPERVISOR" itemLabel="1-Supervisor" />
@@ -60,14 +64,17 @@
 
 			<h:outputLabel value="Email" for="chaveNome" />
 			<b:inputText id="email"
-				value="#{atendenteControlador.atendente.email}" type="email" required="true"/>
+				value="#{atendenteControlador.atendente.email}" type="email"
+				required="true" />
 
 			<h:outputLabel value="Nome" for="chaveNome" />
-			<b:inputText id="nome" value="#{atendenteControlador.atendente.nome}" required="true"/>
+			<b:inputText id="nome" value="#{atendenteControlador.atendente.nome}"
+				required="true" />
 
 			<h:outputLabel value="Ramal" for="chaveNome" />
 			<b:inputText id="ramal"
-				value="#{atendenteControlador.atendente.ramal}" size="4" maxlength="4"  required="true"/>
+				value="#{atendenteControlador.atendente.ramal}" size="4"
+				maxlength="4" required="true" />
 
 			<h:outputLabel value="Status" for="status" />
 			<b:selectOneMenu value="#{atendenteControlador.atendente.status}"
@@ -82,8 +89,11 @@
 			<br></br>
 
 		</h:panelGrid>
-		<b:commandButton action="#{atendenteControlador.incluir}" value="Confirmar" look="success" icon="fa-floppy-o" ajax="false"/>
-		<b:button href="atendenteListagem.xhtml" value="Cancelar" look="danger"/>
+		<b:commandButton action="#{atendenteControlador.incluir}"
+			value="Confirmar" look="success" icon="fa-floppy-o" ajax="false" />
+		<b:button href="atendenteListagem.xhtml" value="Cancelar"
+			look="danger" />
 	</h:form>
+	</div>
 </h:body>
 </html>

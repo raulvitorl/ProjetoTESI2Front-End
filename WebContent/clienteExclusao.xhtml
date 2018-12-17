@@ -16,10 +16,10 @@
 			<b:dropMenu value="Logística" iconAwesome="fa-child">
 				<b:navLink value="Bancos" action="bancoListagem"
 					href="bancoListagem.xhtml"></b:navLink>
-				<b:navLink value="Categorias de Produtos"
-					action="categoriaListagem" href="categoriaListagem.xhtml"></b:navLink>
-				<b:navLink value="Fornecedores"
-					action="fornecedorListagem" href="fornecedorListagem.xhtml"></b:navLink>
+				<b:navLink value="Categorias de Produtos" action="categoriaListagem"
+					href="categoriaListagem.xhtml"></b:navLink>
+				<b:navLink value="Fornecedores" action="fornecedorListagem"
+					href="fornecedorListagem.xhtml"></b:navLink>
 				<b:navLink value="Gerenciar Produtos" action="produtoListagem"
 					href="produtoListagem.xhtml"></b:navLink>
 			</b:dropMenu>
@@ -44,28 +44,56 @@
 
 		</b:navbarLinks>
 	</b:navBar>
+	<h:form id="myFormID">
+		<b:modal id="amodal2" title="Deseja realmente realizar esta remoção?"
+			styleClass="modalPseudoClass2" closable="false"
+			close-on-escape="false" backdrop="false">
+
+			<f:facet name="footer">
+				<b:commandButton action="#{clienteControlador.remover}"
+					value="Confirmar" dismiss="modal" look="danger"
+					onclick="$('.modalPseudoClass3').modal()" />
+				<b:button value="Não" look="primary" dismiss="modal" />
+			</f:facet>
+		</b:modal>
+	</h:form>
+	<h:form id="myFormID2">
+		<b:modal id="amodal22" title="Registro removido!"
+			styleClass="modalPseudoClass3" closable="false"
+			close-on-escape="false" backdrop="false">
+		</b:modal>
+	</h:form>
+	<h:form id="myFormID4">
+		<b:modal id="amodal3" title="ERRO!"
+			styleClass="modalPseudoClass4" closable="false"
+			close-on-escape="false" backdrop="false">
+		</b:modal>
+	</h:form>
 	<h:form>
 		<h:panelGrid>
 			<br></br>
 			<br></br>
-			<br></br>	
+			<br></br>
 			<h:outputLabel value="Nome" for="nome" />
-			<h:inputText id="nome" value="#{clienteControlador.cliente.nome}" />
-			
+			<h:inputText id="nome" value="#{clienteControlador.cliente.nome}" placeholder="Insira seu nome"/>
+			<h:message id="msg"></h:message>
 			<h:outputLabel value="Nome para Contato" for="nomeCont" />
-			<h:inputText id="nomeCont" value="#{clienteControlador.cliente.contato}" />
+			<h:inputText id="nomeCont"
+				value="#{clienteControlador.cliente.contato}" />
 
 			<h:outputLabel value="CPF" for="cpf" />
-			<p:inputMask id="cpf" value="#{clienteControlador.cliente.cpf}" mask="999.999.999-99"/>
-			
+			<p:inputMask id="cpf" value="#{clienteControlador.cliente.cpf}"
+				mask="999.999.999-99" />
+
 			<h:outputLabel value="Sexo" for="sexo" />
 			<h:selectOneMenu value="#{clienteControlador.cliente.sexo}" id="sexo">
 				<f:selectItem itemValue="MASCULINO" itemLabel="1-Masculino" />
 				<f:selectItem itemValue="FEMININO" itemLabel="2-Feminino" />
 			</h:selectOneMenu>
-			
+
 			<h:outputLabel value="Endereço" for="endereco" />
-			<h:inputText id="endereco" value="#{clienteControlador.cliente.endereco}" />
+			<h:inputText id="endereco"
+				value="#{clienteControlador.cliente.endereco}" />
 
 			<h:outputLabel value="Email" for="email" />
 			<h:inputText id="email" value="#{clienteControlador.cliente.email}" />
@@ -73,24 +101,27 @@
 			<h:outputLabel value="Tipo" for="tipo" />
 			<h:selectOneMenu value="#{clienteControlador.cliente.tipo}" id="tipo">
 				<f:selectItem itemValue="PESSOAFISICA" itemLabel="1-Pessoa Física" />
-				<f:selectItem itemValue="PESSOAJURIDICA" itemLabel="2-Pessoa Juríica" />
+				<f:selectItem itemValue="PESSOAJURIDICA"
+					itemLabel="2-Pessoa Juríica" />
 			</h:selectOneMenu>
-			
+
 			<h:outputLabel value="Status" for="status" />
-			<h:selectOneMenu value="#{clienteControlador.cliente.status}" id="status">
+			<h:selectOneMenu value="#{clienteControlador.cliente.status}"
+				id="status">
 				<f:selectItem itemValue="DEVEDOR" itemLabel="1-Devedor" />
 				<f:selectItem itemValue="QUITADO" itemLabel="2-Quitado" />
 				<f:selectItem itemValue="CREDOR" itemLabel="3-Credor" />
 			</h:selectOneMenu>
-			
+
 			<h:outputLabel value="Fone" for="fone" />
-			<p:inputMask id="fone" value="#{clienteControlador.cliente.fone}" mask="(99) 99999-9999"/>
-	
+			<p:inputMask id="fone" value="#{clienteControlador.cliente.fone}"
+				mask="(99) 99999-9999" />
+
 			<h:outputLabel value="Nascimento" for="nascimento" />
-			<p:calendar id="nascimento" value="#{clienteControlador.cliente.nascimento}" />
-			
-			
-			<h:selectOneMenu id="municipio" 
+			<p:calendar id="nascimento"
+				value="#{clienteControlador.cliente.nascimento}" />
+
+			<h:selectOneMenu id="municipio"
 				value="#{clienteControlador.munCodigo}">
 				<f:selectItems value="#{municipioControlador.municipios}" var="muni"
 					itemValue="#{muni.codigo}" itemLabel="#{muni.nome}" />
@@ -98,9 +129,11 @@
 
 
 		</h:panelGrid>
-		<h:commandButton action="#{clienteControlador.remover}"
-			value="Confirmar" />
-		<h:commandButton action="clienteListagem" value="Cancelar" />
+		<b:button onclick="$('.modalPseudoClass2').modal()" value="Confirmar"
+			look="danger" />
+		<b:commandButton action="clienteListagem" value="Cancelar"
+			look="success" />
 	</h:form>
+			
 </h:body>
 </html>

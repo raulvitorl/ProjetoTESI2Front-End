@@ -44,6 +44,25 @@
 
 		</b:navbarLinks>
 	</b:navBar>
+		<h:form id="myFormID">
+		<b:modal id="amodal2" title="Deseja realmente realizar esta remoção?"
+			styleClass="modalPseudoClass2" closable="false"
+			close-on-escape="false" backdrop="true">
+			<f:facet name="footer">
+				<b:commandButton action="#{atendenteControlador.remover}"
+				value="Confirmar" dismiss="modal" look="danger" onclick="$('.modalPseudoClass3').modal()"/>
+				<b:button value="Não" look="primary" dismiss="modal" />
+			</f:facet>
+		</b:modal>
+	</h:form>
+	
+	<h:form id="myFormID2">
+		<b:modal id="amodal22" title="Registro removido!"
+			styleClass="modalPseudoClass3" closable="false"
+			close-on-escape="false" backdrop="false">
+		</b:modal>
+	</h:form>
+	
 	<h:form>
 		<br></br>
 		<br></br>
@@ -82,9 +101,9 @@
 				value="#{atendenteControlador.atendente.ultimoAcesso}" />
 
 		</h:panelGrid>
-		<h:commandButton action="#{atendenteControlador.remover}"
-			value="Confirmar" />
-		<h:commandButton action="atendenteListagem" value="Cancelar" />
+		<b:button onclick="$('.modalPseudoClass2').modal()"
+			value="Confirmar" look="danger"/>
+		<b:button href="atendenteListagem.xhtml" value="Cancelar" look="success"/>
 	</h:form>
 </h:body>
 </html>

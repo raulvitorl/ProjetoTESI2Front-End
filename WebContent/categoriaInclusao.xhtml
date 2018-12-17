@@ -15,10 +15,10 @@
 			<b:dropMenu value="Logística" iconAwesome="fa-child">
 				<b:navLink value="Bancos" action="bancoListagem"
 					href="bancoListagem.xhtml"></b:navLink>
-				<b:navLink value="Categorias de Produtos"
-					action="categoriaListagem" href="categoriaListagem.xhtml"></b:navLink>
-				<b:navLink value="Fornecedores"
-					action="fornecedorListagem" href="fornecedorListagem.xhtml"></b:navLink>
+				<b:navLink value="Categorias de Produtos" action="categoriaListagem"
+					href="categoriaListagem.xhtml"></b:navLink>
+				<b:navLink value="Fornecedores" action="fornecedorListagem"
+					href="fornecedorListagem.xhtml"></b:navLink>
 				<b:navLink value="Gerenciar Produtos" action="produtoListagem"
 					href="produtoListagem.xhtml"></b:navLink>
 			</b:dropMenu>
@@ -43,17 +43,25 @@
 
 		</b:navbarLinks>
 	</b:navBar>
-	<h:form>
-		<h:panelGrid>
-			<h:outputLabel value="Código" for="chaveNome"/>
-			<h:inputText id="codigo" value="#{categoriaControlador.categoria.codigo}"/>
-			<h:outputLabel value="Descrição" for="chaveNome"/>
-			<h:inputText id="descricao" value="#{categoriaControlador.categoria.descricao}"/>
-			<h:outputLabel value="Identificador" for="chaveNome"/>
-			<h:inputText id="identificador" value="#{categoriaControlador.categoria.identificador}"/>
-		</h:panelGrid>
-		<b:commandButton action="#{categoriaControlador.incluir}" value="Confirmar" look="success"/>
-		<b:commandButton action="categoriaListagem" value="Cancelar" look="danger"/>
-	</h:form>
+	<br></br>
+	<br></br>
+	<br></br>
+	<div align="center">
+
+		<h:form>
+			<h:panelGrid>
+				<h:outputLabel value="Descrição" for="chaveNome" />
+				<h:inputText id="descricao"
+					value="#{categoriaControlador.categoria.descricao}" />
+				<h:outputLabel value="Identificador" for="chaveNome" />
+				<h:inputText id="identificador"
+					value="#{categoriaControlador.categoria.identificador}" />
+			</h:panelGrid>
+			<b:commandButton action="#{categoriaControlador.incluir}"
+				value="Confirmar" look="success" />
+			<b:commandButton action="categoriaListagem" value="Cancelar"
+				look="danger" />
+		</h:form>
+	</div>
 </h:body>
 </html>

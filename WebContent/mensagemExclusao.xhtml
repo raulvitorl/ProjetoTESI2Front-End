@@ -45,6 +45,24 @@
 
 		</b:navbarLinks>
 	</b:navBar>
+			<h:form id="myFormID">
+		<b:modal id="amodal2" title="Deseja realmente realizar esta remoção?"
+			styleClass="modalPseudoClass2" closable="false"
+			close-on-escape="false" backdrop="true">
+			<f:facet name="footer">
+				<b:commandButton action="#{mensagemControlador.remover}"
+				value="Confirmar" dismiss="modal" look="danger" onclick="$('.modalPseudoClass3').modal()"/>
+				<b:button value="Não" look="primary" dismiss="modal" />
+			</f:facet>
+		</b:modal>
+	</h:form>
+	
+	<h:form id="myFormID2">
+		<b:modal id="amodal22" title="Registro removido!"
+			styleClass="modalPseudoClass3" closable="false"
+			close-on-escape="false" backdrop="false">
+		</b:modal>
+	</h:form>
 	<h:form style="padding:100px;">
 		<h:panelGrid>
 
@@ -67,9 +85,9 @@
 
 
 		</h:panelGrid>	
-		<b:commandButton action="#{mensagemControlador.remover}"
+		<b:button onclick="$('.modalPseudoClass2').modal()" look="danger"
 			value="Remover" iconAwesome="fa-trash"/>
-		<b:commandButton action="mensagemListagem" value="Cancelar" />
+		<b:commandButton action="mensagemListagem" value="Cancelar" look="success"/>
 	</h:form>
 </h:body>
 </html>

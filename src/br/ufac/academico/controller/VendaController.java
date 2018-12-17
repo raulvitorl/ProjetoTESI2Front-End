@@ -122,6 +122,7 @@ public class VendaController {
 		this.venda=venda;
 		produtos = venda.getProdutos();
 		cliCodigo = venda.getCliente().getCodigo();
+		System.out.println(venda.getCliente().getCodigo());
 		ateCodigo = venda.getAtendente().getCodigo();
 		banCodigo = venda.getBanco().getCodigo();
 		return "vendaEdicao";

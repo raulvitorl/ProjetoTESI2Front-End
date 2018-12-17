@@ -9,16 +9,16 @@
 	<title>Administrator Tabajara</title>
 </h:head>
 <h:body>
-	 <b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
+	<b:navBar brand="Administrator Tabajara" brandHref="index.xhtml"
 		fixed="top" inverse="true">
 		<b:navbarLinks>
 			<b:dropMenu value="Logística" iconAwesome="fa-child">
 				<b:navLink value="Bancos" action="bancoListagem"
 					href="bancoListagem.xhtml"></b:navLink>
-				<b:navLink value="Categorias de Produtos"
-					action="categoriaListagem" href="categoriaListagem.xhtml"></b:navLink>
-				<b:navLink value="Fornecedores"
-					action="fornecedorListagem" href="fornecedorListagem.xhtml"></b:navLink>
+				<b:navLink value="Categorias de Produtos" action="categoriaListagem"
+					href="categoriaListagem.xhtml"></b:navLink>
+				<b:navLink value="Fornecedores" action="fornecedorListagem"
+					href="fornecedorListagem.xhtml"></b:navLink>
 				<b:navLink value="Gerenciar Produtos" action="produtoListagem"
 					href="produtoListagem.xhtml"></b:navLink>
 			</b:dropMenu>
@@ -46,14 +46,19 @@
 	<br></br>
 	<br></br>
 	<br></br>
-	<h:form >
-		<h:panelGrid>
-			<h:outputLabel value="Nome" for="nome"/>
-			<h:inputText id="nome" value="#{bancoControlador.banco.nome}" required="true"/>
-			<b:focus target="@previous" />
-		</h:panelGrid>
-		<b:commandButton action="#{bancoControlador.incluir}" value="Confirmar" look="success" icon="fa-floppy-o" ajax="false"/>
-		<b:button href="bancoListagem.xhtml" value="Cancelar" look="danger"/>
-	</h:form>
+	<div align="center">
+
+		<h:form>
+			<h:panelGrid>
+				<h:outputLabel value="Nome" for="nome" />
+				<h:inputText id="nome" value="#{bancoControlador.banco.nome}"
+					required="true" />
+				<b:focus target="@previous" />
+			</h:panelGrid>
+			<b:commandButton action="#{bancoControlador.incluir}"
+				value="Confirmar" look="success" icon="fa-floppy-o" ajax="false" />
+			<b:button href="bancoListagem.xhtml" value="Cancelar" look="danger" />
+		</h:form>
+	</div>
 </h:body>
 </html>

@@ -43,6 +43,24 @@
 
 		</b:navbarLinks>
 	</b:navBar>
+	<h:form id="myFormID">
+		<b:modal id="amodal2" title="Deseja realmente realizar esta remoção?"
+			styleClass="modalPseudoClass2" closable="false"
+			close-on-escape="false" backdrop="false">
+
+			<f:facet name="footer">
+				<b:commandButton action="#{categoriaControlador.remover}"
+					value="Confirmar" dismiss="modal" look="danger" onclick="$('.modalPseudoClass3').modal()"/>
+				<b:button value="Não" look="primary" dismiss="modal" />
+			</f:facet>
+		</b:modal>
+	</h:form>
+	<h:form id="myFormID2">
+		<b:modal id="amodal22" title="Registro removido!"
+			styleClass="modalPseudoClass3" closable="false"
+			close-on-escape="false" backdrop="false">
+		</b:modal>
+	</h:form>
 	<h:form>
 		<h:panelGrid>
 			<h:outputLabel value="Código" for="chaveNome"/>
@@ -52,8 +70,8 @@
 			<h:outputLabel value="Idetificador" for="chaveNome"/>
 			<h:inputText id="identificador" value="#{categoriaControlador.categoria.identificador}" disabled="true"/>
 		</h:panelGrid>
-		<h:commandButton action="#{categoriaControlador.remover}" value="Confirmar"/>
-		<h:commandButton action="categoriaListagem" value="Cancelar"/>
+		<b:button  onclick="$('.modalPseudoClass2').modal()" value="Confirmar" look="danger"/>
+		<b:commandButton action="categoriaListagem" value="Cancelar" look="success"/>
 	</h:form>
 </h:body>
 </html>

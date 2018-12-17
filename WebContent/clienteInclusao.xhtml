@@ -46,19 +46,20 @@
 
 		</b:navbarLinks>
 	</b:navBar>
-	<h:form>
+	<div align="center">
+		<h:form>
 		<h:panelGrid>
 			<br></br>
 			<br></br>
 			<br></br>	
 			<h:outputLabel value="Nome" for="nome" />
-			<h:inputText id="nome" value="#{clienteControlador.cliente.nome}" required="true"/>
+			<b:inputText id="nome" value="#{clienteControlador.cliente.nome}" required="true" placeholder="Insira seu nome"/>
 			
 			<h:outputLabel value="Nome para Contato" for="nomeCont" />
-			<h:inputText id="nomeCont" value="#{clienteControlador.cliente.contato}" />
+			<b:inputText id="nomeCont" value="#{clienteControlador.cliente.contato}" placeholder="Tratamento opcional"/>
 
 			<h:outputLabel value="CPF" for="cpf" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})"/>
-			<p:inputMask id="cpf" value="#{clienteControlador.cliente.cpf}" mask="999.999.999-99" required="true"/>
+			<p:inputMask id="cpf" value="#{clienteControlador.cliente.cpf}" mask="999.999.999-99" required="true" placeholder="999.999.999-99"/>
 			
 			<h:outputLabel value="Sexo" for="sexo" />
 			<h:selectOneMenu value="#{clienteControlador.cliente.sexo}" id="sexo" required="true">
@@ -67,10 +68,10 @@
 			</h:selectOneMenu>
 			
 			<h:outputLabel value="Endereço" for="endereco" />
-			<h:inputText id="endereco" value="#{clienteControlador.cliente.endereco}" required="true"/>
+			<b:inputText id="endereco" value="#{clienteControlador.cliente.endereco}" required="true"/>
 
 			<h:outputLabel value="Email" for="email" />
-			<h:inputText id="email" value="#{clienteControlador.cliente.email}" required="true"/>
+			<b:inputText id="email" value="#{clienteControlador.cliente.email}" required="true" type="email"/>
 
 			<h:outputLabel value="Tipo" for="tipo" required="true"/>
 			<h:selectOneMenu value="#{clienteControlador.cliente.tipo}" id="tipo">
@@ -89,7 +90,7 @@
 			<p:inputMask id="fone" value="#{clienteControlador.cliente.fone}" mask="(99) 99999-9999" required="true"/>
 	
 			<h:outputLabel value="Nascimento" for="nascimento" />
-			<p:calendar id="nascimento" value="#{clienteControlador.cliente.nascimento}" required="true"/>
+			<p:calendar id="nascimento" value="#{clienteControlador.cliente.nascimento}" required="true" placeholder="DD/MM/YY"/>
 			
 			
 			<h:selectOneMenu id="municipio" 
@@ -102,7 +103,9 @@
 		</h:panelGrid>
 		<b:commandButton action="#{clienteControlador.incluir}"
 			value="Confirmar" look="success"/>
-		<b:commandButton action="clienteListagem" value="Cancelar" look="danger"/>
+		<b:button href="clienteListagem.xhtml" value="Cancelar" look="danger"/>
 	</h:form>
+	</div>
+		
 </h:body>
 </html>
