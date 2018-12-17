@@ -67,6 +67,9 @@
 	<div align="center">
 		<h:form>
 		<h:panelGrid>
+		<h:outputLabel value="Código" for="cod" />
+			<b:inputText id="cod" value="#{bancoControlador.banco.codigo}"
+				readonly="true" />
 			<h:outputLabel value="Nome" for="nome" />
 			<b:inputText id="nome" value="#{bancoControlador.banco.nome}"
 				readonly="true" />

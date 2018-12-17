@@ -52,10 +52,10 @@
 			<h:panelGrid>
 				<h:outputLabel value="Descrição" for="chaveNome" />
 				<b:inputText id="descricao"
-					value="#{categoriaControlador.categoria.descricao}" placeholder="Descreva o produto"/>
+					value="#{categoriaControlador.categoria.descricao}" placeholder="Descreva a categoria" required="true"/>
 				<h:outputLabel value="Identificador" for="chaveNome" />
 				<b:inputText id="identificador"
-					value="#{categoriaControlador.categoria.identificador}" placeholder="Numero de identificação do produto"/>
+					value="#{categoriaControlador.categoria.identificador}" placeholder="Numero de identificação do produto" required="true"/>
 			</h:panelGrid>
 			<b:commandButton action="#{categoriaControlador.incluir}"
 				value="Confirmar" look="success" iconAwesome="fa-floppy-o" />
