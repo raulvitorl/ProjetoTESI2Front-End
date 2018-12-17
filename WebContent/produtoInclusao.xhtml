@@ -52,11 +52,11 @@
 		<h:panelGrid>
 	
 			<h:outputLabel value="Descrição" for="descricao" />
-			<b:inputText id="descricao" value="#{produtoControlador.produto.descricao}" />
+			<b:inputText id="descricao" value="#{produtoControlador.produto.descricao}" placeholder="Descrição do Produto" required="true"/>
 			
 			<h:outputLabel value="Quantidade" for="qtd" />
-			<b:inputText id="qtd"
-				value="#{produtoControlador.produto.qntDisponivel}" />
+			<b:inputText id="qtd" type="number"
+				value="#{produtoControlador.produto.qntDisponivel}" required="true" min="1" max="5"/>
 				
 			<h:outputLabel value="Ultima Aquisição" for="aquisicao" />
 			<p:calendar id="aquisicao"
@@ -90,7 +90,7 @@
 
 		</h:panelGrid>
 		<b:commandButton action="#{produtoControlador.incluir}"
-			value="Confirmar" look="success"/>
+			value="Confirmar" look="success" iconAwesome="fa-floppy-o" />
 		<b:commandButton action="produtoListagem" value="Cancelar" look="danger"/>
 	</h:form>
 		
