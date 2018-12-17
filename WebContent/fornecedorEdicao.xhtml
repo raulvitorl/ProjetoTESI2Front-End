@@ -44,41 +44,48 @@
 
 		</b:navbarLinks>
 	</b:navBar>
+	<br></br>
+	<br></br>
+	<br></br>
+	<div align="center">
+		
 	<h:form>
 		<h:panelGrid>
-			<h:outputLabel value="Código" for="chaveNome" />
-			<h:inputText id="codigo"
-				value="#{fornecedorControlador.fornecedor.codigo}" />
-
-			<h:outputLabel value="Razão Social" for="chaveNome" />
-			<h:inputText id="razao" value="#{fornecedorControlador.fornecedor.razaoSocial}" />
+			
+			<h:outputLabel value="Razão Social" for="razao" />
+			<b:inputText id="razao" value="#{fornecedorControlador.fornecedor.razaoSocial}" />
 		
-			<h:outputLabel value="Nome Contato" for="chaveNome" />
-			<h:inputText id="nomec" value="#{fornecedorControlador.fornecedor.nomeContato}" />
+			<h:outputLabel value="Nome Contato" for="nomec" />
+			<b:inputText id="nomec" value="#{fornecedorControlador.fornecedor.nomeContato}" />
 			
-			<h:outputLabel value="CNPJ" for="chaveNome" />
-			<h:inputText id="cnpj" value="#{fornecedorControlador.fornecedor.cnpj}" />
+			<h:outputLabel value="CNPJ" for="cnpj" />
+			<p:inputMask id="cnpj" value="#{fornecedorControlador.fornecedor.cnpj}" mask="99.999.999/9999-99" />
 			
-			<h:outputLabel value="Endereço" for="chaveNome" />
-			<h:inputText id="endereco" value="#{fornecedorControlador.fornecedor.endereco}" />
+			<h:outputLabel value="Endereço" for="endereco" />
+			<b:inputText id="endereco" value="#{fornecedorControlador.fornecedor.endereco}" />
 			
-			<h:outputLabel value="Fone" for="chaveNome" />
-			<h:inputText id="fone" value="#{fornecedorControlador.fornecedor.fone}" />
+			<h:outputLabel value="Fone" for="fone" />
+			<p:inputMask id="fone" value="#{fornecedorControlador.fornecedor.fone}" mask="(99) 9999-9999"/>
 			
-			<h:outputLabel value="Email" for="chaveNome" />
-			<h:inputText id="email" value="#{fornecedorControlador.fornecedor.email}" />
+			<h:outputLabel value="Email" for="email" />
+			<b:inputText type="email" id="email" value="#{fornecedorControlador.fornecedor.email}" />
 			
-			<h:outputLabel value="WebSite" for="chaveNome" />
-			<h:inputText id="site" value="#{fornecedorControlador.fornecedor.webSite}" />
+			<h:outputLabel value="WebSite" for="site" />
+			<b:inputText id="site" value="#{fornecedorControlador.fornecedor.webSite}" />
 			
-			<h:outputLabel value="Data Cadastro" for="chaveNome" />
-			<p:calendar id="ultimoacesso"
-				value="#{fornecedorControlador.fornecedor.dataCadastro}" />
+				
+			<h:outputLabel value="Municipio: " for="municipio" />
+			<h:selectOneMenu id="municipio"
+				value="#{fornecedorControlador.munCodigo}">
+				<f:selectItems value="#{municipioControlador.municipios}" var="muni"
+					itemValue="#{muni.codigo}" itemLabel="#{muni.nome}" />
+			</h:selectOneMenu>
 			
 		</h:panelGrid>
-		<h:commandButton action="#{fornecedorControlador.alterar}"
-			value="Confirmar" />
-		<h:commandButton action="fornecedorListagem" value="Cancelar" />
+		<b:commandButton action="#{fornecedorControlador.alterar}"
+			value="Confirmar" look="success"/>
+		<b:commandButton action="fornecedorListagem" value="Cancelar" look="info"/>
 	</h:form>
+	</div>
 </h:body>
 </html>

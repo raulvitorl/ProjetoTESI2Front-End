@@ -61,10 +61,12 @@
 			close-on-escape="false" backdrop="false">
 		</b:modal>
 	</h:form>
+	<br></br>
+	<br></br>
+	<br></br>
+	<div align="center">
 	<h:form>
 		<h:panelGrid>
-			<h:outputLabel value="Código" for="chaveNome"/>
-			<h:inputText id="codigo" value="#{categoriaControlador.categoria.codigo}" disabled="true"/>
 			<h:outputLabel value="Descrição" for="chaveNome"/>
 			<h:inputText id="descricao" value="#{categoriaControlador.categoria.descricao}" disabled="true"/>
 			<h:outputLabel value="Idetificador" for="chaveNome"/>
@@ -73,5 +75,6 @@
 		<b:button  onclick="$('.modalPseudoClass2').modal()" value="Confirmar" look="danger"/>
 		<b:commandButton action="categoriaListagem" value="Cancelar" look="success"/>
 	</h:form>
+	</div>
 </h:body>
 </html>

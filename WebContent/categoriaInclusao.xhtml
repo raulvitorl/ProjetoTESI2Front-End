@@ -51,11 +51,11 @@
 		<h:form>
 			<h:panelGrid>
 				<h:outputLabel value="Descrição" for="chaveNome" />
-				<h:inputText id="descricao"
-					value="#{categoriaControlador.categoria.descricao}" />
+				<b:inputText id="descricao"
+					value="#{categoriaControlador.categoria.descricao}" placeholder="Descreva o produto"/>
 				<h:outputLabel value="Identificador" for="chaveNome" />
-				<h:inputText id="identificador"
-					value="#{categoriaControlador.categoria.identificador}" />
+				<b:inputText id="identificador"
+					value="#{categoriaControlador.categoria.identificador}" placeholder="Numero de identificação do produto"/>
 			</h:panelGrid>
 			<b:commandButton action="#{categoriaControlador.incluir}"
 				value="Confirmar" look="success" />

@@ -16,10 +16,10 @@
 			<b:dropMenu value="Logística" iconAwesome="fa-child">
 				<b:navLink value="Bancos" action="bancoListagem"
 					href="bancoListagem.xhtml"></b:navLink>
-				<b:navLink value="Categorias de Produtos"
-					action="categoriaListagem" href="categoriaListagem.xhtml"></b:navLink>
-				<b:navLink value="Fornecedores"
-					action="fornecedorListagem" href="fornecedorListagem.xhtml"></b:navLink>
+				<b:navLink value="Categorias de Produtos" action="categoriaListagem"
+					href="categoriaListagem.xhtml"></b:navLink>
+				<b:navLink value="Fornecedores" action="fornecedorListagem"
+					href="fornecedorListagem.xhtml"></b:navLink>
 				<b:navLink value="Gerenciar Produtos" action="produtoListagem"
 					href="produtoListagem.xhtml"></b:navLink>
 			</b:dropMenu>
@@ -44,38 +44,49 @@
 
 		</b:navbarLinks>
 	</b:navBar>
-		<h:form id="myFormID">
+	<h:form id="myFormID">
 		<b:modal id="amodal2" title="Deseja realmente realizar esta remoção?"
 			styleClass="modalPseudoClass2" closable="false"
 			close-on-escape="false" backdrop="true">
 			<f:facet name="footer">
 				<b:commandButton action="#{municipioControlador.remover}"
-				value="Confirmar" dismiss="modal" look="danger" onclick="$('.modalPseudoClass3').modal()"/>
+					value="Confirmar" dismiss="modal" look="danger"
+					onclick="$('.modalPseudoClass3').modal()" />
 				<b:button value="Não" look="primary" dismiss="modal" />
 			</f:facet>
 		</b:modal>
 	</h:form>
-	
+
 	<h:form id="myFormID2">
 		<b:modal id="amodal22" title="Registro removido!"
 			styleClass="modalPseudoClass3" closable="false"
 			close-on-escape="false" backdrop="false">
 		</b:modal>
 	</h:form>
-	<h:form>
-		<h:panelGrid>
-			<h:outputLabel value="Código" for="chaveNome"/>
-			<h:inputText id="codigo" value="#{municipioControlador.municipio.codigo}" disabled="true"/>
-			<h:outputLabel value="Nome" for="chaveNome"/>
-			<b:focus target="@previous" />
-			<h:inputText id="nome" value="#{municipioControlador.municipio.nome}"/>
-			<h:outputLabel value="CEP" for="chaveNome"/>
-			<h:inputText id="cep" value="#{municipioControlador.municipio.cep}"/>
-			<h:outputLabel value="UF" for="chaveNome"/>
-			<h:inputText id="uf" value="#{municipioControlador.municipio.ufEstado}"/>			
-		</h:panelGrid>
-		<b:button onclick="$('.modalPseudoClass2').modal()" value="Confirmar" icon="ui-icon-star" ajax="false" look="danger"/>
-		<b:commandButton action="municipioListagem" value="Cancelar" look="success"/>
-	</h:form>
+	<br></br>
+	<br></br>
+	<br></br>
+	<div align="center">
+		<h:form>
+			<h:panelGrid>
+
+				<h:outputLabel value="Nome" for="chaveNome" />
+				<b:focus target="@previous" />
+				<b:inputText id="nome"
+					value="#{municipioControlador.municipio.nome}" readonly="true" />
+				<h:outputLabel value="CEP" for="chaveNome" />
+				<b:inputText id="cep" value="#{municipioControlador.municipio.cep}"
+					readonly="true" />
+				<h:outputLabel value="UF" for="chaveNome" />
+				<b:inputText id="uf"
+					value="#{municipioControlador.municipio.ufEstado}" readonly="true" />
+			</h:panelGrid>
+			<b:button onclick="$('.modalPseudoClass2').modal()" value="Confirmar"
+				icon="ui-icon-star" ajax="false" look="danger" />
+			<b:commandButton action="municipioListagem" value="Cancelar"
+				look="success" />
+		</h:form>
+	</div>
+
 </h:body>
 </html>

@@ -48,7 +48,7 @@
 	<br></br>
 	<br></br>
 	<br></br>
-	<div>
+	<div align="center">
 		<h:form>
 		<h:panelGrid>
 			<h:outputLabel value="Nome" for="chaveNome"/>
@@ -60,7 +60,7 @@
 			<b:inputText id="uf" value="#{municipioControlador.municipio.ufEstado}" size="2" maxlength="2"  required="true"/>			
 		</h:panelGrid>
 		<b:commandButton action="#{municipioControlador.incluir}" value="Confirmar" look="success" icon="ui-icon-star" ajax="false"/>
-		<b:commandButton action="municipioListagem" value="Cancelar" look="danger"/>
+		<b:button href="municipioListagem.xhtml" value="Cancelar" look="danger"/>
 	</h:form>
 	</div>	
 </h:body>

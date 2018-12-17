@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Administrator Tabajara</title>
@@ -44,20 +45,23 @@
 
 		</b:navbarLinks>
 	</b:navBar>
-	<h:form>
+	<br></br>
+	<br></br>
+	<br></br>
+	<div align="center">
+		<h:form>
 		<h:panelGrid>
-			<h:outputLabel value="Código" for="chaveNome"/>
-			<h:inputText id="codigo" value="#{municipioControlador.municipio.codigo}" disabled="true"/>
 			<h:outputLabel value="Nome" for="chaveNome"/>
 			<b:focus target="@previous" />
-			<h:inputText id="nome" value="#{municipioControlador.municipio.nome}"/>
+			<b:inputText id="nome" value="#{municipioControlador.municipio.nome}"/>
 			<h:outputLabel value="CEP" for="chaveNome"/>
-			<h:inputText id="cep" value="#{municipioControlador.municipio.cep}"/>
+			<p:inputMask id="cep" value="#{municipioControlador.municipio.cep}" mask="99999-999"/>
 			<h:outputLabel value="UF" for="chaveNome"/>
-			<h:inputText id="uf" value="#{municipioControlador.municipio.ufEstado}"/>			
+			<b:inputText id="uf" value="#{municipioControlador.municipio.ufEstado}" size="2" maxlength="2"  required="true"/>			
 		</h:panelGrid>
-		<h:commandButton action="#{municipioControlador.alterar}" value="Confirmar" icon="ui-icon-star" ajax="false"/>
-		<h:commandButton action="municipioListagem" value="Cancelar"/>
+		<b:commandButton action="#{municipioControlador.alterar}" value="Confirmar" look="success" icon="ui-icon-star" ajax="false"/>
+		<b:button href="municipioListagem.xhtml" value="Cancelar" look="info"/>
 	</h:form>
+	</div>	
 </h:body>
 </html>

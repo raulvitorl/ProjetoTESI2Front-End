@@ -12,12 +12,9 @@ import java.util.UUID;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.*;
 import javax.faces.context.FacesContext;
-
-import org.primefaces.PrimeFaces;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import br.ufac.academico.domain.*;
@@ -45,7 +42,7 @@ public class ClienteController {
 	public void setClientes(List<Cliente> clientes) {
 		this.clientes = clientes;
 	}
-		
+
 	public Integer getMunCodigo() {
 		return munCodigo;
 	}
@@ -61,9 +58,9 @@ public class ClienteController {
 	public void setChaveNome(String chaveNome) {
 		this.chaveNome = chaveNome;
 	}	
-	
-	
-	
+
+
+
 	public String getMensagemDeErro() {
 		return mensagemDeErro;
 	}
@@ -76,12 +73,14 @@ public class ClienteController {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
 	public String incluir() {
 		Municipio m = mr.recuperar(munCodigo);
 		cliente.setMunicipio(m);
 		br.adicionar(cliente);
 		return "clienteListagem";
 	}
+	
 	public String editar(Cliente cliente) {
 		this.cliente=cliente;
 		munCodigo = cliente.getMunicipio().getCodigo();
@@ -95,7 +94,7 @@ public class ClienteController {
 		br.atualizar(cliente);
 		return "clienteListagem";
 	}
-	
+
 	public String remover() {
 		try {
 			br.remover(cliente);
@@ -104,7 +103,7 @@ public class ClienteController {
 					"O nome de administrador informado já esta sendo usado", 
 					"O nome de administrador informado já esta sendo usado"));
 		}
-		
+
 		return "clienteListagem";
 	}
 	public String excluir(Cliente cliente) {
@@ -115,18 +114,18 @@ public class ClienteController {
 	public void setBanco(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
+
 	public String relatorio(Cliente c) throws DocumentException, IOException{ 
 		String nome = UUID.randomUUID().toString();
 		float valortotal = 0;
 		Document document = new Document(); 
 		try { 
 			PdfWriter.getInstance(document, new FileOutputStream(nome+".pdf")); 
-			} catch (FileNotFoundException | DocumentException e) 
+		} catch (FileNotFoundException | DocumentException e) 
 		{ e.printStackTrace(); } 
-			document.open();
-			vendas = c.getVendas();
-			
+		document.open();
+		vendas = c.getVendas();
+
 		try { 
 			document.add(new Paragraph("CLIENTE:  "+c.getCodigo()+"   "+c.getNome()));
 			document.add(new Paragraph("CLIENTE DESDE:  "+c.getCadastro()));
@@ -137,21 +136,21 @@ public class ClienteController {
 				valortotal+=v.getValorTotal();
 			}
 			document.add(new Paragraph("VALOR TOTAL GASTO: R$"+valortotal));
-			}
-		
+		}
+
 		catch (DocumentException | NullPointerException e) {
 			document.add(new Paragraph("CLIENTE NAO POSSUI DADOS PARA SEREM MOSTRADOS"));
 			document.close(); 
 			Desktop.getDesktop().open(new File(nome+".pdf")); 
-			return "vendaListagem";}
-			document.close(); 
+			return "clienteListagem";}
+		document.close(); 
 		try { 
 			Desktop.getDesktop().open(new File(nome+".pdf"));
-			} catch (IOException e) { e.printStackTrace(); } 
-		return "vendaListagem"; 
-		}
+		} catch (IOException e) { e.printStackTrace(); } 
+		return "clienteListagem"; 
+	}
 
 
-	
-	
+
+
 }

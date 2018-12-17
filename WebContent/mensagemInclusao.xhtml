@@ -53,21 +53,21 @@
 		<h:panelGrid>
 
 			<h:outputLabel value="Mensagem" for="texto" />
-			<h:inputText id="texto" value="#{mensagemControlador.mensagem.texto}" />
+			<b:inputText id="texto" value="#{mensagemControlador.mensagem.texto}" placeholder="Conteudo da mensagem"/>
 
 			<h:outputLabel value="Tipo Mensagem" for="tipo" />
-			<h:selectOneMenu id="tipo" value="#{mensagemControlador.tipoCodigo}" >
+			<b:selectOneMenu id="tipo" value="#{mensagemControlador.tipoCodigo}" >
 				<f:selectItems value="#{tipomensagemControlador.tiposMensagens}"
 					var="tms" itemValue="#{tms.codigo}"
 					itemLabel="#{tms.descricao}" />
-			</h:selectOneMenu>
+			</b:selectOneMenu>
 
 			<h:outputLabel value="Atendente" for="atennome" />
-			<h:selectOneMenu id="atennome"
+			<b:selectOneMenu id="atennome"
 				value="#{mensagemControlador.ateCodigo}">
 				<f:selectItems value="#{atendenteControlador.atendentes}" var="ate"
 					itemValue="#{ate.codigo}" itemLabel="#{ate.nome}" />
-			</h:selectOneMenu>
+			</b:selectOneMenu>
 
 
 		</h:panelGrid>	

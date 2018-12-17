@@ -51,8 +51,8 @@
 		<h:form>
 			<h:panelGrid>
 				<h:outputLabel value="Nome" for="nome" />
-				<h:inputText id="nome" value="#{bancoControlador.banco.nome}"
-					required="true" />
+				<b:inputText id="nome" value="#{bancoControlador.banco.nome}" placeholder="Nome do Banco"
+					required="true"/>
 				<b:focus target="@previous" />
 			</h:panelGrid>
 			<b:commandButton action="#{bancoControlador.incluir}"

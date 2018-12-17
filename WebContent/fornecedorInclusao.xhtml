@@ -53,25 +53,25 @@
 		<h:panelGrid>
 			
 			<h:outputLabel value="Razão Social" for="razao" />
-			<b:inputText id="razao" value="#{fornecedorControlador.fornecedor.razaoSocial}" />
+			<b:inputText id="razao" value="#{fornecedorControlador.fornecedor.razaoSocial}" placeholder="Razão social do fornecedor	"/>
 		
 			<h:outputLabel value="Nome Contato" for="nomec" />
-			<b:inputText id="nomec" value="#{fornecedorControlador.fornecedor.nomeContato}" />
+			<b:inputText id="nomec" value="#{fornecedorControlador.fornecedor.nomeContato}" placeholder="Nome para contato"/>
 			
 			<h:outputLabel value="CNPJ" for="cnpj" />
-			<p:inputMask id="cnpj" value="#{fornecedorControlador.fornecedor.cnpj}" mask="99.999.999/9999-99" />
+			<p:inputMask id="cnpj" value="#{fornecedorControlador.fornecedor.cnpj}" mask="99.999.999/9999-99" placeholder="99.999.999/9999-99" />
 			
 			<h:outputLabel value="Endereço" for="endereco" />
-			<b:inputText id="endereco" value="#{fornecedorControlador.fornecedor.endereco}" />
+			<b:inputText id="endereco" value="#{fornecedorControlador.fornecedor.endereco}" placeholder="Rua Nº"/>
 			
 			<h:outputLabel value="Fone" for="fone" />
-			<p:inputMask id="fone" value="#{fornecedorControlador.fornecedor.fone}" mask="(99) 9999-9999"/>
+			<p:inputMask id="fone" value="#{fornecedorControlador.fornecedor.fone}" mask="(99) 9999-9999" placeholder="(99) 9999-9999"/>
 			
 			<h:outputLabel value="Email" for="email" />
-			<b:inputText type="email" id="email" value="#{fornecedorControlador.fornecedor.email}" />
+			<b:inputText type="email" id="email" value="#{fornecedorControlador.fornecedor.email}" placeholder="email@fornecedor.com.br"/>
 			
 			<h:outputLabel value="WebSite" for="site" />
-			<b:inputText id="site" value="#{fornecedorControlador.fornecedor.webSite}" />
+			<b:inputText id="site" value="#{fornecedorControlador.fornecedor.webSite}" placeholder="google.com.br"/>
 			
 				
 			<h:outputLabel value="Municipio: " for="municipio" />

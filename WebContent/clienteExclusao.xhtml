@@ -69,63 +69,66 @@
 			close-on-escape="false" backdrop="false">
 		</b:modal>
 	</h:form>
+	<div align="center">
+		
+		
 	<h:form>
 		<h:panelGrid>
 			<br></br>
 			<br></br>
 			<br></br>
 			<h:outputLabel value="Nome" for="nome" />
-			<h:inputText id="nome" value="#{clienteControlador.cliente.nome}" placeholder="Insira seu nome"/>
+			<h:inputText id="nome" value="#{clienteControlador.cliente.nome}" readonly="true"/>
 			<h:message id="msg"></h:message>
 			<h:outputLabel value="Nome para Contato" for="nomeCont" />
-			<h:inputText id="nomeCont"
-				value="#{clienteControlador.cliente.contato}" />
+			<b:inputText id="nomeCont"
+				value="#{clienteControlador.cliente.contato}" readonly="true"/>
 
 			<h:outputLabel value="CPF" for="cpf" />
 			<p:inputMask id="cpf" value="#{clienteControlador.cliente.cpf}"
-				mask="999.999.999-99" />
+				mask="999.999.999-99" readonly="true"/>
 
 			<h:outputLabel value="Sexo" for="sexo" />
-			<h:selectOneMenu value="#{clienteControlador.cliente.sexo}" id="sexo">
+			<b:selectOneMenu value="#{clienteControlador.cliente.sexo}" id="sexo">
 				<f:selectItem itemValue="MASCULINO" itemLabel="1-Masculino" />
 				<f:selectItem itemValue="FEMININO" itemLabel="2-Feminino" />
-			</h:selectOneMenu>
+			</b:selectOneMenu>
 
 			<h:outputLabel value="Endereço" for="endereco" />
-			<h:inputText id="endereco"
-				value="#{clienteControlador.cliente.endereco}" />
+			<b:inputText id="endereco"
+				value="#{clienteControlador.cliente.endereco}" readonly="true"/>
 
 			<h:outputLabel value="Email" for="email" />
-			<h:inputText id="email" value="#{clienteControlador.cliente.email}" />
+			<b:inputText id="email" value="#{clienteControlador.cliente.email}" readonly="true" />
 
 			<h:outputLabel value="Tipo" for="tipo" />
-			<h:selectOneMenu value="#{clienteControlador.cliente.tipo}" id="tipo">
+			<b:selectOneMenu value="#{clienteControlador.cliente.tipo}" id="tipo">
 				<f:selectItem itemValue="PESSOAFISICA" itemLabel="1-Pessoa Física" />
 				<f:selectItem itemValue="PESSOAJURIDICA"
 					itemLabel="2-Pessoa Juríica" />
-			</h:selectOneMenu>
+			</b:selectOneMenu>
 
 			<h:outputLabel value="Status" for="status" />
-			<h:selectOneMenu value="#{clienteControlador.cliente.status}"
+			<b:selectOneMenu value="#{clienteControlador.cliente.status}"
 				id="status">
 				<f:selectItem itemValue="DEVEDOR" itemLabel="1-Devedor" />
 				<f:selectItem itemValue="QUITADO" itemLabel="2-Quitado" />
 				<f:selectItem itemValue="CREDOR" itemLabel="3-Credor" />
-			</h:selectOneMenu>
+			</b:selectOneMenu>
 
 			<h:outputLabel value="Fone" for="fone" />
 			<p:inputMask id="fone" value="#{clienteControlador.cliente.fone}"
-				mask="(99) 99999-9999" />
+				mask="(99) 99999-9999" readonly="true"/>
 
 			<h:outputLabel value="Nascimento" for="nascimento" />
 			<p:calendar id="nascimento"
 				value="#{clienteControlador.cliente.nascimento}" />
 
-			<h:selectOneMenu id="municipio"
+			<b:selectOneMenu id="municipio"
 				value="#{clienteControlador.munCodigo}">
 				<f:selectItems value="#{municipioControlador.municipios}" var="muni"
 					itemValue="#{muni.codigo}" itemLabel="#{muni.nome}" />
-			</h:selectOneMenu>
+			</b:selectOneMenu>
 
 
 		</h:panelGrid>
@@ -134,6 +137,8 @@
 		<b:commandButton action="clienteListagem" value="Cancelar"
 			look="success" />
 	</h:form>
+		
+	</div>
 			
 </h:body>
-</html>
+</html>	

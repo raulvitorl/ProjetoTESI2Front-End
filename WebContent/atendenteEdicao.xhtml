@@ -44,47 +44,56 @@
 
 		</b:navbarLinks>
 	</b:navBar>
+	<br></br>
+	<br></br>
+	<br></br>
+	
+	<div align="center">
+		
 	<h:form>
-		<br></br>
-		<br></br>
-		<br></br>
 		<h:panelGrid>
 
-			<h:outputLabel value="CPF" for="chaveNome" />
-			<h:inputText id="cpf" value="#{atendenteControlador.atendente.cpf}" />
-
+			<h:outputLabel value="CPF" for="cpf" />
+			<p:inputMask id="cpf" value="#{atendenteControlador.atendente.cpf}"
+				mask="999.999.999-99" required="true" />
 			<h:outputLabel value="Perfil" for="chaveNome" />
-			<h:selectOneMenu value="#{atendenteControlador.atendente.perfil}">
+			<p:selectOneMenu value="#{atendenteControlador.atendente.perfil}">
 				<f:selectItem itemValue="SUPERVISOR" itemLabel="1-Supervisor" />
 				<f:selectItem itemValue="BALCONISTA" itemLabel="2-Balconista" />
-			</h:selectOneMenu>
+			</p:selectOneMenu>
 
 			<h:outputLabel value="Email" for="chaveNome" />
-			<h:inputText id="email"
-				value="#{atendenteControlador.atendente.email}" />
+			<b:inputText id="email"
+				value="#{atendenteControlador.atendente.email}" type="email"
+				required="true" />
 
 			<h:outputLabel value="Nome" for="chaveNome" />
-			<h:inputText id="nome" value="#{atendenteControlador.atendente.nome}" />
+			<b:inputText id="nome" value="#{atendenteControlador.atendente.nome}"
+				required="true" />
 
 			<h:outputLabel value="Ramal" for="chaveNome" />
-			<h:inputText id="ramal"
-				value="#{atendenteControlador.atendente.ramal}" />
+			<b:inputText id="ramal"
+				value="#{atendenteControlador.atendente.ramal}" size="4"
+				maxlength="4" required="true" />
 
 			<h:outputLabel value="Status" for="status" />
-			<h:selectOneMenu value="#{atendenteControlador.atendente.status}"
+			<b:selectOneMenu value="#{atendenteControlador.atendente.status}"
 				id="status">
 				<f:selectItem itemValue="AUSENTE" itemLabel="1-Ausente" />
 				<f:selectItem itemValue="DISPONIVEL" itemLabel="2-Disponivel" />
-			</h:selectOneMenu>
+			</b:selectOneMenu>
 
 			<h:outputLabel value="Ultimo Acesso" for="chaveNome" />
 			<p:calendar id="ultimoacesso"
 				value="#{atendenteControlador.atendente.ultimoAcesso}" />
+			<br></br>
 
 		</h:panelGrid>
 		<b:commandButton action="#{atendenteControlador.alterar}"
-			value="Confirmar" look="success"/>
-		<b:commandButton action="atendenteListagem" value="Cancelar" look="info"/>
+			value="Confirmar" look="success" icon="fa-floppy-o" ajax="false" />
+		<b:button href="atendenteListagem.xhtml" value="Cancelar"
+			look="info" />
 	</h:form>
+	</div>
 </h:body>
 </html>

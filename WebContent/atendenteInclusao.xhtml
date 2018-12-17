@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -55,7 +54,7 @@
 
 			<h:outputLabel value="CPF" for="cpf" />
 			<p:inputMask id="cpf" value="#{atendenteControlador.atendente.cpf}"
-				mask="999.999.999-99" required="true" />
+				mask="999.999.999-99" required="true" placeholder="999.999.999-99" />
 			<h:outputLabel value="Perfil" for="chaveNome" />
 			<p:selectOneMenu value="#{atendenteControlador.atendente.perfil}">
 				<f:selectItem itemValue="SUPERVISOR" itemLabel="1-Supervisor" />
@@ -65,11 +64,11 @@
 			<h:outputLabel value="Email" for="chaveNome" />
 			<b:inputText id="email"
 				value="#{atendenteControlador.atendente.email}" type="email"
-				required="true" />
+				required="true" placeholder="seuemail@dominio.com"/>
 
 			<h:outputLabel value="Nome" for="chaveNome" />
 			<b:inputText id="nome" value="#{atendenteControlador.atendente.nome}"
-				required="true" />
+				required="true" placeholder="Insira seu nome"/>
 
 			<h:outputLabel value="Ramal" for="chaveNome" />
 			<b:inputText id="ramal"
@@ -85,7 +84,7 @@
 
 			<h:outputLabel value="Ultimo Acesso" for="chaveNome" />
 			<p:calendar id="ultimoacesso"
-				value="#{atendenteControlador.atendente.ultimoAcesso}" />
+				value="#{atendenteControlador.atendente.ultimoAcesso}" placeholder="DD/MM/AA"/>
 			<br></br>
 
 		</h:panelGrid>

@@ -61,18 +61,20 @@
 			close-on-escape="false" backdrop="false">
 		</b:modal>
 	</h:form>
-	<h:form>
+	<br></br>
+	<br></br>
+	<br></br>
+	<div align="center">
+		<h:form>
 		<h:panelGrid>
-			<h:outputLabel value="Código" for="codigo" />
-			<h:inputText id="codigo" value="#{bancoControlador.banco.codigo}"
-				disabled="true" />
 			<h:outputLabel value="Nome" for="nome" />
-			<h:inputText id="nome" value="#{bancoControlador.banco.nome}"
-				disabled="true" />
+			<b:inputText id="nome" value="#{bancoControlador.banco.nome}"
+				readonly="true" />
 		</h:panelGrid>
 		<b:button onclick="$('.modalPseudoClass2').modal()" value="Confirmar"
 			look="danger" />
 		<b:button href="bancoListagem.xhtml" value="Cancelar" look="success"/>
 	</h:form>
+	</div>	
 </h:body>
 </html>

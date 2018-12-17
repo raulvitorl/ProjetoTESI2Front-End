@@ -46,7 +46,8 @@
 	<br></br>
 	<br></br>
 	<br></br>
-	<h:form>
+	<div align="center">
+		<h:form>
 		<h:panelGrid>
 			<h:outputLabel value="Código" for="chaveNome"/>
 			<b:inputText id="codigo" value="#{bancoControlador.banco.codigo}" disabled="true"/>
@@ -56,5 +57,7 @@
 		<b:commandButton action="#{bancoControlador.alterar}" value="Confirmar" look="success"/>
 		<b:commandButton action="bancoListagem" value="Cancelar" look="info"/>
 	</h:form>
+	</div>
+	
 </h:body>
 </html>

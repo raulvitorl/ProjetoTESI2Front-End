@@ -53,28 +53,28 @@
 			<br></br>
 			<br></br>	
 			<h:outputLabel value="Nome" for="nome" />
-			<b:inputText id="nome" value="#{clienteControlador.cliente.nome}" required="true" placeholder="Insira seu nome"/>
+			<b:inputText id="nome" value="#{clienteControlador.cliente.nome}" required="true" placeholder="Insira seu nome" required-message="Nome Necessário"/>
+			<p:message for="nome" id="msg"></p:message>
 			
 			<h:outputLabel value="Nome para Contato" for="nomeCont" />
-			<b:inputText id="nomeCont" value="#{clienteControlador.cliente.contato}" placeholder="Tratamento opcional"/>
+			<b:inputText id="nomeCont" value="#{clienteControlador.cliente.contato}" required="true" placeholder="Tratamento opcional"/>
 
-			<h:outputLabel value="CPF" for="cpf" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})"/>
-			<p:inputMask id="cpf" value="#{clienteControlador.cliente.cpf}" mask="999.999.999-99" required="true" placeholder="999.999.999-99"/>
-			
+			<h:outputLabel value="CPF" for="cpf" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})" required="true"/>
+			<p:inputMask id="cpf" value="#{clienteControlador.cliente.cpf}" mask="999.999.999-99"   placeholder="999.999.999-99"/>
 			<h:outputLabel value="Sexo" for="sexo" />
-			<h:selectOneMenu value="#{clienteControlador.cliente.sexo}" id="sexo" required="true">
+			<h:selectOneMenu value="#{clienteControlador.cliente.sexo}" id="sexo" >
 				<f:selectItem itemValue="MASCULINO" itemLabel="1-Masculino" />
 				<f:selectItem itemValue="FEMININO" itemLabel="2-Feminino" />
 			</h:selectOneMenu>
 			
 			<h:outputLabel value="Endereço" for="endereco" />
-			<b:inputText id="endereco" value="#{clienteControlador.cliente.endereco}" required="true"/>
+			<b:inputText id="endereco" value="#{clienteControlador.cliente.endereco}"  required="true"/>
 
 			<h:outputLabel value="Email" for="email" />
-			<b:inputText id="email" value="#{clienteControlador.cliente.email}" required="true" type="email"/>
+			<b:inputText id="email" value="#{clienteControlador.cliente.email}"   type="email" required="true"/>
 
-			<h:outputLabel value="Tipo" for="tipo" required="true"/>
-			<h:selectOneMenu value="#{clienteControlador.cliente.tipo}" id="tipo">
+			<h:outputLabel value="Tipo" for="tipo"  />
+			<h:selectOneMenu value="#{clienteControlador.cliente.tipo}" id="tipo" >
 				<f:selectItem itemValue="PESSOAFISICA" itemLabel="1-Pessoa Física" />
 				<f:selectItem itemValue="PESSOAJURIDICA" itemLabel="2-Pessoa Juríica" />
 			</h:selectOneMenu>
@@ -87,10 +87,10 @@
 			</h:selectOneMenu>
 			
 			<h:outputLabel value="Fone" for="fone" />
-			<p:inputMask id="fone" value="#{clienteControlador.cliente.fone}" mask="(99) 99999-9999" required="true"/>
+			<p:inputMask id="fone" value="#{clienteControlador.cliente.fone}" mask="(99) 99999-9999"  required="true"/>
 	
 			<h:outputLabel value="Nascimento" for="nascimento" />
-			<p:calendar id="nascimento" value="#{clienteControlador.cliente.nascimento}" required="true" placeholder="DD/MM/YY"/>
+			<p:calendar id="nascimento" value="#{clienteControlador.cliente.nascimento}"   placeholder="DD/MM/YY"/>
 			
 			
 			<h:selectOneMenu id="municipio" 
@@ -98,8 +98,6 @@
 				<f:selectItems value="#{municipioControlador.municipios}" var="muni"
 					itemValue="#{muni.codigo}" itemLabel="#{muni.nome}" />
 			</h:selectOneMenu>
-
-
 		</h:panelGrid>
 		<b:commandButton action="#{clienteControlador.incluir}"
 			value="Confirmar" look="success"/>

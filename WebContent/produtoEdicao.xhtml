@@ -44,53 +44,56 @@
 
 		</b:navbarLinks>
 	</b:navBar>
+		<br></br>
 	<br></br>
 	<br></br>
-	<br></br>
-	<h:form>
+	<div align="center">
+		<h:form>
 		<h:panelGrid>
 	
 			<h:outputLabel value="Descrição" for="descricao" />
-			<h:inputText id="descricao" value="#{produtoControlador.produto.descricao}" />
+			<b:inputText id="descricao" value="#{produtoControlador.produto.descricao}" />
 			
 			<h:outputLabel value="Quantidade" for="qtd" />
-			<h:inputText id="qtd"
+			<b:inputText id="qtd"
 				value="#{produtoControlador.produto.qntDisponivel}" />
 				
 			<h:outputLabel value="Ultima Aquisição" for="aquisicao" />
 			<p:calendar id="aquisicao"
-				value="#{produtoControlador.produto.ultimaAquisicao}" />			
+				value="#{produtoControlador.produto.ultimaAquisicao}" placeholder="DD/MM/AAA"/>			
 
 			<h:outputLabel value="Valor Unitário" for="valor" />
-			<h:inputText id="valor"
+			<b:inputText id="valor"
 				value="#{produtoControlador.produto.valorUnitario}" />
 
 			<h:outputLabel value="Fabricante" for="fabricante" />
-			<h:inputText id="fabricante"
-				value="#{produtoControlador.produto.fabricante}" />
+			<b:inputText id="fabricante"
+				value="#{produtoControlador.produto.fabricante}" placeholder="Produtor do produto"/>
 
 			<h:outputLabel value="Detalhes" for="detalhes" />
-			<h:inputText id="detalhes" value="#{produtoControlador.produto.detalhes}" />
+			<b:inputText id="detalhes" value="#{produtoControlador.produto.detalhes}" />
 			
 			<h:outputLabel value="Categoria" for="categoria" />
-			<h:selectOneMenu id="categoria" 
+			<b:selectOneMenu id="categoria" 
 				value="#{produtoControlador.catCodigo}">
 				<f:selectItems value="#{categoriaControlador.categorias}" var="categoria"
 					itemValue="#{categoria.codigo}" itemLabel="#{categoria.descricao}" />
-			</h:selectOneMenu>
+			</b:selectOneMenu>
 			
 			
 			<h:outputLabel value="Fornecedor" for="fornecedor" />
-			<h:selectOneMenu id="fornecedor" 
+			<b:selectOneMenu id="fornecedor" 
 				value="#{produtoControlador.forCodigo}">
 				<f:selectItems value="#{fornecedorControlador.fornecedors}" var="fornecedor"
 					itemValue="#{fornecedor.codigo}" itemLabel="#{fornecedor.razaoSocial}" />
-			</h:selectOneMenu>
+			</b:selectOneMenu>
 
 		</h:panelGrid>
-		<h:commandButton action="#{produtoControlador.alterar}"
-			value="Confirmar" />
-		<h:commandButton action="produtoListagem" value="Cancelar" />
+		<b:commandButton action="#{produtoControlador.alterar}"
+			value="Confirmar" look="success"/>
+		<b:commandButton action="produtoListagem" value="Cancelar" look="info"/>
 	</h:form>
+		
+	</div>
 </h:body>
 </html>
